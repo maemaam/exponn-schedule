@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exponn Team Schedule</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#1a1a2e;color:#e0e0e0;padding:24px;min-height:100vh}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+h1{color:#fff;font-size:21px;letter-spacing:1px}
+.edit-btn{background:#0d7377;color:#fff;border:none;border-radius:7px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px}
+.edit-btn:hover{background:#14a085}
+.edit-btn svg{width:14px;height:14px;fill:#fff}
+.save-bar{display:none;align-items:center;justify-content:flex-end;gap:8px;margin-bottom:10px}
+.save-bar.on{display:flex}
+.sub{text-align:center;color:#80cbc4;font-size:13px;margin-bottom:20px}
+.wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:860px}
+thead tr{background:#0d7377}
+thead th{padding:10px 8px;text-align:center;font-weight:700;color:#fff;border:1px solid #14a085;white-space:nowrap}
+tbody tr:nth-child(even){background:#16213e}
+tbody tr:nth-child(odd){background:#1a1a2e}
+tbody td{padding:9px 8px;text-align:center;border:1px solid #2a3555;white-space:nowrap;position:relative}
+td.nm{font-weight:600;color:#fff;text-align:left;padding-left:14px;background:#0f3460}
+td.off{color:#4caf8a;font-weight:600;background:#1b3a2f}
+td.sh{color:#ffe082;font-weight:500}
+td.tot{font-weight:700;color:#4fc3f7;background:#0d2040;font-size:13px}
+/* Editable cells */
+body.editing td.sh,body.editing td.off{cursor:pointer}
+body.editing td.sh:hover,body.editing td.off:hover{outline:1px dashed #0d7377}
+.cell-input{background:#0a2540;border:1px solid #0d7377;color:#ffe082;padding:5px 7px;border-radius:5px;font-size:12px;width:140px;outline:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;box-shadow:0 2px 12px rgba(0,0,0,.6)}
+.cell-input.off-i{color:#4caf8a}
+.tot-input{background:#0a2540;border:1px solid #0d7377;color:#4fc3f7;padding:5px 6px;border-radius:5px;font-size:12px;width:64px;outline:none}
+.legend{display:flex;gap:20px;justify-content:center;margin-top:14px;font-size:12px}
+.legend span{display:flex;align-items:center;gap:6px}
+.dot{width:12px;height:12px;border-radius:3px}
+.ds{background:#ffe082}.do{background:#4caf8a}.dt{background:#4fc3f7}
+/* Buttons */
+.btn{padding:8px 18px;border-radius:6px;border:none;cursor:pointer;font-size:13px;font-weight:600}
+.bp{background:#0d7377;color:#fff}.bp:hover{background:#14a085}
+.bs{background:#2a3555;color:#e0e0e0}.bs:hover{background:#3a4565}
+.bd{background:#c62828;color:#fff}
+.st{font-size:12px;color:#80cbc4;min-width:200px}
+.st.ok{color:#66bb6a}.st.er{color:#ef5350}
+/* Password modal */
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:300;align-items:center;justify-content:center}
+.ov.on{display:flex}
+.modal{background:#16213e;border:1px solid #0d7377;border-radius:12px;padding:32px 36px;width:360px;text-align:center}
+.modal h2{color:#80cbc4;margin-bottom:18px;font-size:17px}
+.modal p{color:#9e9e9e;font-size:13px;margin-bottom:18px}
+.modal input{background:#0f3460;border:1px solid #0d7377;color:#e0e0e0;padding:11px 16px;border-radius:7px;font-size:14px;width:100%;margin-bottom:12px}
+.modal input:focus{outline:1px solid #14a085}
+.err{color:#ef5350;font-size:12px;margin-bottom:10px;min-height:16px}
+/* GitHub settings panel */
+.ghbar{background:#0f3460;border-radius:8px;padding:14px;margin-top:10px;font-size:12px}
+.ghbar label{color:#80cbc4;display:block;margin-bottom:3px;margin-top:8px}
+.ghbar input{background:#1a1a2e;border:1px solid #2a3555;color:#e0e0e0;padding:7px 10px;border-radius:5px;font-size:12px;width:100%}
+.ghbar input:first-of-type{margin-top:0}
+details summary{cursor:pointer;color:#555;font-size:11px;margin-top:8px}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>Team Schedule — Jun 22–28, 2026</h1>
+  <button class="edit-btn" id="editBtn" onclick="openPw()">
+    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+    Edit Schedule
+  </button>
+</div>
+<div class="sub">Mon Jun 22 → Sun Jun 28</div>
+
+<!-- Save bar (visible in edit mode) -->
+<div class="save-bar" id="saveBar">
+  <span class="st" id="st"></span>
+  <button class="btn bs" onclick="cancelEdit()">Cancel</button>
+  <button class="btn bs" onclick="saveLocal()">Save Locally</button>
+  <button class="btn bp" onclick="saveGh()">💾 Save &amp; Publish</button>
+</div>
+
+<div class="wrap">
+  <table id="tbl">
+    <thead>
+      <tr>
+        <th>Team Member</th><th>Mon (Jun 22)</th><th>Tue (Jun 23)</th><th>Wed (Jun 24)</th>
+        <th>Thu (Jun 25)</th><th>Fri (Jun 26)</th><th>Sat (Jun 27)</th><th>Sun (Jun 28)</th><th>Hrs</th>
+      </tr>
+    </thead>
+    <tbody id="sb"></tbody>
+  </table>
+</div>
+
+<div class="legend">
+  <span><div class="dot ds"></div> Working Shift</span>
+  <span><div class="dot do"></div> Day Off</span>
+  <span><div class="dot dt"></div> Hours</span>
+</div>
+
+<!-- Password modal -->
+<div class="ov" id="ov">
+  <div class="modal">
+    <h2>🔐 Admin Access</h2>
+    <p>Enter your password to edit the schedule</p>
+    <input type="password" id="pw" placeholder="Password" onkeydown="if(event.key==='Enter')auth()">
+    <div class="err" id="pwe"></div>
+    <button class="btn bp" style="width:100%;margin-bottom:8px" onclick="auth()">Unlock</button>
+    <button class="btn bs" style="width:100%" onclick="closePw()">Cancel</button>
+
+    <details>
+      <summary>GitHub auto-publish settings</summary>
+      <div class="ghbar">
+        <label>Personal Access Token</label>
+        <input type="password" id="ghtok" placeholder="ghp_xxxxxxxxxxxx">
+        <label>Repository (owner/repo)</label>
+        <input type="text" id="ghrepo" placeholder="yourname/exponn-schedule">
+        <label>File path</label>
+        <input type="text" id="ghpath" value="index.html">
+      </div>
+    </details>
+  </div>
+</div>
+
+<script>
+const SC='exp_sc', PK='exp_pw', TK='exp_ghtok', RK='exp_ghrepo', FK='exp_ghpath';
+const DEFAULT_PW='Exponn2026!';
+const DEFAULT_DATA=[
+  {n:"Menna Sherif",  s:["9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","OFF","OFF","9:30 AM – 2:00 PM"],h:22.5},
+  {n:"Mazen Adam",    s:["OFF","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","OFF","2:00 PM – 6:00 PM"],h:20},
+  {n:"Yahya Mohamed", s:["6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","OFF","OFF","6:00 PM – 9:30 PM"],h:17.5},
+  {n:"Eiman Reda",    s:["9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","OFF","OFF","9:30 PM – 2:00 AM"],h:22.5},
+  {n:"Ahmed Gouhar",  s:["2:00 AM – 6:30 AM","2:00 AM – 6:30 AM","2:00 AM – 7:00 AM","OFF","OFF","OFF","OFF"],h:14},
+  {n:"Mostafa Atef",  s:["OFF","OFF","OFF","2:00 AM – 6:30 AM","6:00 PM – 10:30 PM","2:00 PM – 6:30 PM","OFF"],h:13.5}
+];
+
+let editing=false;
+function getData(){try{const s=localStorage.getItem(SC);return s?JSON.parse(s):JSON.parse(JSON.stringify(DEFAULT_DATA))}catch{return JSON.parse(JSON.stringify(DEFAULT_DATA))}}
+
+function render(){
+  const d=getData();
+  document.getElementById('sb').innerHTML=d.map((p,pi)=>{
+    const cells=p.s.map((v,di)=>{
+      const off=v.trim().toUpperCase()==='OFF';
+      return`<td class="${off?'off':'sh'}" data-pi="${pi}" data-di="${di}" onclick="editCell(this)">${v}</td>`;
+    }).join('');
+    return`<tr><td class="nm">${p.n}</td>${cells}<td class="tot" data-pi="${pi}" data-hrs="1" onclick="editHrs(this)">${p.h}</td></tr>`;
+  }).join('');
+}
+
+// ── Inline editing ───────────────────────────────────────────
+function editCell(td){
+  if(!editing)return;
+  if(td.querySelector('input'))return;
+  const val=td.textContent.trim();
+  const inp=document.createElement('input');
+  inp.className='cell-input'+(val.toUpperCase()==='OFF'?' off-i':'');
+  inp.value=val;
+  inp.addEventListener('input',()=>{inp.className='cell-input'+(inp.value.trim().toUpperCase()==='OFF'?' off-i':'');});
+  inp.addEventListener('blur',()=>commitCell(td,inp));
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter')inp.blur();if(e.key==='Escape'){inp.value=val;inp.blur();}});
+  td.textContent='';
+  td.appendChild(inp);
+  inp.focus();inp.select();
+}
+function commitCell(td,inp){
+  const v=inp.value.trim()||'OFF';
+  const off=v.toUpperCase()==='OFF';
+  td.className=off?'off':'sh';
+  td.textContent=v;
+  td.setAttribute('data-dirty','1');
+  updateMem(+td.dataset.pi,+td.dataset.di,v);
+}
+function editHrs(td){
+  if(!editing)return;
+  if(td.querySelector('input'))return;
+  const inp=document.createElement('input');
+  inp.type='number';inp.step='0.5';inp.className='tot-input';inp.value=td.textContent;
+  inp.addEventListener('blur',()=>{td.textContent=inp.value;updateHrs(+td.dataset.pi,parseFloat(inp.value)||0);});
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter')inp.blur();});
+  td.textContent='';td.appendChild(inp);inp.focus();inp.select();
+}
+let _mem=null;
+function getMem(){if(!_mem)_mem=getData();return _mem;}
+function updateMem(pi,di,v){getMem()[pi].s[di]=v;}
+function updateHrs(pi,h){getMem()[pi].h=h;}
+
+// ── Auth ─────────────────────────────────────────────────────
+function openPw(){document.getElementById('ov').classList.add('on');setTimeout(()=>document.getElementById('pw').focus(),60);}
+function closePw(){document.getElementById('ov').classList.remove('on');document.getElementById('pwe').textContent='';}
+function auth(){
+  const pw=document.getElementById('pw').value;
+  if(pw===(localStorage.getItem(PK)||DEFAULT_PW)){
+    document.getElementById('pw').value='';
+    document.getElementById('pwe').textContent='';
+    loadGhFields();
+    closePw();
+    startEdit();
+  }else{
+    document.getElementById('pwe').textContent='Incorrect password.';
+    document.getElementById('pw').value='';
+  }
+}
+function loadGhFields(){
+  document.getElementById('ghtok').value=localStorage.getItem(TK)||'';
+  document.getElementById('ghrepo').value=localStorage.getItem(RK)||'';
+  document.getElementById('ghpath').value=localStorage.getItem(FK)||'index.html';
+}
+function saveGhFields(){
+  localStorage.setItem(TK,document.getElementById('ghtok').value);
+  localStorage.setItem(RK,document.getElementById('ghrepo').value);
+  localStorage.setItem(FK,document.getElementById('ghpath').value);
+}
+
+// ── Edit mode ────────────────────────────────────────────────
+function startEdit(){
+  _mem=getData();
+  editing=true;
+  document.body.classList.add('editing');
+  document.getElementById('editBtn').style.display='none';
+  document.getElementById('saveBar').classList.add('on');
+  status('Click any cell to edit','');
+}
+function cancelEdit(){
+  editing=false;_mem=null;
+  document.body.classList.remove('editing');
+  document.getElementById('editBtn').style.display='';
+  document.getElementById('saveBar').classList.remove('on');
+  render();
+}
+function persist(){
+  const d=getMem();
+  localStorage.setItem(SC,JSON.stringify(d));
+  _mem=null;editing=false;
+  document.body.classList.remove('editing');
+  document.getElementById('editBtn').style.display='';
+  document.getElementById('saveBar').classList.remove('on');
+  render();
+}
+function saveLocal(){saveGhFields();persist();status('Saved ✓','ok');}
+
+// ── GitHub publish ───────────────────────────────────────────
+async function saveGh(){
+  saveGhFields();
+  const tok=(localStorage.getItem(TK)||'').trim();
+  const repo=(localStorage.getItem(RK)||'').trim();
+  const path=(localStorage.getItem(FK)||'index.html').trim();
+  if(!tok||!repo){persist();status('Saved locally. Add GitHub Token + Repo to publish.','ok');return;}
+  status('Publishing…','');
+  const d=getMem();
+  localStorage.setItem(SC,JSON.stringify(d));
+  try{
+    const url=`https://api.github.com/repos/${repo}/contents/${path}`;
+    const hdr={Authorization:`Bearer ${tok}`,Accept:'application/vnd.github+json'};
+    let sha=null;
+    const gr=await fetch(url,{headers:hdr});
+    if(gr.ok)sha=(await gr.json()).sha;
+    const html=document.documentElement.outerHTML.replace(/const DEFAULT_DATA=\[[\s\S]*?\];/,'const DEFAULT_DATA='+JSON.stringify(d)+';');
+    const b64=btoa(unescape(encodeURIComponent(html)));
+    const pr=await fetch(url,{method:'PUT',headers:{...hdr,'Content-Type':'application/json'},
+      body:JSON.stringify({message:`Schedule ${new Date().toISOString().slice(0,10)}`,content:b64,...(sha?{sha}:{})})});
+    if(pr.ok){persist();status('✅ Published to GitHub Pages!','ok');}
+    else{const e=await pr.json();status('GitHub: '+(e.message||pr.status),'er');}
+  }catch(e){status('Error: '+e.message,'er');}
+}
+
+function status(m,t){const e=document.getElementById('st');e.textContent=m;e.className='st'+(t?' '+t:'');}
+document.getElementById('ov').addEventListener('click',e=>{if(e.target===document.getElementById('ov'))closePw();});
+render();
+</script>
+</body>
+</html>
