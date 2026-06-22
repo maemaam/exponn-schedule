@@ -1,38 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Exponn Team Schedule</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#1a1a2e;color:#e0e0e0;padding:20px;min-height:100vh}
-.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:8px}
-h1{color:#fff;font-size:20px;letter-spacing:1px}
-@media(max-width:600px){body{padding:12px}h1{font-size:16px}.sub{font-size:11px}}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#1a1a2e;color:#e0e0e0;padding:24px;min-height:100vh}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+h1{color:#fff;font-size:21px;letter-spacing:1px}
 .edit-btn{background:#0d7377;color:#fff;border:none;border-radius:7px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px}
 .edit-btn:hover{background:#14a085}
 .edit-btn svg{width:14px;height:14px;fill:#fff}
-.save-bar{display:none;align-items:center;justify-content:flex-end;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.save-bar{display:none;align-items:center;justify-content:flex-end;gap:8px;margin-bottom:10px}
 .save-bar.on{display:flex}
-@media(max-width:600px){.save-bar{justify-content:center}.save-bar .btn{flex:1;text-align:center;min-width:100px}}
-/* Clickable day headers */
-body.editing thead th.day-th{cursor:pointer;transition:background .15s}
-body.editing thead th.day-th:hover{background:#14a085}
-body.editing thead th.day-th::after{content:' ▾';font-size:9px;opacity:.7}
-/* Day picker popup */
-.day-picker-popup{display:none;position:fixed;z-index:600;background:#16213e;border:1px solid #0d7377;border-radius:10px;padding:8px;min-width:150px;max-height:280px;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.6)}
-.day-picker-popup.on{display:block}
-.dp-title{color:#80cbc4;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 8px 6px;border-bottom:1px solid #2a3555;margin-bottom:4px}
-.dp-item{padding:8px 12px;cursor:pointer;border-radius:6px;font-size:13px;color:#e0e0e0;white-space:nowrap}
-.dp-item:hover{background:#0d7377;color:#fff}
-.dp-item.dp-current{background:#0f3460;color:#4fc3f7;font-weight:600}
 .sub{text-align:center;color:#80cbc4;font-size:13px;margin-bottom:20px}
-.wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.scroll-hint{display:none;text-align:center;color:#555;font-size:11px;margin-bottom:6px}
-@media(max-width:700px){.scroll-hint{display:block}}
-table{width:100%;border-collapse:collapse;font-size:12px;min-width:640px}
-@media(max-width:700px){table{font-size:10.5px}thead th,tbody td{padding:7px 5px}}
+.wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:860px}
 thead tr{background:#0d7377}
 thead th{padding:10px 8px;text-align:center;font-weight:700;color:#fff;border:1px solid #14a085;white-space:nowrap}
 tbody tr:nth-child(even){background:#16213e}
@@ -62,7 +44,7 @@ body.editing td.sh:hover,body.editing td.off:hover{outline:1px dashed #0d7377}
 /* Password modal */
 .ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:300;align-items:center;justify-content:center}
 .ov.on{display:flex}
-.modal{background:#16213e;border:1px solid #0d7377;border-radius:12px;padding:28px 28px;width:min(360px,94vw);text-align:center}
+.modal{background:#16213e;border:1px solid #0d7377;border-radius:12px;padding:32px 36px;width:360px;text-align:center}
 .modal h2{color:#80cbc4;margin-bottom:18px;font-size:17px}
 .modal p{color:#9e9e9e;font-size:13px;margin-bottom:18px}
 .modal input{background:#0f3460;border:1px solid #0d7377;color:#e0e0e0;padding:11px 16px;border-radius:7px;font-size:14px;width:100%;margin-bottom:12px}
@@ -74,53 +56,35 @@ body.editing td.sh:hover,body.editing td.off:hover{outline:1px dashed #0d7377}
 .ghbar input{background:#1a1a2e;border:1px solid #2a3555;color:#e0e0e0;padding:7px 10px;border-radius:5px;font-size:12px;width:100%}
 .ghbar input:first-of-type{margin-top:0}
 details summary{cursor:pointer;color:#555;font-size:11px;margin-top:8px}
-/* Time picker */
-.tp-wrap{display:none;position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.6);align-items:center;justify-content:center}
-.tp-wrap.on{display:flex}
-.tp-card{background:#16213e;border:1px solid #0d7377;border-radius:12px;padding:22px 22px;width:min(340px,94vw)}
-.tp-title{color:#80cbc4;font-size:14px;font-weight:600;margin-bottom:14px;text-align:center}
-.tp-name{color:#fff;font-size:12px;text-align:center;margin-bottom:14px;opacity:.7}
-.tp-off{width:100%;background:#1b3a2f;color:#4caf8a;border:1px solid #4caf8a;border-radius:7px;padding:9px;font-size:13px;cursor:pointer;margin-bottom:14px;font-weight:600}
-.tp-off:hover{background:#2a4a3f}
-.tp-row{display:flex;align-items:flex-end;gap:10px;margin-bottom:16px}
-.tp-field{flex:1}
-.tp-field label{display:block;color:#80cbc4;font-size:11px;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
-.tp-sel select{width:100%;background:#0f3460;border:1px solid #0d7377;color:#ffe082;padding:10px 12px;border-radius:8px;font-size:15px;outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2380cbc4' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
-.tp-sel select:focus{border-color:#14a085}
-.tp-sep{color:#555;font-size:20px;text-align:center;padding-top:4px}
-.tp-actions{display:flex;gap:8px}
-.tp-actions .btn{flex:1;text-align:center}
 </style>
 </head>
-<body>
+<body data-new-gr-c-s-check-loaded="9.98.0" data-gr-ext-installed="" class="editing">
 
 <div class="topbar">
   <h1>Team Schedule — Jun 22–28, 2026</h1>
-  <button class="edit-btn" id="editBtn" onclick="openPw()">
-    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+  <button class="edit-btn" id="editBtn" onclick="openPw()" style="display: none;">
+    <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
     Edit Schedule
   </button>
 </div>
-<div class="sub" id="sub"></div>
+<div class="sub">Mon Jun 22 → Sun Jun 28</div>
 
 <!-- Save bar (visible in edit mode) -->
-<div class="save-bar" id="saveBar">
-  <span class="st" id="st"></span>
+<div class="save-bar on" id="saveBar">
+  <span class="st" id="st">Publishing…</span>
   <button class="btn bs" onclick="cancelEdit()">Cancel</button>
-  <button class="btn bp" onclick="saveGh()">💾 Save &amp; Publish</button>
+<button class="btn bp" onclick="saveGh()">💾 Save &amp; Publish</button>
 </div>
 
-<!-- Day date picker popup -->
-<div id="dayPicker" class="day-picker-popup">
-  <div class="dp-title" id="dpTitle"></div>
-  <div id="dpList"></div>
-</div>
-
-<div class="scroll-hint">← Scroll to see all days →</div>
 <div class="wrap">
   <table id="tbl">
-    <thead><tr id="dateRow"></tr></thead>
-    <tbody id="sb"></tbody>
+    <thead>
+      <tr>
+        <th>Team Member</th><th>Mon (Jun 22)</th><th>Tue (Jun 23)</th><th>Wed (Jun 24)</th>
+        <th>Thu (Jun 25)</th><th>Fri (Jun 26)</th><th>Sat (Jun 27)</th><th>Sun (Jun 28)</th><th>Hrs</th>
+      </tr>
+    </thead>
+    <tbody id="sb"><tr><td class="nm">Menna Sherif</td><td class="sh" data-pi="0" data-di="0" onclick="editCell(this)">9:30 AM – 2:00 PM</td><td class="sh" data-pi="0" data-di="1" onclick="editCell(this)">9:30 AM – 2:00 PM</td><td class="sh" data-pi="0" data-di="2" onclick="editCell(this)">9:30 AM – 2:00 PM</td><td class="sh" data-pi="0" data-di="3" onclick="editCell(this)">9:30 AM – 2:00 PM</td><td class="off" data-pi="0" data-di="4" onclick="editCell(this)">OFF</td><td class="off" data-pi="0" data-di="5" onclick="editCell(this)">OFF</td><td class="sh" data-pi="0" data-di="6" onclick="editCell(this)">9:30 AM – 2:00 PM</td><td class="tot" data-pi="0" data-hrs="1" onclick="editHrs(this)">22.5</td></tr><tr><td class="nm">Mazen Adam</td><td class="off" data-pi="1" data-di="0" onclick="editCell(this)">OFF</td><td class="sh" data-pi="1" data-di="1" onclick="editCell(this)">2:00 PM – 6:00 PM</td><td class="sh" data-pi="1" data-di="2" onclick="editCell(this)">2:00 PM – 6:00 PM</td><td class="sh" data-pi="1" data-di="3" onclick="editCell(this)">2:00 PM – 6:00 PM</td><td class="sh" data-pi="1" data-di="4" onclick="editCell(this)">2:00 PM – 6:00 PM</td><td class="off" data-pi="1" data-di="5" onclick="editCell(this)">OFF</td><td class="sh" data-pi="1" data-di="6" onclick="editCell(this)">2:00 PM – 6:00 PM</td><td class="tot" data-pi="1" data-hrs="1" onclick="editHrs(this)">20</td></tr><tr><td class="nm">Yahya Mohamed</td><td class="sh" data-pi="2" data-di="0" onclick="editCell(this)">6:00 PM – 9:30 PM</td><td class="sh" data-pi="2" data-di="1" onclick="editCell(this)">6:00 PM – 9:30 PM</td><td class="sh" data-pi="2" data-di="2" onclick="editCell(this)">6:00 PM – 9:30 PM</td><td class="sh" data-pi="2" data-di="3" onclick="editCell(this)">6:00 PM – 9:30 PM</td><td class="off" data-pi="2" data-di="4" onclick="editCell(this)">OFF</td><td class="off" data-pi="2" data-di="5" onclick="editCell(this)">OFF</td><td class="sh" data-pi="2" data-di="6" onclick="editCell(this)">6:00 PM – 9:30 PM</td><td class="tot" data-pi="2" data-hrs="1" onclick="editHrs(this)">17.5</td></tr><tr><td class="nm">Eiman Reda</td><td class="sh" data-pi="3" data-di="0" onclick="editCell(this)">9:30 PM – 2:00 AM</td><td class="sh" data-pi="3" data-di="1" onclick="editCell(this)">9:30 PM – 2:00 AM</td><td class="sh" data-pi="3" data-di="2" onclick="editCell(this)">9:30 PM – 2:00 AM</td><td class="sh" data-pi="3" data-di="3" onclick="editCell(this)">9:30 PM – 2:00 AM</td><td class="off" data-pi="3" data-di="4" onclick="editCell(this)">OFF</td><td class="off" data-pi="3" data-di="5" onclick="editCell(this)">OFF</td><td class="sh" data-pi="3" data-di="6" onclick="editCell(this)">9:30 PM – 2:00 AM</td><td class="tot" data-pi="3" data-hrs="1" onclick="editHrs(this)">22.5</td></tr><tr><td class="nm">Ahmed Gouhar</td><td class="sh" data-pi="4" data-di="0" onclick="editCell(this)">2:00 AM – 6:30 AM</td><td class="sh" data-pi="4" data-di="1" onclick="editCell(this)">2:00 AM – 6:30 AM</td><td class="sh" data-pi="4" data-di="2" onclick="editCell(this)">2:00 AM – 7:00 AM</td><td class="off" data-pi="4" data-di="3" onclick="editCell(this)">OFF</td><td class="off" data-pi="4" data-di="4" onclick="editCell(this)">OFF</td><td class="off" data-pi="4" data-di="5" onclick="editCell(this)">OFF</td><td class="off" data-pi="4" data-di="6" onclick="editCell(this)">OFF</td><td class="tot" data-pi="4" data-hrs="1" onclick="editHrs(this)">14</td></tr><tr><td class="nm">Mostafa Atef</td><td class="off" data-pi="5" data-di="0" onclick="editCell(this)">OFF</td><td class="off" data-pi="5" data-di="1" onclick="editCell(this)">OFF</td><td class="off" data-pi="5" data-di="2" onclick="editCell(this)">OFF</td><td class="sh" data-pi="5" data-di="3" onclick="editCell(this)">2:00 AM – 6:30 AM</td><td class="sh" data-pi="5" data-di="4" onclick="editCell(this)">6:00 PM – 10:30 PM</td><td class="sh" data-pi="5" data-di="5" onclick="editCell(this)">2:00 PM – 6:30 PM</td><td class="off" data-pi="5" data-di="6" onclick="editCell(this)">OFF</td><td class="tot" data-pi="5" data-hrs="1" onclick="editHrs(this)">13.5</td></tr></tbody>
   </table>
 </div>
 
@@ -128,30 +92,6 @@ details summary{cursor:pointer;color:#555;font-size:11px;margin-top:8px}
   <span><div class="dot ds"></div> Working Shift</span>
   <span><div class="dot do"></div> Day Off</span>
   <span><div class="dot dt"></div> Hours</span>
-</div>
-
-<!-- Time picker -->
-<div class="tp-wrap" id="tp">
-  <div class="tp-card">
-    <div class="tp-title">Edit Shift</div>
-    <div class="tp-name" id="tpName"></div>
-    <button class="tp-off" onclick="tpSetOff()">✕ Mark as Day Off</button>
-    <div class="tp-row">
-      <div class="tp-field">
-        <label>From</label>
-        <div class="tp-sel"><select id="tpFrom"></select></div>
-      </div>
-      <div class="tp-sep">→</div>
-      <div class="tp-field">
-        <label>To</label>
-        <div class="tp-sel"><select id="tpTo"></select></div>
-      </div>
-    </div>
-    <div class="tp-actions">
-      <button class="btn bs" onclick="tpCancel()">Cancel</button>
-      <button class="btn bp" onclick="tpApply()">Apply</button>
-    </div>
-  </div>
 </div>
 
 <!-- Password modal -->
@@ -179,202 +119,63 @@ details summary{cursor:pointer;color:#555;font-size:11px;margin-top:8px}
 </div>
 
 <script>
-const SC='exp_sc', PK='exp_pw', TK='exp_ghtok', RK='exp_ghrepo', FK='exp_ghpath', SK='exp_sun';
+const SC='exp_sc', PK='exp_pw', TK='exp_ghtok', RK='exp_ghrepo', FK='exp_ghpath';
 const DEFAULT_PW='Exponn2026!';
 const DEFAULT_TOK=['github_pat_11CCZCKPA0ahpu8nzoXBF6_7iYwt5PPsNaO','SIdpRjhF2lcbDHVTY4OWZZ1qGYQ9abEXBP6UKI6Gw3JgmuJ'].join('');
 const DEFAULT_REPO='maemaam/exponn-schedule';
 const DEFAULT_PATH='index.html';
-const DEFAULT_SUNDAY='2026-06-28';
-
-// ── Week date helpers ─────────────────────────────────────────
-const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
-function toSunday(dateStr){
-  // Snap any date to the Sunday of its Mon–Sun week
-  const d=new Date(dateStr+'T12:00:00');
-  const add=(7-d.getDay())%7; // 0 if already Sun
-  d.setDate(d.getDate()+add);
-  return d.toISOString().slice(0,10);
-}
-function weekDates(sunStr){
-  const sun=new Date(sunStr+'T12:00:00');
-  return DAYS.map((_,i)=>{const d=new Date(sun);d.setDate(sun.getDate()-(6-i));return d;});
-}
-function fmt(d){return`${MONTHS[d.getMonth()]} ${d.getDate()}`;}
-function getSunday(){return localStorage.getItem(SK)||DEFAULT_SUNDAY;}
-
-function renderHeaders(sunStr){
-  const dates=weekDates(sunStr);
-  document.getElementById('dateRow').innerHTML=
-    '<th>Team Member</th>'+
-    dates.map((d,i)=>`<th class="day-th" onclick="openDayPicker(event,${i})">${DAYS[i]}<br><span style="font-weight:400;font-size:10px">${fmt(d)}</span></th>`).join('')+
-    '<th>Hrs</th>';
-  const mon=dates[0],sun=dates[6];
-  const range=mon.getMonth()===sun.getMonth()
-    ?`${MONTHS[mon.getMonth()]} ${mon.getDate()}–${sun.getDate()}, ${sun.getFullYear()}`
-    :`${fmt(mon)} – ${fmt(sun)}, ${sun.getFullYear()}`;
-  document.querySelector('h1').textContent=`Team Schedule — ${range}`;
-  document.getElementById('sub').textContent=`${DAYS[0]} ${fmt(mon)} → ${DAYS[6]} ${fmt(sun)}`;
-}
-
-// ── Day picker popup ──────────────────────────────────────────
-// JS day: 0=Sun,1=Mon,...,6=Sat. Our dayIndex: 0=Mon,...,6=Sun
-function jsDayOf(di){return di===6?0:di+1;}
-
-function openDayPicker(e,dayIndex){
-  if(!editing)return;
-  e.stopPropagation();
-  const popup=document.getElementById('dayPicker');
-  // Generate 8 past + 16 future occurrences of this weekday
-  const target=jsDayOf(dayIndex);
-  const today=new Date();today.setHours(12,0,0,0);
-  // find most recent Monday of current week to anchor
-  const anchor=new Date(today);
-  while(anchor.getDay()!==target)anchor.setDate(anchor.getDate()-1);
-  anchor.setDate(anchor.getDate()-7*4); // go 4 weeks back
-  const items=[];
-  const currentSun=getSunday();
-  const currentDates=weekDates(currentSun);
-  for(let i=0;i<20;i++){
-    const d=new Date(anchor);d.setDate(anchor.getDate()+i*7);
-    items.push(d);
-  }
-  document.getElementById('dpTitle').textContent=`Pick a ${DAYS[dayIndex]}`;
-  document.getElementById('dpList').innerHTML=items.map(d=>{
-    const isCurrent=d.toDateString()===currentDates[dayIndex].toDateString();
-    const label=`${DAYS[dayIndex]}, ${fmt(d)}, ${d.getFullYear()}`;
-    const sun=toSunday(d.toISOString().slice(0,10));
-    return`<div class="dp-item${isCurrent?' dp-current':''}" onclick="pickDay('${sun}')">${label}</div>`;
-  }).join('');
-  // Position below the clicked th
-  const rect=e.currentTarget.getBoundingClientRect();
-  popup.style.top=(rect.bottom+window.scrollY+4)+'px';
-  popup.style.left=Math.min(rect.left+window.scrollX,window.innerWidth-180)+'px';
-  popup.classList.add('on');
-  // scroll current item into view
-  setTimeout(()=>{const cur=popup.querySelector('.dp-current');if(cur)cur.scrollIntoView({block:'center'});},50);
-}
-function pickDay(sunStr){
-  localStorage.setItem(SK,sunStr);
-  renderHeaders(sunStr);
-  document.getElementById('dayPicker').classList.remove('on');
-}
-document.addEventListener('click',e=>{
-  const p=document.getElementById('dayPicker');
-  if(p&&!p.contains(e.target))p.classList.remove('on');
-});
-const DEFAULT_DATA=[
-  {n:"Menna Sherif",  s:["9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","OFF","OFF","9:30 AM – 2:00 PM"],h:22.5},
-  {n:"Mazen Adam",    s:["OFF","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","OFF","2:00 PM – 6:00 PM"],h:20},
-  {n:"Yahya Mohamed", s:["6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","OFF","OFF","6:00 PM – 9:30 PM"],h:17.5},
-  {n:"Eiman Reda",    s:["9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","OFF","OFF","9:30 PM – 2:00 AM"],h:22.5},
-  {n:"Ahmed Gouhar",  s:["2:00 AM – 6:30 AM","2:00 AM – 6:30 AM","2:00 AM – 7:00 AM","OFF","OFF","OFF","OFF"],h:14},
-  {n:"Mostafa Atef",  s:["OFF","OFF","OFF","2:00 AM – 6:30 AM","6:00 PM – 10:30 PM","2:00 PM – 6:30 PM","OFF"],h:13.5}
-];
+const DEFAULT_DATA=[{"n":"Menna Sherif","s":["9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","OFF","OFF","9:30 AM – 2:00 PM"],"h":22.5},{"n":"Mazen Adam","s":["OFF","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","OFF","2:00 PM – 6:00 PM"],"h":20},{"n":"Yahya Mohamed","s":["6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","OFF","OFF","6:00 PM – 9:30 PM"],"h":17.5},{"n":"Eiman Reda","s":["9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","OFF","OFF","9:30 PM – 2:00 AM"],"h":22.5},{"n":"Ahmed Gouhar","s":["2:00 AM – 6:30 AM","2:00 AM – 6:30 AM","2:00 AM – 7:00 AM","OFF","OFF","OFF","OFF"],"h":14},{"n":"Mostafa Atef","s":["OFF","OFF","OFF","2:00 AM – 6:30 AM","6:00 PM – 10:30 PM","2:00 PM – 6:30 PM","OFF"],"h":13.5}];
 
 let editing=false;
 function getData(){try{const s=localStorage.getItem(SC);return s?JSON.parse(s):JSON.parse(JSON.stringify(DEFAULT_DATA))}catch{return JSON.parse(JSON.stringify(DEFAULT_DATA))}}
 
 function render(){
-  renderHeaders(getSunday());
   const d=getData();
   document.getElementById('sb').innerHTML=d.map((p,pi)=>{
     const cells=p.s.map((v,di)=>{
       const off=v.trim().toUpperCase()==='OFF';
       return`<td class="${off?'off':'sh'}" data-pi="${pi}" data-di="${di}" onclick="editCell(this)">${v}</td>`;
     }).join('');
-    return`<tr><td class="nm">${p.n}</td>${cells}<td class="tot" data-pi="${pi}" data-hrs="1">${p.h}</td></tr>`;
+    return`<tr><td class="nm">${p.n}</td>${cells}<td class="tot" data-pi="${pi}" data-hrs="1" onclick="editHrs(this)">${p.h}</td></tr>`;
   }).join('');
 }
 
-// ── Time utilities ────────────────────────────────────────────
-function parseMin(str){
-  const m=str.match(/(\d+):(\d+)\s*(AM|PM)/i);if(!m)return null;
-  let h=+m[1];const mn=+m[2],ap=m[3].toUpperCase();
-  if(ap==='PM'&&h!==12)h+=12;if(ap==='AM'&&h===12)h=0;
-  return h*60+mn;
-}
-function to24(str){const t=parseMin(str);if(t==null)return'09:00';return`${String(~~(t/60)).padStart(2,'0')}:${String(t%60).padStart(2,'0')}`;}
-function to12(val){const[h,m]=val.split(':').map(Number);return`${h%12||12}:${String(m).padStart(2,'0')} ${h>=12?'PM':'AM'}`;}
-function shiftHrs(s){
-  if(s.trim().toUpperCase()==='OFF')return 0;
-  const p=s.split('–').map(x=>x.trim());if(p.length!==2)return 0;
-  const a=parseMin(p[0]),b=parseMin(p[1]);if(a==null||b==null)return 0;
-  return((b<a?b+1440:b)-a)/60;
-}
-function recalcTotal(pi){
-  const d=getMem();
-  const t=Math.round(d[pi].s.reduce((s,v)=>s+shiftHrs(v),0)*10)/10;
-  d[pi].h=t;
-  const el=document.querySelector(`td.tot[data-pi="${pi}"]`);
-  if(el)el.textContent=t;
-}
-
-// ── Time picker ───────────────────────────────────────────────
-const TIME_OPTS=(()=>{
-  const o=[];
-  for(let i=0;i<48;i++){
-    const tot=i*30,h=Math.floor(tot/60),m=tot%60;
-    const h12=h%12||12,ap=h>=12?'PM':'AM';
-    o.push(`${h12}:${String(m).padStart(2,'0')} ${ap}`);
-  }
-  return o;
-})();
-
-function normTime(s){
-  // normalise "9:30 AM" → "9:30 AM" (strip extra spaces, ensure single space before AM/PM)
-  const m=s.match(/(\d+):(\d+)\s*(AM|PM)/i);
-  if(!m)return null;
-  return`${+m[1]}:${m[2]} ${m[3].toUpperCase()}`;
-}
-
-(function buildSelects(){
-  ['tpFrom','tpTo'].forEach(id=>{
-    const sel=document.getElementById(id);
-    TIME_OPTS.forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=t;sel.appendChild(o);});
-  });
-})();
-
-let _tpTd=null;
+// ── Inline editing ───────────────────────────────────────────
 function editCell(td){
   if(!editing)return;
+  if(td.querySelector('input'))return;
   const val=td.textContent.trim();
-  const pi=+td.dataset.pi;
-  _tpTd=td;
-  document.getElementById('tpName').textContent=getMem()[pi].n;
-  const parts=val.toUpperCase()==='OFF'?['9:30 AM','2:00 PM']:val.split('–').map(x=>x.trim());
-  ['tpFrom','tpTo'].forEach((id,i)=>{
-    const n=normTime(parts[i]||'');
-    const sel=document.getElementById(id);
-    const match=[...sel.options].find(o=>o.value===n);
-    sel.value=match?n:TIME_OPTS[0];
-  });
-  document.getElementById('tp').classList.add('on');
+  const inp=document.createElement('input');
+  inp.className='cell-input'+(val.toUpperCase()==='OFF'?' off-i':'');
+  inp.value=val;
+  inp.addEventListener('input',()=>{inp.className='cell-input'+(inp.value.trim().toUpperCase()==='OFF'?' off-i':'');});
+  inp.addEventListener('blur',()=>commitCell(td,inp));
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter')inp.blur();if(e.key==='Escape'){inp.value=val;inp.blur();}});
+  td.textContent='';
+  td.appendChild(inp);
+  inp.focus();inp.select();
 }
-function tpSetOff(){if(_tpTd)commitTP('OFF');}
-function tpApply(){
-  if(!_tpTd)return;
-  const f=document.getElementById('tpFrom').value;
-  const t=document.getElementById('tpTo').value;
-  commitTP(`${f} – ${t}`);
+function commitCell(td,inp){
+  const v=inp.value.trim()||'OFF';
+  const off=v.toUpperCase()==='OFF';
+  td.className=off?'off':'sh';
+  td.textContent=v;
+  td.setAttribute('data-dirty','1');
+  updateMem(+td.dataset.pi,+td.dataset.di,v);
 }
-function commitTP(val){
-  const off=val.toUpperCase()==='OFF';
-  _tpTd.className=off?'off':'sh';
-  _tpTd.textContent=val;
-  updateMem(+_tpTd.dataset.pi,+_tpTd.dataset.di,val);
-  recalcTotal(+_tpTd.dataset.pi);
-  document.getElementById('tp').classList.remove('on');
-  _tpTd=null;
+function editHrs(td){
+  if(!editing)return;
+  if(td.querySelector('input'))return;
+  const inp=document.createElement('input');
+  inp.type='number';inp.step='0.5';inp.className='tot-input';inp.value=td.textContent;
+  inp.addEventListener('blur',()=>{td.textContent=inp.value;updateHrs(+td.dataset.pi,parseFloat(inp.value)||0);});
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter')inp.blur();});
+  td.textContent='';td.appendChild(inp);inp.focus();inp.select();
 }
-function tpCancel(){document.getElementById('tp').classList.remove('on');_tpTd=null;}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')tpCancel();});
-
 let _mem=null;
 function getMem(){if(!_mem)_mem=getData();return _mem;}
 function updateMem(pi,di,v){getMem()[pi].s[di]=v;}
-function editHrs(td){} // hrs now auto-calculated
+function updateHrs(pi,h){getMem()[pi].h=h;}
 
 // ── Auth ─────────────────────────────────────────────────────
 function openPw(){document.getElementById('ov').classList.add('on');setTimeout(()=>document.getElementById('pw').focus(),60);}
@@ -410,7 +211,7 @@ function startEdit(){
   document.body.classList.add('editing');
   document.getElementById('editBtn').style.display='none';
   document.getElementById('saveBar').classList.add('on');
-  status('Click any cell to edit its shift  |  Click a day header to change the week','');
+  status('Click any cell to edit','');
 }
 function cancelEdit(){
   editing=false;_mem=null;
@@ -459,5 +260,6 @@ function status(m,t){const e=document.getElementById('st');e.textContent=m;e.cla
 document.getElementById('ov').addEventListener('click',e=>{if(e.target===document.getElementById('ov'))closePw();});
 render();
 </script>
-</body>
-</html>
+
+
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></body></html>
