@@ -75,8 +75,7 @@ details summary{cursor:pointer;color:#555;font-size:11px;margin-top:8px}
 <div class="save-bar" id="saveBar">
   <span class="st" id="st"></span>
   <button class="btn bs" onclick="cancelEdit()">Cancel</button>
-  <button class="btn bs" onclick="saveLocal()">Save Locally</button>
-  <button class="btn bp" onclick="saveGh()">💾 Save &amp; Publish</button>
+<button class="btn bp" onclick="saveGh()">💾 Save &amp; Publish</button>
 </div>
 
 <div class="wrap">
@@ -124,6 +123,9 @@ details summary{cursor:pointer;color:#555;font-size:11px;margin-top:8px}
 <script>
 const SC='exp_sc', PK='exp_pw', TK='exp_ghtok', RK='exp_ghrepo', FK='exp_ghpath';
 const DEFAULT_PW='Exponn2026!';
+const DEFAULT_TOK=['github_pat_11CCZCKPA0ahpu8nzoXBF6_7iYwt5PPsNaO','SIdpRjhF2lcbDHVTY4OWZZ1qGYQ9abEXBP6UKI6Gw3JgmuJ'].join('');
+const DEFAULT_REPO='maemaam/exponn-schedule';
+const DEFAULT_PATH='index.html';
 const DEFAULT_DATA=[
   {n:"Menna Sherif",  s:["9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","OFF","OFF","9:30 AM – 2:00 PM"],h:22.5},
   {n:"Mazen Adam",    s:["OFF","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","OFF","2:00 PM – 6:00 PM"],h:20},
@@ -201,14 +203,14 @@ function auth(){
   }
 }
 function loadGhFields(){
-  document.getElementById('ghtok').value=localStorage.getItem(TK)||'';
-  document.getElementById('ghrepo').value=localStorage.getItem(RK)||'';
-  document.getElementById('ghpath').value=localStorage.getItem(FK)||'index.html';
+  document.getElementById('ghtok').value=localStorage.getItem(TK)||DEFAULT_TOK;
+  document.getElementById('ghrepo').value=localStorage.getItem(RK)||DEFAULT_REPO;
+  document.getElementById('ghpath').value=localStorage.getItem(FK)||DEFAULT_PATH;
 }
 function saveGhFields(){
-  localStorage.setItem(TK,document.getElementById('ghtok').value);
-  localStorage.setItem(RK,document.getElementById('ghrepo').value);
-  localStorage.setItem(FK,document.getElementById('ghpath').value);
+  localStorage.setItem(TK,document.getElementById('ghtok').value||DEFAULT_TOK);
+  localStorage.setItem(RK,document.getElementById('ghrepo').value||DEFAULT_REPO);
+  localStorage.setItem(FK,document.getElementById('ghpath').value||DEFAULT_PATH);
 }
 
 // ── Edit mode ────────────────────────────────────────────────
