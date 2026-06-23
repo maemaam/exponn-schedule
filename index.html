@@ -69,8 +69,8 @@ nav{
 .hero-slogan{font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
 .hero-title{font-family:var(--fh);font-weight:800;font-size:clamp(40px,8vw,90px);color:#fff;line-height:1.02;letter-spacing:-2.5px;margin-bottom:22px;max-width:860px}
 .hero-title .hl{color:var(--accent)}
-.hero-title .drawn{position:relative;display:inline-block;color:#fff}
-.hero-title .drawn svg{position:absolute;left:-4%;bottom:-0.12em;width:108%;height:0.35em;overflow:visible;pointer-events:none}
+.drawn{position:relative;display:inline-block}
+.drawn svg{position:absolute;left:-18%;top:-30%;width:136%;height:160%;overflow:visible;pointer-events:none}
 .hero-sub{font-size:clamp(15px,2vw,18px);color:var(--text2);line-height:1.65;max-width:500px;margin:0 auto 36px}
 .hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
 @media(max-width:480px){.hero-ctas{flex-direction:column;align-items:stretch;padding:0 24px}.hero-ctas .btn{justify-content:center}
@@ -471,7 +471,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
     </div>
     <div class="hero-links">
       <a class="hero-link" href="#" onclick="showPage('guides');return false">View Guidelines <span class="arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span></a>
-      <a class="hero-link" id="assessment-el" href="#" target="_blank" style="display:none">Assessment Form <span class="arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span></a>
+      <a class="hero-link" id="assessment-el" href="https://docs.google.com/spreadsheets/d/1qUWMUYISETipn5Y03xcmqDFQ2N5iHv8u_Pc4XcraEb4/edit?gid=206950938#gid=206950938" target="_blank" style="">Assessment Form <span class="arrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span></a>
     </div>
     <div class="scroll-ind"><span>Scroll</span><div class="ch"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></div></div>
   </div>
@@ -979,8 +979,9 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <!-- INLINE EDIT MODAL -->
 <div class="edit-modal-wrap" id="editModalWrap"><grammarly-extension data-grammarly-shadow-root="true" class="dnXmp" style="position: absolute; top: 0px; left: 0px; pointer-events: none; --rem: 16;"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" class="dnXmp" style="position: absolute; top: 0px; left: 0px; pointer-events: none; --rem: 16;"></grammarly-extension>
   <div class="edit-modal" id="editModal">
-    <h3 id="editModalTitle">Edit Headline</h3>
-    <div id="editModalFields"><div class="em-field"><label>Headline (use line break for two lines)</label><textarea id="ef-val" spellcheck="false">Exponn Employee Hub.</textarea></div></div>
+    <h3 id="editModalTitle">Edit Sub-Headline</h3>
+    <div id="editModalFields"><div class="em-field"><label>Sub-headline</label><textarea id="ef-val" spellcheck="false">Review the latest guidelines and complete your assessment before starting tasks.</textarea></div>
+        <div class="em-field"><label>Assessment Form URL</label><input id="ef-assess" value=""></div></div>
     <div class="em-actions">
       <button class="btn btn-secondary btn-sm" onclick="closeEditModal()">Cancel</button>
       <button class="btn btn-primary btn-sm" id="saveEditBtn" onclick="saveEditModal()">Save</button>
@@ -1003,7 +1004,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <div class="confirm-ov" id="confirmOv">
   <div class="confirm-box">
     <div class="confirm-title">Confirm Change</div>
-    <div class="confirm-msg" id="confirmMsg">Are you sure you want to change the headline?</div>
+    <div class="confirm-msg" id="confirmMsg">Are you sure you want to update the sub-headline?</div>
     <div class="confirm-actions">
       <button class="btn btn-secondary btn-sm" onclick="confirmCancel()">Cancel</button>
       <button class="btn btn-primary btn-sm" onclick="confirmOk()">Yes, Confirm</button>
@@ -1015,7 +1016,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 
 <script>
 // ═══════════════════════════ CMS DATA ═══════════════════════════
-const DEFAULT_CONTENT = {"hero":{"eyebrow":"Week of Jun 22, 2026","title":"Exponn\n Employee Hub.","sub":"Review the latest guidelines and complete your assessment before starting tasks.","assessmentLink":""},"updates":[{"id":"u1","tag":"new","title":"Task Time Calculator","body":"Quickly calculate your total work time from task IDs. Paste your task list, set your first & last task ID, apply a time cap, and get your total instantly.","date":"Jun 23, 2026","link":"calc"},{"id":"u2","tag":"updated","title":"Team Schedule Updated","body":"Schedule updated with new shift distribution for the week of Jun 23.","date":"Jun 22, 2026","link":"sched"},{"id":"u3","tag":"alert","title":"Annotation Quality Reminder","body":"Review the annotation critic guidelines before starting tasks. Pay close attention to boundary precision and entity verification steps.","date":"Jun 20, 2026","link":"guides"}],"tasks":[{"id":"t1","icon":"🎯","title":"Annotation Critic","desc":"Quality review criteria, scoring rubric, and common errors.","guideKey":"annot-critic","label":"annot-critic-q7r"},{"id":"t2","icon":"🔍","title":"IG Entity Verification","desc":"Step-by-step entity verification process for IG tasks.","guideKey":"ig-entity","label":"IG Entity Verification"},{"id":"t3","icon":"📦","title":"SL Box Verification","desc":"Box verification and correction procedures.","guideKey":"sl-box","label":"SL Box Verification"},{"id":"t4","icon":"✂️","title":"Find the Boundary v2","desc":"Pixel-aligned boundary detection. Updated v2 specs.","guideKey":"boundary","label":"find-the-boundary-v2"},{"id":"t5","icon":"🖼️","title":"i2i Pixel-Aligned Filter","desc":"Image-to-image filter alignment specification.","guideKey":"i2i","label":"i2i-pixel-aligned-filter"}],"team":[{"name":"Menna Sherif","hrs":"22.5"},{"name":"Mazen Adam","hrs":"20"},{"name":"Yahya Mohamed","hrs":"17.5"},{"name":"Eiman Reda","hrs":"22.5"},{"name":"Ahmed Gouhar","hrs":"14"},{"name":"Mostafa Atef","hrs":"13.5"}],"guides":{}};
+const DEFAULT_CONTENT = {"hero":{"eyebrow":"Week of Jun 22, 2026","title":"Exponn\n Employee Hub.","sub":"Review the latest guidelines and complete your assessment before starting tasks.","assessmentLink":"https://docs.google.com/spreadsheets/d/1qUWMUYISETipn5Y03xcmqDFQ2N5iHv8u_Pc4XcraEb4/edit?gid=206950938#gid=206950938"},"updates":[{"id":"u1","tag":"new","title":"Task Time Calculator","body":"Quickly calculate your total work time from task IDs. Paste your task list, set your first & last task ID, apply a time cap, and get your total instantly.","date":"Jun 23, 2026","link":"calc"},{"id":"u2","tag":"updated","title":"Team Schedule Updated","body":"Schedule updated with new shift distribution for the week of Jun 23.","date":"Jun 22, 2026","link":"sched"},{"id":"u3","tag":"alert","title":"Annotation Quality Reminder","body":"Review the annotation critic guidelines before starting tasks. Pay close attention to boundary precision and entity verification steps.","date":"Jun 20, 2026","link":"guides"}],"tasks":[{"id":"t1","icon":"🎯","title":"Annotation Critic","desc":"Quality review criteria, scoring rubric, and common errors.","guideKey":"annot-critic","label":"annot-critic-q7r"},{"id":"t2","icon":"🔍","title":"IG Entity Verification","desc":"Step-by-step entity verification process for IG tasks.","guideKey":"ig-entity","label":"IG Entity Verification"},{"id":"t3","icon":"📦","title":"SL Box Verification","desc":"Box verification and correction procedures.","guideKey":"sl-box","label":"SL Box Verification"},{"id":"t4","icon":"✂️","title":"Find the Boundary v2","desc":"Pixel-aligned boundary detection. Updated v2 specs.","guideKey":"boundary","label":"find-the-boundary-v2"},{"id":"t5","icon":"🖼️","title":"i2i Pixel-Aligned Filter","desc":"Image-to-image filter alignment specification.","guideKey":"i2i","label":"i2i-pixel-aligned-filter"}],"team":[{"name":"Menna Sherif","hrs":"22.5"},{"name":"Mazen Adam","hrs":"20"},{"name":"Yahya Mohamed","hrs":"17.5"},{"name":"Eiman Reda","hrs":"22.5"},{"name":"Ahmed Gouhar","hrs":"14"},{"name":"Mostafa Atef","hrs":"13.5"}],"guides":{}};
 
 const CMS_KEY='exp_cms';
 function getCMS(){try{const s=localStorage.getItem(CMS_KEY);const d=s?JSON.parse(s):JSON.parse(JSON.stringify(DEFAULT_CONTENT));if(!d.guides)d.guides={};return d;}catch{return JSON.parse(JSON.stringify(DEFAULT_CONTENT));}}
@@ -1070,7 +1071,7 @@ function renderHome(){
   document.getElementById('hero-title-el').innerHTML=tParts.map((p,i)=>i===tParts.length-1&&tParts.length>1?`<span class="hl">${esc(p)}</span>`:esc(p)).join('<br>');
   // Inject sub with drawn YOU highlight — replace literal YOU (case-insensitive) with styled span
   const rawSub=esc(cms.hero.sub);
-  const drawnYou=`<span class="drawn">YOU<svg viewBox="0 0 60 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 7 C8 4, 18 9, 30 6 C42 3, 52 8, 58 5" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85"/><path d="M4 8.5 C14 6, 26 9.5, 38 7 C48 5, 55 8, 58 6.5" stroke="#38bdf8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.45"/></svg></span>`;
+  const drawnYou=`<span class="drawn">YOU<svg viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4 C32 -1, 68 -2, 84 6 C94 12, 96 26, 85 33 C70 41, 28 42, 14 34 C4 27, 3 13, 18 4 Z" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.65"/></svg></span>`;
   document.getElementById('hero-sub-el').innerHTML=rawSub.replace(/\bYOU\b/gi,drawnYou);
   const al=document.getElementById('assessment-el');
   if(cms.hero.assessmentLink){al.href=cms.hero.assessmentLink;al.style.display='';}else{al.style.display='none';}
