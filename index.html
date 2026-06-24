@@ -69,9 +69,9 @@ nav{
 .hero-slogan{font-size:12px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
 .hero-title{font-family:var(--fh);font-weight:800;font-size:clamp(36px,6vw,88px);color:#fff;line-height:1.05;letter-spacing:-2px;margin-bottom:22px;max-width:min(1300px,92vw)}
 .hero-title .hl{color:var(--accent)}
-.drawn{position:relative;display:inline-block}
-.drawn svg{position:absolute;left:-18%;top:-30%;width:136%;height:160%;overflow:visible;pointer-events:none}
-.hero-sub{font-size:clamp(15px,2vw,18px);color:var(--text2);line-height:1.65;max-width:500px;margin:0 auto 36px}
+.drawn{position:relative;display:inline-block;padding:0 0.15em}
+.drawn svg{position:absolute;left:-22%;top:-35%;width:144%;height:170%;overflow:visible;pointer-events:none}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:var(--text2);line-height:1.65;max-width:min(760px,92vw);margin:0 auto 36px;white-space:normal}
 .hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
 @media(max-width:480px){.hero-ctas{flex-direction:column;align-items:stretch;padding:0 24px}.hero-ctas .btn{justify-content:center}
 .hero-links{gap:14px}}
@@ -434,21 +434,21 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
 }
 </style>
 </head>
-<body data-new-gr-c-s-check-loaded="9.98.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="9.98.0" class="editing">
+<body data-new-gr-c-s-check-loaded="9.98.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="9.98.0">
 
 <!-- NAV -->
 <nav>
   <img class="nav-logo" src="logo.webp" alt="Exponn" onclick="showPage('home')">
   <a class="nav-brand" href="#" onclick="showPage('home');return false">Exponn</a>
   <div class="nav-tabs">
-    <button class="nav-tab" id="nav-home" onclick="showPage('home')">Home</button>
+    <button class="nav-tab active" id="nav-home" onclick="showPage('home')">Home</button>
     <button class="nav-tab" id="nav-calc" onclick="showPage('calc')">Time Calculator</button>
     <button class="nav-tab" id="nav-guides" onclick="showPage('guides')">Guidelines</button>
-    <button class="nav-tab active" id="nav-sched" onclick="showPage('sched')">Schedule</button>
+    <button class="nav-tab" id="nav-sched" onclick="showPage('sched')">Schedule</button>
   </div>
   <div class="nav-right">
     <div class="nav-status"><div class="status-dot"></div><span class="status-txt">Active</span></div>
-    <button class="nav-edit-btn unlocked" id="navEditBtn" onclick="openAdminOrPw()" style="display: none;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg> Exit Edit</button>
+    <button class="nav-edit-btn unlocked" id="navEditBtn" onclick="openAdminOrPw()"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg> Exit Edit</button>
   </div>
   <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
 </nav>
@@ -460,7 +460,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
 </div>
 
 <!-- ═══════════ HOME PAGE ═══════════ -->
-<div class="page" id="page-home">
+<div class="page active" id="page-home">
 
   <div class="hero">
     <div class="hero-eyebrow" id="hero-eyebrow-el" title="Click to edit">
@@ -469,7 +469,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
     </div>
     <p class="hero-slogan">Training Intelligence, One Label at a Time</p>
     <h1 class="hero-title" id="hero-title-el" style="cursor: pointer;"><span style="display:block;font-size:1em;line-height:1.05;margin-top:0">Exponn</span><span style="display:block;font-size:0.68em;line-height:1.08;margin-top:0.08em"><span class="hl">Employee Hub</span></span><span style="display:block;font-size:0.68em;line-height:1.08;margin-top:0.08em"></span></h1>
-    <p class="hero-sub" id="hero-sub-el" style="cursor: pointer;">Everything <span class="drawn">YOU<svg viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4 C32 -1, 68 -2, 84 6 C94 12, 96 26, 85 33 C70 41, 28 42, 14 34 C4 27, 3 13, 18 4 Z" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.65"></path></svg></span> need: tasks, updates, and team resources.</p>
+    <p class="hero-sub" id="hero-sub-el" style="cursor: pointer;">Tasks, updates, and team resources ● built for <span class="drawn" style="white-space:nowrap">YOU<svg viewBox="0 0 110 46" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 6 C28 -2, 72 -3, 92 7 C104 13, 106 28, 94 36 C78 44, 26 45, 12 36 C2 28, 2 13, 16 6 Z" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"></path><path d="M8 16 C14 8, 36 2, 62 4 C88 6, 108 14, 106 26 C104 36, 84 42, 58 42 C30 42, 6 36, 4 26 C3 20, 5 18, 8 16 Z" stroke="#38bdf8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.35"></path></svg></span>.</p>
     <div class="hero-ctas">
       <button class="btn btn-primary" onclick="showPage('calc')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Time Calculator</button>
       <button class="btn btn-secondary" onclick="showPage('sched')">Schedule <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
@@ -487,46 +487,46 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
     <div style="position:relative">
       <div class="carousel-wrap" id="carousel">
         <div class="carousel-track" id="carouselTrack"><div class="carousel-slide" onclick="showGuide('annot-critic')">
-      <div class="carousel-bg cbg-0" style="transform: translateY(192px);"></div>
-      <div class="carousel-visual vis-0" style="transform: translateY(76.8px);"><div class="vbar" style="left:15%;width:12%;height:55%"></div><div class="vbar" style="left:30%;width:12%;height:70%"></div><div class="vbar" style="left:45%;width:12%;height:45%"></div><div class="vbar" style="left:60%;width:12%;height:80%"></div><div class="vbar" style="left:75%;width:12%;height:60%"></div></div>
+      <div class="carousel-bg cbg-0"></div>
+      <div class="carousel-visual vis-0"><div class="vbar" style="left:15%;width:12%;height:55%"></div><div class="vbar" style="left:30%;width:12%;height:70%"></div><div class="vbar" style="left:45%;width:12%;height:45%"></div><div class="vbar" style="left:60%;width:12%;height:80%"></div><div class="vbar" style="left:75%;width:12%;height:60%"></div></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(32px);">
+      <div class="carousel-content">
         <div class="carousel-tag">annot-critic-q7r</div>
         <div class="carousel-title">Annotation Critic</div>
         <div class="carousel-desc">Quality review criteria, scoring rubric, and common errors.</div>
       </div>
     </div><div class="carousel-slide" onclick="showGuide('ig-entity')">
-      <div class="carousel-bg cbg-1" style="transform: translateY(96px);"></div>
-      <div class="carousel-visual vis-1" style="transform: translateY(38.4px);"><div class="vbox" style="left:15%;top:20%;width:28%;height:35%"></div><div class="vbox" style="left:55%;top:30%;width:22%;height:28%"></div><div class="vbox" style="left:30%;top:55%;width:18%;height:22%"></div></div>
+      <div class="carousel-bg cbg-1"></div>
+      <div class="carousel-visual vis-1"><div class="vbox" style="left:15%;top:20%;width:28%;height:35%"></div><div class="vbox" style="left:55%;top:30%;width:22%;height:28%"></div><div class="vbox" style="left:30%;top:55%;width:18%;height:22%"></div></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(16px);">
+      <div class="carousel-content">
         <div class="carousel-tag">IG Entity Verification</div>
         <div class="carousel-title">IG Entity Verification</div>
         <div class="carousel-desc">Step-by-step entity verification process for IG tasks.</div>
       </div>
     </div><div class="carousel-slide" onclick="showGuide('sl-box')">
-      <div class="carousel-bg cbg-2" style="transform: translateY(0px);"></div>
-      <div class="carousel-visual vis-2" style="transform: translateY(0px);"><div class="vgrid-line" style="left:0%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:14%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:28%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:42%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:56%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:70%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:84%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:98%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="top:0%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:16%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:32%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:48%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:64%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:80%;left:0;right:0;height:1px"></div></div>
+      <div class="carousel-bg cbg-2"></div>
+      <div class="carousel-visual vis-2"><div class="vgrid-line" style="left:0%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:14%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:28%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:42%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:56%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:70%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:84%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:98%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="top:0%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:16%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:32%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:48%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:64%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:80%;left:0;right:0;height:1px"></div></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(0px);">
+      <div class="carousel-content">
         <div class="carousel-tag">SL Box Verification</div>
         <div class="carousel-title">SL Box Verification</div>
         <div class="carousel-desc">Box verification and correction procedures.</div>
       </div>
     </div><div class="carousel-slide" onclick="showGuide('boundary')">
-      <div class="carousel-bg cbg-3" style="transform: translateY(-96px);"></div>
-      <div class="carousel-visual vis-3" style="transform: translateY(-38.4px);"></div>
+      <div class="carousel-bg cbg-3"></div>
+      <div class="carousel-visual vis-3"></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(-16px);">
+      <div class="carousel-content">
         <div class="carousel-tag">find-the-boundary-v2</div>
         <div class="carousel-title">Find the Boundary v2</div>
         <div class="carousel-desc">Pixel-aligned boundary detection. Updated v2 specs.</div>
       </div>
     </div><div class="carousel-slide" onclick="showGuide('i2i')">
-      <div class="carousel-bg cbg-4" style="transform: translateY(-192px);"></div>
-      <div class="carousel-visual vis-4" style="transform: translateY(-76.8px);"></div>
+      <div class="carousel-bg cbg-4"></div>
+      <div class="carousel-visual vis-4"></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(-32px);">
+      <div class="carousel-content">
         <div class="carousel-tag">i2i-pixel-aligned-filter</div>
         <div class="carousel-title">i2i Pixel-Aligned Filter</div>
         <div class="carousel-desc">Image-to-image filter alignment specification.</div>
@@ -535,7 +535,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
       </div>
       <button class="carousel-arrow prev" onclick="carouselMove(-1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
       <button class="carousel-arrow next" onclick="carouselMove(1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-      <div class="carousel-nav" id="carouselDots"><div class="carousel-dot" onclick="carouselGo(0)"></div><div class="carousel-dot" onclick="carouselGo(1)"></div><div class="carousel-dot" onclick="carouselGo(2)"></div><div class="carousel-dot active" onclick="carouselGo(3)"></div><div class="carousel-dot" onclick="carouselGo(4)"></div></div>
+      <div class="carousel-nav" id="carouselDots"><div class="carousel-dot active" onclick="carouselGo(0)"></div><div class="carousel-dot" onclick="carouselGo(1)"></div><div class="carousel-dot" onclick="carouselGo(2)"></div><div class="carousel-dot" onclick="carouselGo(3)"></div><div class="carousel-dot" onclick="carouselGo(4)"></div></div>
     </div>
   </div>
 
@@ -741,22 +741,22 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 </div>
 
 <!-- ═══════════ SCHEDULE PAGE ═══════════ -->
-<div class="page active" id="page-sched">
+<div class="page" id="page-sched">
   <div class="sched-wrap">
     <div class="sched-topbar">
       <div class="sched-title" id="schedTitle">Team Schedule — Jun 22–28, 2026</div>
-      <button class="btn btn-secondary btn-sm" id="schedEditBtn" onclick="openSchedPw()" style="display: none;">
+      <button class="btn btn-secondary btn-sm" id="schedEditBtn" onclick="openSchedPw()">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="opacity:.7"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
         Edit
       </button>
     </div>
-    <div class="sched-sub" id="schedSub">6 members · 110.0 hrs this week</div>
-    <div class="save-bar on" id="saveBar">
-      <span class="save-st" id="saveSt">Publishing…</span>
+    <div class="sched-sub" id="schedSub">6 members on shift this week</div>
+    <div class="save-bar" id="saveBar">
+      <span class="save-st" id="saveSt"></span>
       <button class="btn btn-secondary btn-sm" onclick="cancelSchedEdit()">Cancel</button>
       <button class="btn btn-primary btn-sm" onclick="saveSchedGh()">💾 Save &amp; Publish</button>
     </div>
-    <button class="btn btn-secondary btn-sm" id="historyBtn" onclick="openChangelog()" style="margin-bottom: 10px; display: flex; align-items: center; gap: 6px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Schedule History</button>
+    <button class="btn btn-secondary btn-sm" id="historyBtn" onclick="openChangelog()" style="margin-bottom:10px;display:none;align-items:center;gap:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Schedule History</button>
     <div id="dayPicker" class="day-picker-popup"><div class="dp-title" id="dpTitle"></div><div id="dpList"></div></div>
 
     <!-- desktop table -->
@@ -963,7 +963,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <div class="tp-wrap" id="tpWrap">
   <div class="tp-card">
     <div class="tp-title">Edit Shift</div>
-    <div class="tp-name" id="tpName">Menna Sherif</div>
+    <div class="tp-name" id="tpName"></div>
     <button class="tp-off-btn" onclick="tpSetOff()">Mark as Day Off</button>
     <div class="tp-row">
       <div class="tp-field"><label>From</label><select id="tpFrom"><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30 PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option></select></div>
@@ -1000,10 +1000,11 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 </div>
 
 <!-- INLINE EDIT MODAL -->
-<div class="edit-modal-wrap" id="editModalWrap">
+<div class="edit-modal-wrap" id="editModalWrap"><grammarly-extension data-grammarly-shadow-root="true" class="dnXmp" style="position: absolute; top: 0px; left: 0px; pointer-events: none; --rem: 16;"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" class="dnXmp" style="position: absolute; top: 0px; left: 0px; pointer-events: none; --rem: 16;"></grammarly-extension>
   <div class="edit-modal" id="editModal">
-    <h3 id="editModalTitle">Add Person to Schedule</h3>
-    <div id="editModalFields"><div class="em-field"><label>Full Name</label><input id="ef-schedperson-name" placeholder="e.g. Sara Ahmed" autofocus=""></div></div>
+    <h3 id="editModalTitle">Edit Sub-Headline</h3>
+    <div id="editModalFields"><div class="em-field"><label>Sub-headline</label><textarea id="ef-val" spellcheck="false">YOUR hub for tasks, updates, and team resources — built for YOU.</textarea></div>
+        <div class="em-field"><label>Assessment Form URL</label><input id="ef-assess" value=""></div></div>
     <div class="em-actions">
       <button class="btn btn-secondary btn-sm" onclick="closeEditModal()">Cancel</button>
       <button class="btn btn-primary btn-sm" id="saveEditBtn" onclick="saveEditModal()">Save</button>
@@ -1026,7 +1027,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <div class="confirm-ov" id="confirmOv">
   <div class="confirm-box">
     <div class="confirm-title">Confirm Change</div>
-    <div class="confirm-msg" id="confirmMsg">Are you sure you want to publish the schedule?</div>
+    <div class="confirm-msg" id="confirmMsg">Are you sure you want to update the sub-headline?</div>
     <div class="confirm-actions">
       <button class="btn btn-secondary btn-sm" onclick="confirmCancel()">Cancel</button>
       <button class="btn btn-primary btn-sm" onclick="confirmOk()">Yes, Confirm</button>
@@ -1038,7 +1039,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 
 <script>
 // ═══════════════════════════ CMS DATA ═══════════════════════════
-const DEFAULT_CONTENT = {"hero":{"eyebrow":"Week of Jun 22, 2026","title":"Exponn\n[Employee Hub]","titleSubRatio":0.52,"sub":"Everything YOU need; tasks, updates, and team resources.","assessmentLink":""},"updates":[{"id":"u1","tag":"new","title":"Task Time Calculator","body":"Quickly calculate your total work time from task IDs. Paste your task list, set your first & last task ID, apply a time cap, and get your total instantly.","date":"Jun 23, 2026","link":"calc"},{"id":"u2","tag":"updated","title":"Team Schedule Updated","body":"Schedule updated with new shift distribution for the week of Jun 23.","date":"Jun 22, 2026","link":"sched"},{"id":"u3","tag":"alert","title":"Annotation Quality Reminder","body":"Review the annotation critic guidelines before starting tasks. Pay close attention to boundary precision and entity verification steps.","date":"Jun 20, 2026","link":"guides"}],"tasks":[{"id":"t1","icon":"🎯","title":"Annotation Critic","desc":"Quality review criteria, scoring rubric, and common errors.","guideKey":"annot-critic","label":"annot-critic-q7r"},{"id":"t2","icon":"🔍","title":"IG Entity Verification","desc":"Step-by-step entity verification process for IG tasks.","guideKey":"ig-entity","label":"IG Entity Verification"},{"id":"t3","icon":"📦","title":"SL Box Verification","desc":"Box verification and correction procedures.","guideKey":"sl-box","label":"SL Box Verification"},{"id":"t4","icon":"✂️","title":"Find the Boundary v2","desc":"Pixel-aligned boundary detection. Updated v2 specs.","guideKey":"boundary","label":"find-the-boundary-v2"},{"id":"t5","icon":"🖼️","title":"i2i Pixel-Aligned Filter","desc":"Image-to-image filter alignment specification.","guideKey":"i2i","label":"i2i-pixel-aligned-filter"}],"team":[{"name":"Menna Sherif","hrs":"22.5"},{"name":"Mazen Adam","hrs":"20"},{"name":"Yahya Mohamed","hrs":"17.5"},{"name":"Eiman Reda","hrs":"22.5"},{"name":"Ahmed Gouhar","hrs":"14"},{"name":"Mostafa Atef","hrs":"13.5"}],"guides":{}};
+const DEFAULT_CONTENT = {"hero":{"eyebrow":"Week of Jun 22, 2026","title":"Exponn\n[Employee Hub]\n","sub":"Tasks, updates, and team resources ● built for YOU.","assessmentLink":"","titleSubRatio":0.68},"updates":[{"id":"u1","tag":"new","title":"Task Time Calculator","body":"Quickly calculate your total work time from task IDs. Paste your task list, set your first & last task ID, apply a time cap, and get your total instantly.","date":"Jun 23, 2026","link":"calc"},{"id":"u2","tag":"updated","title":"Team Schedule Updated","body":"Schedule updated with new shift distribution for the week of Jun 23.","date":"Jun 22, 2026","link":"sched"},{"id":"u3","tag":"alert","title":"Annotation Quality Reminder","body":"Review the annotation critic guidelines before starting tasks. Pay close attention to boundary precision and entity verification steps.","date":"Jun 20, 2026","link":"guides"}],"tasks":[{"id":"t1","icon":"🎯","title":"Annotation Critic","desc":"Quality review criteria, scoring rubric, and common errors.","guideKey":"annot-critic","label":"annot-critic-q7r"},{"id":"t2","icon":"🔍","title":"IG Entity Verification","desc":"Step-by-step entity verification process for IG tasks.","guideKey":"ig-entity","label":"IG Entity Verification"},{"id":"t3","icon":"📦","title":"SL Box Verification","desc":"Box verification and correction procedures.","guideKey":"sl-box","label":"SL Box Verification"},{"id":"t4","icon":"✂️","title":"Find the Boundary v2","desc":"Pixel-aligned boundary detection. Updated v2 specs.","guideKey":"boundary","label":"find-the-boundary-v2"},{"id":"t5","icon":"🖼️","title":"i2i Pixel-Aligned Filter","desc":"Image-to-image filter alignment specification.","guideKey":"i2i","label":"i2i-pixel-aligned-filter"}],"team":[{"name":"Menna Sherif","hrs":"22.5"},{"name":"Mazen Adam","hrs":"20"},{"name":"Yahya Mohamed","hrs":"17.5"},{"name":"Eiman Reda","hrs":"22.5"},{"name":"Ahmed Gouhar","hrs":"14"},{"name":"Mostafa Atef","hrs":"13.5"}],"guides":{}};
 
 const CMS_KEY='exp_cms';
 function getCMS(){
@@ -1050,7 +1051,7 @@ function getCMS(){
     if(d.hero){
       if(d.hero.title==='New tasks\navailable.'||d.hero.title==='New tasks available.'||d.hero.title==='Exponn Employee Hub')d.hero.title=DEFAULT_CONTENT.hero.title;
       if(!d.hero.titleSubRatio)d.hero.titleSubRatio=DEFAULT_CONTENT.hero.titleSubRatio;
-      if(d.hero.sub&&d.hero.sub.startsWith('Review the latest'))d.hero.sub=DEFAULT_CONTENT.hero.sub;
+      if(d.hero.sub&&(d.hero.sub.startsWith('Review the latest')||d.hero.sub.startsWith('Everything YOU')))d.hero.sub=DEFAULT_CONTENT.hero.sub;
     }
     return d;
   }catch{return JSON.parse(JSON.stringify(DEFAULT_CONTENT));}
@@ -1119,10 +1120,10 @@ function renderHome(){
   // hero
   document.getElementById('hero-eyebrow-text').textContent=cms.hero.eyebrow;
   document.getElementById('hero-title-el').innerHTML=renderTitle(cms.hero.title,cms.hero.titleSubRatio);
-  // Inject sub with drawn YOU highlight — replace literal YOU (case-insensitive) with styled span
+  // Any ALL-CAPS word (2+ letters) gets the drawn double-oval circle
+  const _circleSvg=`<svg viewBox="0 0 110 46" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 6 C28 -2, 72 -3, 92 7 C104 13, 106 28, 94 36 C78 44, 26 45, 12 36 C2 28, 2 13, 16 6 Z" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"/><path d="M8 16 C14 8, 36 2, 62 4 C88 6, 108 14, 106 26 C104 36, 84 42, 58 42 C30 42, 6 36, 4 26 C3 20, 5 18, 8 16 Z" stroke="#38bdf8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.35"/></svg>`;
   const rawSub=esc(cms.hero.sub);
-  const drawnYou=`<span class="drawn">YOU<svg viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4 C32 -1, 68 -2, 84 6 C94 12, 96 26, 85 33 C70 41, 28 42, 14 34 C4 27, 3 13, 18 4 Z" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.65"/></svg></span>`;
-  document.getElementById('hero-sub-el').innerHTML=rawSub.replace(/\bYOU\b/gi,drawnYou);
+  document.getElementById('hero-sub-el').innerHTML=rawSub.replace(/\b([A-Z]{2,})\b/g,(_,w)=>`<span class="drawn" style="white-space:nowrap">${w}${_circleSvg}</span>`);
   const al=document.getElementById('assessment-el');
   if(cms.hero.assessmentLink){al.href=cms.hero.assessmentLink;al.style.display='';}else{al.style.display='none';}
 
@@ -1664,7 +1665,14 @@ const DEFAULT_REPO='maemaam/exponn';const DEFAULT_PATH='index.html';
 const DEFAULT_SUNDAY='2026-06-28';
 const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const DEFAULT_SCHED=[{"n":"Menna Sherif","s":["9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","OFF","OFF","9:30 AM – 2:00 PM"],"h":22.5},{"n":"Mazen Adam","s":["OFF","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","OFF","2:00 PM – 6:00 PM"],"h":20},{"n":"Yahya Mohamed","s":["6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","OFF","OFF","6:00 PM – 9:30 PM"],"h":17.5},{"n":"Eiman Reda","s":["9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","OFF","OFF","9:30 PM – 2:00 AM"],"h":22.5},{"n":"Ahmed Gouhar","s":["2:00 AM – 6:30 AM","2:00 AM – 6:30 AM","2:00 AM – 7:00 AM","OFF","OFF","OFF","OFF"],"h":14},{"n":"Mostafa Atef","s":["OFF","OFF","OFF","2:00 AM – 6:30 AM","6:00 PM – 10:30 PM","2:00 PM – 6:30 PM","OFF"],"h":13.5}];
+const DEFAULT_SCHED=[
+  {n:"Menna Sherif",  s:["9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","OFF","OFF","9:30 AM – 2:00 PM"]},
+  {n:"Mazen Adam",    s:["OFF","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","OFF","2:00 PM – 6:00 PM"]},
+  {n:"Yahya Mohamed", s:["6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","OFF","OFF","6:00 PM – 9:30 PM"]},
+  {n:"Eiman Reda",    s:["9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","OFF","OFF","9:30 PM – 2:00 AM"]},
+  {n:"Ahmed Gouhar",  s:["2:00 AM – 6:30 AM","2:00 AM – 6:30 AM","2:00 AM – 7:00 AM","OFF","OFF","OFF","OFF"]},
+  {n:"Mostafa Atef",  s:["OFF","OFF","OFF","2:00 AM – 6:30 AM","6:00 PM – 10:30 PM","2:00 PM – 6:30 PM","OFF"]}
+];
 const getSD=()=>{try{const s=localStorage.getItem(SC);return s?JSON.parse(s):JSON.parse(JSON.stringify(DEFAULT_SCHED));}catch{return JSON.parse(JSON.stringify(DEFAULT_SCHED));}};
 const getSunday=()=>localStorage.getItem(SK)||DEFAULT_SUNDAY;
 const fmt=d=>`${MONTHS[d.getMonth()]} ${d.getDate()}`;
@@ -1849,9 +1857,9 @@ function authSched(){
 function _setHistoryBtn(visible){const b=document.getElementById('historyBtn');if(b)b.style.display=visible?'flex':'none';}
 function startSchedEdit(){_schedMem=getSD();schedEditing=true;document.body.classList.add('editing');document.getElementById('schedEditBtn').style.display='none';document.getElementById('saveBar').classList.add('on');_setHistoryBtn(true);setSaveSt('Click any cell to edit · Click day header to change week · Click name to rename','');renderSched();}
 function cancelSchedEdit(){schedEditing=false;_schedMem=null;document.body.classList.remove('editing');document.getElementById('schedEditBtn').style.display='';document.getElementById('saveBar').classList.remove('on');_setHistoryBtn(false);renderSched();}
-function persistSched(label){
+function persistSched(label,preOldD){
   const d=getSchedMem();
-  const oldD=getSD();
+  const oldD=preOldD||getSD();
   addChangelogEntry(label||'Saved locally',d,oldD);
   localStorage.setItem(SC,JSON.stringify(d));
   _schedMem=null;schedEditing=false;document.body.classList.remove('editing');
@@ -1862,14 +1870,14 @@ async function saveSchedGh(){
 }
 async function _doSaveSchedGh(){
   const tok=(localStorage.getItem(TK)||DEFAULT_TOK).trim();const repo=(localStorage.getItem(RK)||DEFAULT_REPO).trim();const path=(localStorage.getItem(FK)||DEFAULT_PATH).trim();
-  setSaveSt('Publishing…','');const d=getSchedMem();localStorage.setItem(SC,JSON.stringify(d));
+  setSaveSt('Publishing…','');const d=getSchedMem();const _preOldD=getSD();localStorage.setItem(SC,JSON.stringify(d));
   try{
     const url=`https://api.github.com/repos/${repo}/contents/${path}`;const hdr={Authorization:`Bearer ${tok}`,Accept:'application/vnd.github+json'};
     const gr=await fetch(url,{headers:hdr});const sha=gr.ok?(await gr.json()).sha:null;
     ['ghtok','ghrepo','ghpath'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
     const html=document.documentElement.outerHTML.replace(/const DEFAULT_SCHED=\[[\s\S]*?\];/,'const DEFAULT_SCHED='+JSON.stringify(d)+';');
     const pr=await fetch(url,{method:'PUT',headers:{...hdr,'Content-Type':'application/json'},body:JSON.stringify({message:`Schedule ${new Date().toISOString().slice(0,10)}`,content:btoa(unescape(encodeURIComponent(html))),...(sha?{sha}:{})})});
-    if(pr.ok){persistSched('Published to GitHub');setSaveSt('✓ Published!','ok');}else{const er=await pr.json();setSaveSt('Error: '+(er.message||pr.status),'er');}
+    if(pr.ok){persistSched('Published to GitHub',_preOldD);setSaveSt('✓ Published!','ok');}else{const er=await pr.json();setSaveSt('Error: '+(er.message||pr.status),'er');}
   }catch(er){setSaveSt('Error: '+er.message,'er');}
 }
 function setSaveSt(m,t){const e=document.getElementById('saveSt');e.textContent=m;e.className='save-st'+(t?' '+t:'');}
@@ -2012,4 +2020,4 @@ document.getElementById('navEditBtn').style.display='';
 </script>
 
 
-</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration><grammarly-mirror data-grammarly-shadow-root="true" class="dnXmp" style="--rem: 16;"></grammarly-mirror><grammarly-popups data-grammarly-shadow-root="true" class="dnXmp" style="--rem: 16;"></grammarly-popups></html>
