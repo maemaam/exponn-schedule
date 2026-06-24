@@ -555,21 +555,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
   <!-- UPDATES -->
   <div class="section" style="padding-top:0">
     <div class="section-label">Latest Updates</div>
-    <div class="updates-list" id="updates-container"><div class="update-item" id="ui-u1782262005045" "="">
-      <div class="update-left">
-        <span class="tag tag-new">New</span>
-        <div class="update-title">test</div>
-        <div class="update-body">test</div>
-      </div>
-      <div class="update-right">
-        <div class="update-meta">test</div>
-        <div class="item-actions visible" id="ia-u1782262005045" style="position:static;margin-top:6px">
-          <button class="ia-btn ia-edit" onclick="event.stopPropagation();openEditModal('update','u1782262005045')">✏ Edit</button>
-          <button class="ia-btn ia-del" onclick="event.stopPropagation();deleteItem('update','u1782262005045')">✕</button>
-        </div>
-        
-      </div>
-    </div><div class="update-item" id="ui-u1" "="">
+    <div class="updates-list" id="updates-container"><div class="update-item" id="ui-u1" "="">
       <div class="update-left">
         <span class="tag tag-new">New</span>
         <div class="update-title">Task Time Calculator</div>
@@ -1024,7 +1010,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <div class="confirm-ov" id="confirmOv">
   <div class="confirm-box">
     <div class="confirm-title">Confirm Change</div>
-    <div class="confirm-msg" id="confirmMsg">Are you sure you want to add the update "test"?</div>
+    <div class="confirm-msg" id="confirmMsg">Are you sure you want to delete the update "test"?</div>
     <div class="confirm-actions">
       <button class="btn btn-secondary btn-sm" onclick="confirmCancel()">Cancel</button>
       <button class="btn btn-primary btn-sm" onclick="confirmOk()">Yes, Confirm</button>
@@ -1036,7 +1022,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 
 <script>
 // ═══════════════════════════ CMS DATA ═══════════════════════════
-const DEFAULT_CONTENT = {"hero":{"eyebrow":"Week of Jun 22, 2026","title":"Exponn\n[Employee Hub]\n","sub":"Tasks, updates, and team resources • Built for YOU.","assessmentLink":"","titleSubRatio":0.68},"updates":[{"id":"u1782262005045","tag":"new","title":"test","body":"test","date":"test","link":"guides"},{"id":"u1","tag":"new","title":"Task Time Calculator","body":"Quickly calculate your total work time from task IDs. Paste your task list, set your first & last task ID, apply a time cap, and get your total instantly.","date":"Jun 23, 2026","link":"calc"},{"id":"u2","tag":"updated","title":"Team Schedule Updated","body":"Schedule updated with new shift distribution for the week of Jun 23.","date":"Jun 22, 2026","link":"sched"},{"id":"u3","tag":"alert","title":"Annotation Quality Reminder","body":"Review the annotation critic guidelines before starting tasks. Pay close attention to boundary precision and entity verification steps.","date":"Jun 20, 2026","link":"guides"}],"tasks":[{"id":"t1","icon":"🎯","title":"Annotation Critic","desc":"Quality review criteria, scoring rubric, and common errors.","guideKey":"annot-critic","label":"annot-critic-q7r"},{"id":"t2","icon":"🔍","title":"IG Entity Verification","desc":"Step-by-step entity verification process for IG tasks.","guideKey":"ig-entity","label":"IG Entity Verification"},{"id":"t3","icon":"📦","title":"SL Box Verification","desc":"Box verification and correction procedures.","guideKey":"sl-box","label":"SL Box Verification"},{"id":"t4","icon":"✂️","title":"Find the Boundary v2","desc":"Pixel-aligned boundary detection. Updated v2 specs.","guideKey":"boundary","label":"find-the-boundary-v2"},{"id":"t5","icon":"🖼️","title":"i2i Pixel-Aligned Filter","desc":"Image-to-image filter alignment specification.","guideKey":"i2i","label":"i2i-pixel-aligned-filter"}],"team":[{"name":"Menna Sherif","hrs":"22.5"},{"name":"Mazen Adam","hrs":"20"},{"name":"Yahya Mohamed","hrs":"17.5"},{"name":"Eiman Reda","hrs":"22.5"},{"name":"Ahmed Gouhar","hrs":"14"},{"name":"Mostafa Atef","hrs":"13.5"}],"guides":{}};
+const DEFAULT_CONTENT = {"hero":{"eyebrow":"Week of Jun 22, 2026","title":"Exponn\n[Employee Hub]\n","sub":"Tasks, updates, and team resources • Built for YOU.","assessmentLink":"","titleSubRatio":0.68},"updates":[{"id":"u1","tag":"new","title":"Task Time Calculator","body":"Quickly calculate your total work time from task IDs. Paste your task list, set your first & last task ID, apply a time cap, and get your total instantly.","date":"Jun 23, 2026","link":"calc"},{"id":"u2","tag":"updated","title":"Team Schedule Updated","body":"Schedule updated with new shift distribution for the week of Jun 23.","date":"Jun 22, 2026","link":"sched"},{"id":"u3","tag":"alert","title":"Annotation Quality Reminder","body":"Review the annotation critic guidelines before starting tasks. Pay close attention to boundary precision and entity verification steps.","date":"Jun 20, 2026","link":"guides"}],"tasks":[{"id":"t1","icon":"🎯","title":"Annotation Critic","desc":"Quality review criteria, scoring rubric, and common errors.","guideKey":"annot-critic","label":"annot-critic-q7r"},{"id":"t2","icon":"🔍","title":"IG Entity Verification","desc":"Step-by-step entity verification process for IG tasks.","guideKey":"ig-entity","label":"IG Entity Verification"},{"id":"t3","icon":"📦","title":"SL Box Verification","desc":"Box verification and correction procedures.","guideKey":"sl-box","label":"SL Box Verification"},{"id":"t4","icon":"✂️","title":"Find the Boundary v2","desc":"Pixel-aligned boundary detection. Updated v2 specs.","guideKey":"boundary","label":"find-the-boundary-v2"},{"id":"t5","icon":"🖼️","title":"i2i Pixel-Aligned Filter","desc":"Image-to-image filter alignment specification.","guideKey":"i2i","label":"i2i-pixel-aligned-filter"}],"team":[{"name":"Menna Sherif","hrs":"22.5"},{"name":"Mazen Adam","hrs":"20"},{"name":"Yahya Mohamed","hrs":"17.5"},{"name":"Eiman Reda","hrs":"22.5"},{"name":"Ahmed Gouhar","hrs":"14"},{"name":"Mostafa Atef","hrs":"13.5"}],"guides":{}};
 
 const CMS_KEY='exp_cms';
 function getCMS(){
