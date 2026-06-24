@@ -434,21 +434,21 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
 }
 </style>
 </head>
-<body data-new-gr-c-s-check-loaded="9.98.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="9.98.0" class="editing">
+<body data-new-gr-c-s-check-loaded="9.98.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="9.98.0" class="">
 
 <!-- NAV -->
 <nav>
   <img class="nav-logo" src="logo.webp" alt="Exponn" onclick="showPage('home')">
   <a class="nav-brand" href="#" onclick="showPage('home');return false">Exponn</a>
   <div class="nav-tabs">
-    <button class="nav-tab" id="nav-home" onclick="showPage('home')">Home</button>
+    <button class="nav-tab active" id="nav-home" onclick="showPage('home')">Home</button>
     <button class="nav-tab" id="nav-calc" onclick="showPage('calc')">Time Calculator</button>
     <button class="nav-tab" id="nav-guides" onclick="showPage('guides')">Guidelines</button>
-    <button class="nav-tab active" id="nav-sched" onclick="showPage('sched')">Schedule</button>
+    <button class="nav-tab" id="nav-sched" onclick="showPage('sched')">Schedule</button>
   </div>
   <div class="nav-right">
     <div class="nav-status"><div class="status-dot"></div><span class="status-txt">Active</span></div>
-    <button class="nav-edit-btn unlocked" id="navEditBtn" onclick="openAdminOrPw()" style="display: none;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg> Exit Edit</button>
+    <button class="nav-edit-btn" id="navEditBtn" onclick="openAdminOrPw()" style=""><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg> Edit</button>
   </div>
   <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
 </nav>
@@ -460,7 +460,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
 </div>
 
 <!-- ═══════════ HOME PAGE ═══════════ -->
-<div class="page" id="page-home">
+<div class="page active" id="page-home">
 
   <div class="hero">
     <div class="hero-eyebrow" id="hero-eyebrow-el" title="Click to edit">
@@ -469,7 +469,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
     </div>
     <p class="hero-slogan">Training Intelligence, One Label at a Time</p>
     <h1 class="hero-title" id="hero-title-el" style="cursor: pointer;"><span style="display:block;font-size:1em;line-height:1.05;margin-top:0">Exponn</span><span style="display:block;font-size:0.68em;line-height:1.08;margin-top:0.08em"><span class="hl">Employee Hub</span></span><span style="display:block;font-size:0.68em;line-height:1.08;margin-top:0.08em"></span></h1>
-    <p class="hero-sub" id="hero-sub-el" style="cursor: pointer;">Tasks, updates, and team resources ● Built for <span class="drawn" style="white-space:nowrap">YOU<svg viewBox="0 0 110 46" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 6 C28 -2, 72 -3, 92 7 C104 13, 106 28, 94 36 C78 44, 26 45, 12 36 C2 28, 2 13, 16 6 Z" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"></path><path d="M8 16 C14 8, 36 2, 62 4 C88 6, 108 14, 106 26 C104 36, 84 42, 58 42 C30 42, 6 36, 4 26 C3 20, 5 18, 8 16 Z" stroke="#38bdf8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.35"></path></svg></span>,</p>
+    <p class="hero-sub" id="hero-sub-el" style="">Tasks, updates, and team resources • Built for <span class="drawn" style="white-space:nowrap">YOU<svg viewBox="0 0 110 46" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 6 C28 -2, 72 -3, 92 7 C104 13, 106 28, 94 36 C78 44, 26 45, 12 36 C2 28, 2 13, 16 6 Z" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"></path><path d="M8 16 C14 8, 36 2, 62 4 C88 6, 108 14, 106 26 C104 36, 84 42, 58 42 C30 42, 6 36, 4 26 C3 20, 5 18, 8 16 Z" stroke="#38bdf8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.35"></path></svg></span>,</p>
     <div class="hero-ctas">
       <button class="btn btn-primary" onclick="showPage('calc')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Time Calculator</button>
       <button class="btn btn-secondary" onclick="showPage('sched')">Schedule <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
@@ -487,46 +487,46 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
     <div style="position:relative">
       <div class="carousel-wrap" id="carousel">
         <div class="carousel-track" id="carouselTrack"><div class="carousel-slide" onclick="showGuide('annot-critic')">
-      <div class="carousel-bg cbg-0" style="transform: translateY(96px);"></div>
-      <div class="carousel-visual vis-0" style="transform: translateY(38.4px);"><div class="vbar" style="left:15%;width:12%;height:55%"></div><div class="vbar" style="left:30%;width:12%;height:70%"></div><div class="vbar" style="left:45%;width:12%;height:45%"></div><div class="vbar" style="left:60%;width:12%;height:80%"></div><div class="vbar" style="left:75%;width:12%;height:60%"></div></div>
+      <div class="carousel-bg cbg-0"></div>
+      <div class="carousel-visual vis-0"><div class="vbar" style="left:15%;width:12%;height:55%"></div><div class="vbar" style="left:30%;width:12%;height:70%"></div><div class="vbar" style="left:45%;width:12%;height:45%"></div><div class="vbar" style="left:60%;width:12%;height:80%"></div><div class="vbar" style="left:75%;width:12%;height:60%"></div></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(16px);">
+      <div class="carousel-content">
         <div class="carousel-tag">annot-critic-q7r</div>
         <div class="carousel-title">Annotation Critic</div>
         <div class="carousel-desc">Quality review criteria, scoring rubric, and common errors.</div>
       </div>
     </div><div class="carousel-slide" onclick="showGuide('ig-entity')">
-      <div class="carousel-bg cbg-1" style="transform: translateY(0px);"></div>
-      <div class="carousel-visual vis-1" style="transform: translateY(0px);"><div class="vbox" style="left:15%;top:20%;width:28%;height:35%"></div><div class="vbox" style="left:55%;top:30%;width:22%;height:28%"></div><div class="vbox" style="left:30%;top:55%;width:18%;height:22%"></div></div>
+      <div class="carousel-bg cbg-1"></div>
+      <div class="carousel-visual vis-1"><div class="vbox" style="left:15%;top:20%;width:28%;height:35%"></div><div class="vbox" style="left:55%;top:30%;width:22%;height:28%"></div><div class="vbox" style="left:30%;top:55%;width:18%;height:22%"></div></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(0px);">
+      <div class="carousel-content">
         <div class="carousel-tag">IG Entity Verification</div>
         <div class="carousel-title">IG Entity Verification</div>
         <div class="carousel-desc">Step-by-step entity verification process for IG tasks.</div>
       </div>
     </div><div class="carousel-slide" onclick="showGuide('sl-box')">
-      <div class="carousel-bg cbg-2" style="transform: translateY(-96px);"></div>
-      <div class="carousel-visual vis-2" style="transform: translateY(-38.4px);"><div class="vgrid-line" style="left:0%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:14%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:28%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:42%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:56%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:70%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:84%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:98%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="top:0%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:16%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:32%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:48%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:64%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:80%;left:0;right:0;height:1px"></div></div>
+      <div class="carousel-bg cbg-2"></div>
+      <div class="carousel-visual vis-2"><div class="vgrid-line" style="left:0%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:14%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:28%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:42%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:56%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:70%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:84%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:98%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="top:0%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:16%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:32%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:48%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:64%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:80%;left:0;right:0;height:1px"></div></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(-16px);">
+      <div class="carousel-content">
         <div class="carousel-tag">SL Box Verification</div>
         <div class="carousel-title">SL Box Verification</div>
         <div class="carousel-desc">Box verification and correction procedures.</div>
       </div>
     </div><div class="carousel-slide" onclick="showGuide('boundary')">
-      <div class="carousel-bg cbg-3" style="transform: translateY(-192px);"></div>
-      <div class="carousel-visual vis-3" style="transform: translateY(-76.8px);"></div>
+      <div class="carousel-bg cbg-3"></div>
+      <div class="carousel-visual vis-3"></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(-32px);">
+      <div class="carousel-content">
         <div class="carousel-tag">find-the-boundary-v2</div>
         <div class="carousel-title">Find the Boundary v2</div>
         <div class="carousel-desc">Pixel-aligned boundary detection. Updated v2 specs.</div>
       </div>
     </div><div class="carousel-slide" onclick="showGuide('i2i')">
-      <div class="carousel-bg cbg-4" style="transform: translateY(-288px);"></div>
-      <div class="carousel-visual vis-4" style="transform: translateY(-115.2px);"></div>
+      <div class="carousel-bg cbg-4"></div>
+      <div class="carousel-visual vis-4"></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(-48px);">
+      <div class="carousel-content">
         <div class="carousel-tag">i2i-pixel-aligned-filter</div>
         <div class="carousel-title">i2i Pixel-Aligned Filter</div>
         <div class="carousel-desc">Image-to-image filter alignment specification.</div>
@@ -542,7 +542,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
   <!-- UPDATES -->
   <div class="section" style="padding-top:0">
     <div class="section-label">Latest Updates</div>
-    <div class="updates-list" id="updates-container"><div class="update-item" id="ui-u1" "="">
+    <div class="updates-list" id="updates-container"><div class="update-item linkable" id="ui-u1" onclick="showPage('calc')" role="button" tabindex="0" "="">
       <div class="update-left">
         <span class="tag tag-new">New</span>
         <div class="update-title">Task Time Calculator</div>
@@ -550,13 +550,13 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
       </div>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0">
         <div class="update-meta">Jun 23, 2026</div>
-        <div class="item-actions visible" id="ia-u1">
+        <div class="item-actions" id="ia-u1">
           <button class="ia-btn ia-edit" onclick="event.stopPropagation();openEditModal('update','u1')">✏ Edit</button>
           <button class="ia-btn ia-del" onclick="event.stopPropagation();deleteItem('update','u1')">✕</button>
         </div>
-        
+        <div class="update-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
       </div>
-    </div><div class="update-item" id="ui-u2" "="">
+    </div><div class="update-item linkable" id="ui-u2" onclick="showPage('sched')" role="button" tabindex="0" "="">
       <div class="update-left">
         <span class="tag tag-updated">Updated</span>
         <div class="update-title">Team Schedule Updated</div>
@@ -564,13 +564,13 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
       </div>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0">
         <div class="update-meta">Jun 22, 2026</div>
-        <div class="item-actions visible" id="ia-u2">
+        <div class="item-actions" id="ia-u2">
           <button class="ia-btn ia-edit" onclick="event.stopPropagation();openEditModal('update','u2')">✏ Edit</button>
           <button class="ia-btn ia-del" onclick="event.stopPropagation();deleteItem('update','u2')">✕</button>
         </div>
-        
+        <div class="update-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
       </div>
-    </div><div class="update-item" id="ui-u3" "="">
+    </div><div class="update-item linkable" id="ui-u3" onclick="showPage('guides')" role="button" tabindex="0" "="">
       <div class="update-left">
         <span class="tag tag-alert">Alert</span>
         <div class="update-title">Annotation Quality Reminder</div>
@@ -578,14 +578,14 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
       </div>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0">
         <div class="update-meta">Jun 20, 2026</div>
-        <div class="item-actions visible" id="ia-u3">
+        <div class="item-actions" id="ia-u3">
           <button class="ia-btn ia-edit" onclick="event.stopPropagation();openEditModal('update','u3')">✏ Edit</button>
           <button class="ia-btn ia-del" onclick="event.stopPropagation();deleteItem('update','u3')">✕</button>
         </div>
-        
+        <div class="update-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
       </div>
     </div></div>
-    <div class="admin-add-row visible" id="add-update-row">
+    <div class="admin-add-row" id="add-update-row">
       <button class="add-btn" onclick="openEditModal('update','new')">+ Add Update</button>
     </div>
   </div>
@@ -596,47 +596,47 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
     <div class="team-strip" id="team-strip"><div class="tm" id="tm-0" style="position:relative">
       <div class="tm-name">Menna Sherif</div>
       <div class="tm-hrs">22.5 hrs</div>
-      <div class="item-actions visible" id="ia-tm-0" style="top:-8px;right:-8px">
+      <div class="item-actions" id="ia-tm-0" style="top:-8px;right:-8px">
         <button class="ia-btn ia-edit" onclick="openEditModal('member',0)">✏</button>
         <button class="ia-btn ia-del" onclick="deleteItem('member',0)">✕</button>
       </div>
     </div><div class="tm" id="tm-1" style="position:relative">
       <div class="tm-name">Mazen Adam</div>
       <div class="tm-hrs">20.0 hrs</div>
-      <div class="item-actions visible" id="ia-tm-1" style="top:-8px;right:-8px">
+      <div class="item-actions" id="ia-tm-1" style="top:-8px;right:-8px">
         <button class="ia-btn ia-edit" onclick="openEditModal('member',1)">✏</button>
         <button class="ia-btn ia-del" onclick="deleteItem('member',1)">✕</button>
       </div>
     </div><div class="tm" id="tm-2" style="position:relative">
       <div class="tm-name">Yahya Mohamed</div>
       <div class="tm-hrs">17.5 hrs</div>
-      <div class="item-actions visible" id="ia-tm-2" style="top:-8px;right:-8px">
+      <div class="item-actions" id="ia-tm-2" style="top:-8px;right:-8px">
         <button class="ia-btn ia-edit" onclick="openEditModal('member',2)">✏</button>
         <button class="ia-btn ia-del" onclick="deleteItem('member',2)">✕</button>
       </div>
     </div><div class="tm" id="tm-3" style="position:relative">
       <div class="tm-name">Eiman Reda</div>
       <div class="tm-hrs">22.5 hrs</div>
-      <div class="item-actions visible" id="ia-tm-3" style="top:-8px;right:-8px">
+      <div class="item-actions" id="ia-tm-3" style="top:-8px;right:-8px">
         <button class="ia-btn ia-edit" onclick="openEditModal('member',3)">✏</button>
         <button class="ia-btn ia-del" onclick="deleteItem('member',3)">✕</button>
       </div>
     </div><div class="tm" id="tm-4" style="position:relative">
       <div class="tm-name">Ahmed Gouhar</div>
       <div class="tm-hrs">14.0 hrs</div>
-      <div class="item-actions visible" id="ia-tm-4" style="top:-8px;right:-8px">
+      <div class="item-actions" id="ia-tm-4" style="top:-8px;right:-8px">
         <button class="ia-btn ia-edit" onclick="openEditModal('member',4)">✏</button>
         <button class="ia-btn ia-del" onclick="deleteItem('member',4)">✕</button>
       </div>
     </div><div class="tm" id="tm-5" style="position:relative">
       <div class="tm-name">Mostafa Atef</div>
       <div class="tm-hrs">13.5 hrs</div>
-      <div class="item-actions visible" id="ia-tm-5" style="top:-8px;right:-8px">
+      <div class="item-actions" id="ia-tm-5" style="top:-8px;right:-8px">
         <button class="ia-btn ia-edit" onclick="openEditModal('member',5)">✏</button>
         <button class="ia-btn ia-del" onclick="deleteItem('member',5)">✕</button>
       </div>
     </div></div>
-    <div class="admin-add-row visible" id="add-team-row">
+    <div class="admin-add-row" id="add-team-row">
       <button class="add-btn" onclick="openEditModal('member','new')">+ Add Member</button>
     </div>
   </div>
@@ -695,68 +695,61 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <!-- ═══════════ GUIDELINES PAGE ═══════════ -->
 <div class="page" id="page-guides">
   <div class="guide-wrap">
-    <div id="guides-index"><div class="section-label" style="margin-top:0">All Guidelines</div><div class="guide-grid" id="guide-grid-el"><a class="guide-card" href="#" onclick="showGuide('annot-critic');return false">
-      <div class="guide-admin-actions visible">
-      <button class="ia-btn ia-edit" onclick="event.preventDefault();event.stopPropagation();openEditModal('guide','annot-critic')">✏ Edit</button>
-      <button class="ia-btn ia-del" onclick="event.preventDefault();event.stopPropagation();deleteItem('guide','annot-critic')">✕ Reset</button>
-    </div>
+    <div id="guides-index" style=""><div class="section-label" style="margin-top:0">All Guidelines</div><div class="guide-grid" id="guide-grid-el"><a class="guide-card" href="#" onclick="showGuide('annot-critic');return false">
+      
       <div class="gi">🎯</div><div class="gt">Annotation Critic</div>
       <div class="gd">Quality review criteria, scoring rubric, and common errors.</div>
       <div class="gf"><span class="gl">Jun 2026</span><span class="ga"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span></div>
     </a><a class="guide-card" href="#" onclick="showGuide('ig-entity');return false">
-      <div class="guide-admin-actions visible">
-      <button class="ia-btn ia-edit" onclick="event.preventDefault();event.stopPropagation();openEditModal('guide','ig-entity')">✏ Edit</button>
-      <button class="ia-btn ia-del" onclick="event.preventDefault();event.stopPropagation();deleteItem('guide','ig-entity')">✕ Reset</button>
-    </div>
+      
       <div class="gi">🔍</div><div class="gt">IG Entity Verification</div>
       <div class="gd">Step-by-step entity verification for IG tasks.</div>
       <div class="gf"><span class="gl">Jun 2026</span><span class="ga"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span></div>
     </a><a class="guide-card" href="#" onclick="showGuide('sl-box');return false">
-      <div class="guide-admin-actions visible">
-      <button class="ia-btn ia-edit" onclick="event.preventDefault();event.stopPropagation();openEditModal('guide','sl-box')">✏ Edit</button>
-      <button class="ia-btn ia-del" onclick="event.preventDefault();event.stopPropagation();deleteItem('guide','sl-box')">✕ Reset</button>
-    </div>
+      
       <div class="gi">📦</div><div class="gt">SL Box Verification &amp; Correction</div>
       <div class="gd">Box verification and correction procedures.</div>
       <div class="gf"><span class="gl">Jun 2026</span><span class="ga"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span></div>
     </a><a class="guide-card" href="#" onclick="showGuide('boundary');return false">
-      <div class="guide-admin-actions visible">
-      <button class="ia-btn ia-edit" onclick="event.preventDefault();event.stopPropagation();openEditModal('guide','boundary')">✏ Edit</button>
-      <button class="ia-btn ia-del" onclick="event.preventDefault();event.stopPropagation();deleteItem('guide','boundary')">✕ Reset</button>
-    </div>
+      
       <div class="gi">✂️</div><div class="gt">Find the Boundary v2</div>
       <div class="gd">Pixel-aligned boundary detection. Updated v2 specs.</div>
       <div class="gf"><span class="gl">Jun 2026</span><span class="ga"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span></div>
     </a><a class="guide-card" href="#" onclick="showGuide('i2i');return false">
-      <div class="guide-admin-actions visible">
-      <button class="ia-btn ia-edit" onclick="event.preventDefault();event.stopPropagation();openEditModal('guide','i2i')">✏ Edit</button>
-      <button class="ia-btn ia-del" onclick="event.preventDefault();event.stopPropagation();deleteItem('guide','i2i')">✕ Reset</button>
-    </div>
+      
       <div class="gi">🖼️</div><div class="gt">i2i Pixel-Aligned Filter</div>
       <div class="gd">Image-to-image filter alignment specification.</div>
       <div class="gf"><span class="gl">Jun 2026</span><span class="ga"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span></div>
     </a></div></div>
-    <div id="guides-detail" style="display:none"></div>
+    <div id="guides-detail" style="display: none;">
+    <button class="back-btn" onclick="backToGuides()">← All Guidelines</button>
+    <div class="guide-detail">
+      <div style="font-size:32px;margin-bottom:10px">📦</div>
+      <h2>SL Box Verification &amp; Correction</h2>
+      <div class="guide-detail-meta">Updated: Jun 2026 · SL-Box-Verification.pdf</div>
+      <h3>Overview</h3><p>How to verify and correct bounding box annotations in SL tasks.</p><h3>Verification Checklist</h3><ul><li>Box must fully enclose the target — no cropping of edges.</li><li>No background padding &gt;5px on any side.</li><li>Overlapping boxes must be clearly separated.</li><li>Confirm label before submission.</li></ul><h3>Correction Procedure</h3><ol><li>Identify the misaligned box.</li><li>Resize using corner handles — do not drag the center.</li><li>Use zoom (minimum 200%) for pixel-level corrections.</li><li>Re-verify after correction before saving.</li></ol><div class="callout">If a box cannot be corrected within 2 minutes, flag for supervisor review.</div>
+      <a class="pdf-btn" href="https://maemaam.github.io/exponn/SOPs/SL-Box-Verification.pdf" target="_blank">📄 Open Full PDF <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+    </div></div>
   </div>
 </div>
 
 <!-- ═══════════ SCHEDULE PAGE ═══════════ -->
-<div class="page active" id="page-sched">
+<div class="page" id="page-sched">
   <div class="sched-wrap">
     <div class="sched-topbar">
       <div class="sched-title" id="schedTitle">Team Schedule — Jun 22–28, 2026</div>
-      <button class="btn btn-secondary btn-sm" id="schedEditBtn" onclick="openSchedPw()" style="display: none;">
+      <button class="btn btn-secondary btn-sm" id="schedEditBtn" onclick="openSchedPw()" style="">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="opacity:.7"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
         Edit
       </button>
     </div>
-    <div class="sched-sub" id="schedSub">6 members · 110.0 hrs this week</div>
-    <div class="save-bar on" id="saveBar">
-      <span class="save-st" id="saveSt">Publishing…</span>
+    <div class="sched-sub" id="schedSub">6 members on shift this week</div>
+    <div class="save-bar" id="saveBar">
+      <span class="save-st" id="saveSt">Click any cell to edit · Click day header to change week · Click name to rename</span>
       <button class="btn btn-secondary btn-sm" onclick="cancelSchedEdit()">Cancel</button>
       <button class="btn btn-primary btn-sm" onclick="saveSchedGh()">💾 Save &amp; Publish</button>
     </div>
-    <button class="btn btn-secondary btn-sm" id="historyBtn" onclick="openChangelog()" style="margin-bottom: 10px; display: flex; align-items: center; gap: 6px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Schedule History</button>
+    <button class="btn btn-secondary btn-sm" id="historyBtn" onclick="openChangelog()" style="margin-bottom: 10px; display: none; align-items: center; gap: 6px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Schedule History</button>
     <div id="dayPicker" class="day-picker-popup"><div class="dp-title" id="dpTitle"></div><div id="dpList"></div></div>
 
     <!-- desktop table -->
@@ -1002,10 +995,9 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <!-- INLINE EDIT MODAL -->
 <div class="edit-modal-wrap" id="editModalWrap"><grammarly-extension data-grammarly-shadow-root="true" class="dnXmp" style="position: absolute; top: 0px; left: 0px; pointer-events: none; --rem: 16;"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" class="dnXmp" style="position: absolute; top: 0px; left: 0px; pointer-events: none; --rem: 16;"></grammarly-extension>
   <div class="edit-modal" id="editModal">
-    <h3 id="editModalTitle">Edit Headline</h3>
-    <div id="editModalFields"><div class="em-field"><label>Headline</label><textarea id="ef-val" spellcheck="false">Exponn [Employee Hub]
-</textarea><div class="hint"><strong>[brackets]</strong> = accent color &nbsp;·&nbsp; Enter = new line</div></div>
-        <div class="em-field"><label>Second Line Size</label><select id="ef-subratio"><option value="0.38">Tiny</option><option value="0.48">Small</option><option value="0.55">Medium</option><option value="0.68" selected="">Large</option></select></div></div>
+    <h3 id="editModalTitle">Edit Sub-Headline</h3>
+    <div id="editModalFields"><div class="em-field"><label>Sub-headline</label><textarea id="ef-val" spellcheck="false">Tasks, updates, and team resources ● Built for YOU,</textarea></div>
+        <div class="em-field"><label>Assessment Form URL</label><input id="ef-assess" value=""></div></div>
     <div class="em-actions">
       <button class="btn btn-secondary btn-sm" onclick="closeEditModal()">Cancel</button>
       <button class="btn btn-primary btn-sm" id="saveEditBtn" onclick="saveEditModal()">Save</button>
@@ -1023,13 +1015,13 @@ Format: UUID	Status	Date	MM:SS"></textarea>
     <div id="clList"><div class="cl-entry">
       <div class="cl-entry-name">Change_Log_Wed24Jun</div>
       <div class="cl-entry-ts">Wed, Jun 24, 2026 · 3:28 AM</div>
-      <ul class="cl-changes"><li>Menna Sherif's Mon shift changed from "9:30 AM – 2:00 PM" to "10:00 AM – 2:00 PM"</li></ul>
+      <ul class="cl-changes"><li>Menna Sherif's Mon shift changed from "10:00 AM – 2:00 PM" to "9:30 AM – 2:00 PM"</li></ul>
       <div class="cl-entry-device">✦ MacBook Pro</div>
       <button class="cl-restore-btn" onclick="restoreFromChangelog(0)">Restore this snapshot</button>
     </div><div class="cl-entry">
       <div class="cl-entry-name">Change_Log_Wed24Jun</div>
-      <div class="cl-entry-ts">Wed, Jun 24, 2026 · 3:17 AM</div>
-      <div class="cl-no-changes">No tracked changes</div>
+      <div class="cl-entry-ts">Wed, Jun 24, 2026 · 3:28 AM</div>
+      <ul class="cl-changes"><li>Menna Sherif's Mon shift changed from "9:30 AM – 2:00 PM" to "10:00 AM – 2:00 PM"</li></ul>
       <div class="cl-entry-device">✦ MacBook Pro</div>
       <button class="cl-restore-btn" onclick="restoreFromChangelog(1)">Restore this snapshot</button>
     </div><div class="cl-entry">
@@ -1040,7 +1032,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
       <button class="cl-restore-btn" onclick="restoreFromChangelog(2)">Restore this snapshot</button>
     </div><div class="cl-entry">
       <div class="cl-entry-name">Change_Log_Wed24Jun</div>
-      <div class="cl-entry-ts">Wed, Jun 24, 2026 · 3:13 AM</div>
+      <div class="cl-entry-ts">Wed, Jun 24, 2026 · 3:17 AM</div>
       <div class="cl-no-changes">No tracked changes</div>
       <div class="cl-entry-device">✦ MacBook Pro</div>
       <button class="cl-restore-btn" onclick="restoreFromChangelog(3)">Restore this snapshot</button>
@@ -1050,6 +1042,12 @@ Format: UUID	Status	Date	MM:SS"></textarea>
       <div class="cl-no-changes">No tracked changes</div>
       <div class="cl-entry-device">✦ MacBook Pro</div>
       <button class="cl-restore-btn" onclick="restoreFromChangelog(4)">Restore this snapshot</button>
+    </div><div class="cl-entry">
+      <div class="cl-entry-name">Change_Log_Wed24Jun</div>
+      <div class="cl-entry-ts">Wed, Jun 24, 2026 · 3:13 AM</div>
+      <div class="cl-no-changes">No tracked changes</div>
+      <div class="cl-entry-device">✦ MacBook Pro</div>
+      <button class="cl-restore-btn" onclick="restoreFromChangelog(5)">Restore this snapshot</button>
     </div></div>
   </div>
 </div>
@@ -1058,7 +1056,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <div class="confirm-ov" id="confirmOv">
   <div class="confirm-box">
     <div class="confirm-title">Confirm Change</div>
-    <div class="confirm-msg" id="confirmMsg">Are you sure you want to publish the schedule?</div>
+    <div class="confirm-msg" id="confirmMsg">Are you sure you want to update the sub-headline?</div>
     <div class="confirm-actions">
       <button class="btn btn-secondary btn-sm" onclick="confirmCancel()">Cancel</button>
       <button class="btn btn-primary btn-sm" onclick="confirmOk()">Yes, Confirm</button>
@@ -1070,7 +1068,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 
 <script>
 // ═══════════════════════════ CMS DATA ═══════════════════════════
-const DEFAULT_CONTENT = {"hero":{"eyebrow":"Week of Jun 22, 2026","title":"Exponn\n[Employee Hub]","titleSubRatio":0.52,"sub":"YOUR hub for tasks, updates, and team resources — built for YOU.","assessmentLink":""},"updates":[{"id":"u1","tag":"new","title":"Task Time Calculator","body":"Quickly calculate your total work time from task IDs. Paste your task list, set your first & last task ID, apply a time cap, and get your total instantly.","date":"Jun 23, 2026","link":"calc"},{"id":"u2","tag":"updated","title":"Team Schedule Updated","body":"Schedule updated with new shift distribution for the week of Jun 23.","date":"Jun 22, 2026","link":"sched"},{"id":"u3","tag":"alert","title":"Annotation Quality Reminder","body":"Review the annotation critic guidelines before starting tasks. Pay close attention to boundary precision and entity verification steps.","date":"Jun 20, 2026","link":"guides"}],"tasks":[{"id":"t1","icon":"🎯","title":"Annotation Critic","desc":"Quality review criteria, scoring rubric, and common errors.","guideKey":"annot-critic","label":"annot-critic-q7r"},{"id":"t2","icon":"🔍","title":"IG Entity Verification","desc":"Step-by-step entity verification process for IG tasks.","guideKey":"ig-entity","label":"IG Entity Verification"},{"id":"t3","icon":"📦","title":"SL Box Verification","desc":"Box verification and correction procedures.","guideKey":"sl-box","label":"SL Box Verification"},{"id":"t4","icon":"✂️","title":"Find the Boundary v2","desc":"Pixel-aligned boundary detection. Updated v2 specs.","guideKey":"boundary","label":"find-the-boundary-v2"},{"id":"t5","icon":"🖼️","title":"i2i Pixel-Aligned Filter","desc":"Image-to-image filter alignment specification.","guideKey":"i2i","label":"i2i-pixel-aligned-filter"}],"team":[{"name":"Menna Sherif","hrs":"22.5"},{"name":"Mazen Adam","hrs":"20"},{"name":"Yahya Mohamed","hrs":"17.5"},{"name":"Eiman Reda","hrs":"22.5"},{"name":"Ahmed Gouhar","hrs":"14"},{"name":"Mostafa Atef","hrs":"13.5"}],"guides":{}};
+const DEFAULT_CONTENT = {"hero":{"eyebrow":"Week of Jun 22, 2026","title":"Exponn\n[Employee Hub]\n","sub":"Tasks, updates, and team resources • Built for YOU,","assessmentLink":"","titleSubRatio":0.68},"updates":[{"id":"u1","tag":"new","title":"Task Time Calculator","body":"Quickly calculate your total work time from task IDs. Paste your task list, set your first & last task ID, apply a time cap, and get your total instantly.","date":"Jun 23, 2026","link":"calc"},{"id":"u2","tag":"updated","title":"Team Schedule Updated","body":"Schedule updated with new shift distribution for the week of Jun 23.","date":"Jun 22, 2026","link":"sched"},{"id":"u3","tag":"alert","title":"Annotation Quality Reminder","body":"Review the annotation critic guidelines before starting tasks. Pay close attention to boundary precision and entity verification steps.","date":"Jun 20, 2026","link":"guides"}],"tasks":[{"id":"t1","icon":"🎯","title":"Annotation Critic","desc":"Quality review criteria, scoring rubric, and common errors.","guideKey":"annot-critic","label":"annot-critic-q7r"},{"id":"t2","icon":"🔍","title":"IG Entity Verification","desc":"Step-by-step entity verification process for IG tasks.","guideKey":"ig-entity","label":"IG Entity Verification"},{"id":"t3","icon":"📦","title":"SL Box Verification","desc":"Box verification and correction procedures.","guideKey":"sl-box","label":"SL Box Verification"},{"id":"t4","icon":"✂️","title":"Find the Boundary v2","desc":"Pixel-aligned boundary detection. Updated v2 specs.","guideKey":"boundary","label":"find-the-boundary-v2"},{"id":"t5","icon":"🖼️","title":"i2i Pixel-Aligned Filter","desc":"Image-to-image filter alignment specification.","guideKey":"i2i","label":"i2i-pixel-aligned-filter"}],"team":[{"name":"Menna Sherif","hrs":"22.5"},{"name":"Mazen Adam","hrs":"20"},{"name":"Yahya Mohamed","hrs":"17.5"},{"name":"Eiman Reda","hrs":"22.5"},{"name":"Ahmed Gouhar","hrs":"14"},{"name":"Mostafa Atef","hrs":"13.5"}],"guides":{}};
 
 const CMS_KEY='exp_cms';
 function getCMS(){
@@ -1696,7 +1694,14 @@ const DEFAULT_REPO='maemaam/exponn';const DEFAULT_PATH='index.html';
 const DEFAULT_SUNDAY='2026-06-28';
 const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const DEFAULT_SCHED=[{"n":"Menna Sherif","s":["9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","OFF","OFF","9:30 AM – 2:00 PM"],"h":22.5},{"n":"Mazen Adam","s":["OFF","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","OFF","2:00 PM – 6:00 PM"],"h":20},{"n":"Yahya Mohamed","s":["6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","OFF","OFF","6:00 PM – 9:30 PM"],"h":17.5},{"n":"Eiman Reda","s":["9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","OFF","OFF","9:30 PM – 2:00 AM"],"h":22.5},{"n":"Ahmed Gouhar","s":["2:00 AM – 6:30 AM","2:00 AM – 6:30 AM","2:00 AM – 7:00 AM","OFF","OFF","OFF","OFF"],"h":14},{"n":"Mostafa Atef","s":["OFF","OFF","OFF","2:00 AM – 6:30 AM","6:00 PM – 10:30 PM","2:00 PM – 6:30 PM","OFF"],"h":13.5}];
+const DEFAULT_SCHED=[
+  {n:"Menna Sherif",  s:["9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","OFF","OFF","9:30 AM – 2:00 PM"]},
+  {n:"Mazen Adam",    s:["OFF","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","OFF","2:00 PM – 6:00 PM"]},
+  {n:"Yahya Mohamed", s:["6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","OFF","OFF","6:00 PM – 9:30 PM"]},
+  {n:"Eiman Reda",    s:["9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","OFF","OFF","9:30 PM – 2:00 AM"]},
+  {n:"Ahmed Gouhar",  s:["2:00 AM – 6:30 AM","2:00 AM – 6:30 AM","2:00 AM – 7:00 AM","OFF","OFF","OFF","OFF"]},
+  {n:"Mostafa Atef",  s:["OFF","OFF","OFF","2:00 AM – 6:30 AM","6:00 PM – 10:30 PM","2:00 PM – 6:30 PM","OFF"]}
+];
 const getSD=()=>{try{const s=localStorage.getItem(SC);return s?JSON.parse(s):JSON.parse(JSON.stringify(DEFAULT_SCHED));}catch{return JSON.parse(JSON.stringify(DEFAULT_SCHED));}};
 const getSunday=()=>localStorage.getItem(SK)||DEFAULT_SUNDAY;
 const fmt=d=>`${MONTHS[d.getMonth()]} ${d.getDate()}`;
