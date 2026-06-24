@@ -162,12 +162,14 @@ nav{
 
 /* ── UPDATES ── */
 .updates-list{border-radius:18px;overflow:hidden;border:1px solid var(--border)}
-.update-item{background:var(--s1);padding:20px 24px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:1px solid var(--border);transition:background .15s;position:relative}
+.update-item{background:var(--s1);padding:20px 24px;display:flex;align-items:stretch;justify-content:space-between;gap:16px;border-bottom:1px solid var(--border);transition:background .15s;position:relative}
 .update-item:last-child{border-bottom:none}
 .update-item:hover{background:var(--s3)}
 .update-item.linkable{cursor:pointer}
 .update-item.linkable:active{background:var(--s3)}
-.update-chevron{color:var(--border-h);flex-shrink:0;align-self:center;transition:color .15s,transform .15s;display:flex;align-items:center}
+.update-right{display:flex;flex-direction:column;align-items:flex-end;flex-shrink:0;gap:0}
+.update-meta{font-size:11px;color:var(--muted);white-space:nowrap}
+.update-chevron{color:var(--border-h);flex:1;display:flex;align-items:center;justify-content:flex-end;transition:color .15s,transform .15s}
 .update-item.linkable:hover .update-chevron{color:var(--accent);transform:translateX(3px)}
 @media(max-width:500px){.update-item{padding:16px 18px;gap:10px}.update-meta{font-size:10px}}
 .update-left{flex:1;min-width:0}
@@ -178,13 +180,24 @@ nav{
 .tag-info{background:rgba(255,255,255,0.05);color:var(--text2);border:1px solid var(--border)}
 .update-title{font-family:var(--fh);font-size:15px;font-weight:700;color:var(--text);margin:6px 0 3px}
 .update-body{font-size:13px;color:var(--text2);line-height:1.6}
-.update-meta{font-size:11px;color:var(--muted);white-space:nowrap;flex-shrink:0;margin-top:2px}
 
-/* ── TEAM ── */
-.team-strip{background:var(--s1);border:1px solid var(--border);border-radius:18px;padding:22px 26px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;position:relative}
-.tm{display:flex;align-items:center;gap:8px}
-.tm-name{font-family:var(--fh);font-size:13px;font-weight:700;color:var(--text)}
-.tm-hrs{font-size:12px;color:var(--accent);background:var(--accent-dim);border-radius:9999px;padding:2px 9px;border:1px solid var(--accent-border)}
+/* ── STARS OF THE WEEK ── */
+.stars-ticker-wrap{background:var(--s1);border:1px solid var(--border);border-radius:18px;overflow:hidden;position:relative}
+.stars-ticker-inner{display:flex;align-items:center;white-space:nowrap;width:max-content;animation:starsTicker 28s linear infinite}
+.stars-ticker-inner:hover{animation-play-state:paused}
+@keyframes starsTicker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.stars-ticker-track{overflow:hidden;padding:18px 0}
+.tm-item{display:inline-flex;align-items:center;gap:10px;padding:0 28px}
+.tm-name{font-family:var(--fh);font-size:14px;font-weight:700;color:var(--text);letter-spacing:-0.2px}
+.tm-hrs{font-size:12px;color:var(--accent);background:var(--accent-dim);border-radius:9999px;padding:2px 10px;border:1px solid var(--accent-border)}
+.tm-sep{display:inline-flex;align-items:center;color:#e87c2a;font-size:20px;line-height:1;flex-shrink:0}
+/* ── INTERACTIVE STAR ── */
+.ai-star-wrap{display:flex;justify-content:center;margin:6px 0 2px}
+.ai-star{width:48px;height:48px;cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;-webkit-tap-highlight-color:transparent}
+.ai-star svg{overflow:visible;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.ai-star:hover svg,.ai-star.active svg{transform:scale(1.22) rotate(18deg)}
+.ai-star.dancing svg{animation:starDance .6s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes starDance{0%{transform:scale(1) rotate(0)}20%{transform:scale(1.3) rotate(-15deg)}50%{transform:scale(1.15) rotate(22deg)}75%{transform:scale(1.25) rotate(-8deg)}100%{transform:scale(1) rotate(0)}}
 
 /* ── INLINE ADMIN OVERLAYS ── */
 .admin-add-row{display:none;justify-content:center;margin-top:10px}
@@ -434,7 +447,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
 }
 </style>
 </head>
-<body data-new-gr-c-s-check-loaded="9.98.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="9.98.0" class="">
+<body data-new-gr-c-s-check-loaded="9.98.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="9.98.0">
 
 <!-- NAV -->
 <nav>
@@ -448,7 +461,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
   </div>
   <div class="nav-right">
     <div class="nav-status"><div class="status-dot"></div><span class="status-txt">Active</span></div>
-    <button class="nav-edit-btn" id="navEditBtn" onclick="openAdminOrPw()" style=""><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg> Edit</button>
+    <button class="nav-edit-btn unlocked" id="navEditBtn" onclick="openAdminOrPw()"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg> Exit Edit</button>
   </div>
   <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
 </nav>
@@ -469,7 +482,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
     </div>
     <p class="hero-slogan">Training Intelligence, One Label at a Time</p>
     <h1 class="hero-title" id="hero-title-el" style="cursor: pointer;"><span style="display:block;font-size:1em;line-height:1.05;margin-top:0">Exponn</span><span style="display:block;font-size:0.68em;line-height:1.08;margin-top:0.08em"><span class="hl">Employee Hub</span></span><span style="display:block;font-size:0.68em;line-height:1.08;margin-top:0.08em"></span></h1>
-    <p class="hero-sub" id="hero-sub-el" style="">Tasks, updates, and team resources • Built for <span class="drawn" style="white-space:nowrap">YOU<svg viewBox="0 0 110 46" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 6 C28 -2, 72 -3, 92 7 C104 13, 106 28, 94 36 C78 44, 26 45, 12 36 C2 28, 2 13, 16 6 Z" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"></path><path d="M8 16 C14 8, 36 2, 62 4 C88 6, 108 14, 106 26 C104 36, 84 42, 58 42 C30 42, 6 36, 4 26 C3 20, 5 18, 8 16 Z" stroke="#38bdf8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.35"></path></svg></span>.</p>
+    <p class="hero-sub" id="hero-sub-el" style="cursor: pointer;">Tasks, updates, and team resources • Built for <span class="drawn" style="white-space:nowrap">YOU<svg viewBox="0 0 110 46" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 6 C28 -2, 72 -3, 92 7 C104 13, 106 28, 94 36 C78 44, 26 45, 12 36 C2 28, 2 13, 16 6 Z" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.7"></path><path d="M8 16 C14 8, 36 2, 62 4 C88 6, 108 14, 106 26 C104 36, 84 42, 58 42 C30 42, 6 36, 4 26 C3 20, 5 18, 8 16 Z" stroke="#38bdf8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.35"></path></svg></span>.</p>
     <div class="hero-ctas">
       <button class="btn btn-primary" onclick="showPage('calc')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Time Calculator</button>
       <button class="btn btn-secondary" onclick="showPage('sched')">Schedule <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
@@ -542,101 +555,81 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
   <!-- UPDATES -->
   <div class="section" style="padding-top:0">
     <div class="section-label">Latest Updates</div>
-    <div class="updates-list" id="updates-container"><div class="update-item linkable" id="ui-u1" onclick="showPage('calc')" role="button" tabindex="0" "="">
+    <div class="updates-list" id="updates-container"><div class="update-item" id="ui-u1782262005045" "="">
+      <div class="update-left">
+        <span class="tag tag-new">New</span>
+        <div class="update-title">test</div>
+        <div class="update-body">test</div>
+      </div>
+      <div class="update-right">
+        <div class="update-meta">test</div>
+        <div class="item-actions visible" id="ia-u1782262005045" style="position:static;margin-top:6px">
+          <button class="ia-btn ia-edit" onclick="event.stopPropagation();openEditModal('update','u1782262005045')">✏ Edit</button>
+          <button class="ia-btn ia-del" onclick="event.stopPropagation();deleteItem('update','u1782262005045')">✕</button>
+        </div>
+        
+      </div>
+    </div><div class="update-item" id="ui-u1" "="">
       <div class="update-left">
         <span class="tag tag-new">New</span>
         <div class="update-title">Task Time Calculator</div>
         <div class="update-body">Quickly calculate your total work time from task IDs. Paste your task list, set your first &amp; last task ID, apply a time cap, and get your total instantly.</div>
       </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0">
+      <div class="update-right">
         <div class="update-meta">Jun 23, 2026</div>
-        <div class="item-actions" id="ia-u1">
+        <div class="item-actions visible" id="ia-u1" style="position:static;margin-top:6px">
           <button class="ia-btn ia-edit" onclick="event.stopPropagation();openEditModal('update','u1')">✏ Edit</button>
           <button class="ia-btn ia-del" onclick="event.stopPropagation();deleteItem('update','u1')">✕</button>
         </div>
-        <div class="update-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+        
       </div>
-    </div><div class="update-item linkable" id="ui-u2" onclick="showPage('sched')" role="button" tabindex="0" "="">
+    </div><div class="update-item" id="ui-u2" "="">
       <div class="update-left">
         <span class="tag tag-updated">Updated</span>
         <div class="update-title">Team Schedule Updated</div>
         <div class="update-body">Schedule updated with new shift distribution for the week of Jun 23.</div>
       </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0">
+      <div class="update-right">
         <div class="update-meta">Jun 22, 2026</div>
-        <div class="item-actions" id="ia-u2">
+        <div class="item-actions visible" id="ia-u2" style="position:static;margin-top:6px">
           <button class="ia-btn ia-edit" onclick="event.stopPropagation();openEditModal('update','u2')">✏ Edit</button>
           <button class="ia-btn ia-del" onclick="event.stopPropagation();deleteItem('update','u2')">✕</button>
         </div>
-        <div class="update-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+        
       </div>
-    </div><div class="update-item linkable" id="ui-u3" onclick="showPage('guides')" role="button" tabindex="0" "="">
+    </div><div class="update-item" id="ui-u3" "="">
       <div class="update-left">
         <span class="tag tag-alert">Alert</span>
         <div class="update-title">Annotation Quality Reminder</div>
         <div class="update-body">Review the annotation critic guidelines before starting tasks. Pay close attention to boundary precision and entity verification steps.</div>
       </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0">
+      <div class="update-right">
         <div class="update-meta">Jun 20, 2026</div>
-        <div class="item-actions" id="ia-u3">
+        <div class="item-actions visible" id="ia-u3" style="position:static;margin-top:6px">
           <button class="ia-btn ia-edit" onclick="event.stopPropagation();openEditModal('update','u3')">✏ Edit</button>
           <button class="ia-btn ia-del" onclick="event.stopPropagation();deleteItem('update','u3')">✕</button>
         </div>
-        <div class="update-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+        
       </div>
     </div></div>
-    <div class="admin-add-row" id="add-update-row">
+    <div class="admin-add-row visible" id="add-update-row">
       <button class="add-btn" onclick="openEditModal('update','new')">+ Add Update</button>
     </div>
   </div>
 
-  <!-- TEAM -->
+  <!-- STARS OF THE WEEK -->
   <div class="section" style="padding-top:0">
-    <div class="section-label">Team This Week</div>
-    <div class="team-strip" id="team-strip"><div class="tm" id="tm-0" style="position:relative">
-      <div class="tm-name">Menna Sherif</div>
-      <div class="tm-hrs">22.5 hrs</div>
-      <div class="item-actions" id="ia-tm-0" style="top:-8px;right:-8px">
-        <button class="ia-btn ia-edit" onclick="openEditModal('member',0)">✏</button>
-        <button class="ia-btn ia-del" onclick="deleteItem('member',0)">✕</button>
-      </div>
-    </div><div class="tm" id="tm-1" style="position:relative">
-      <div class="tm-name">Mazen Adam</div>
-      <div class="tm-hrs">20.0 hrs</div>
-      <div class="item-actions" id="ia-tm-1" style="top:-8px;right:-8px">
-        <button class="ia-btn ia-edit" onclick="openEditModal('member',1)">✏</button>
-        <button class="ia-btn ia-del" onclick="deleteItem('member',1)">✕</button>
-      </div>
-    </div><div class="tm" id="tm-2" style="position:relative">
-      <div class="tm-name">Yahya Mohamed</div>
-      <div class="tm-hrs">17.5 hrs</div>
-      <div class="item-actions" id="ia-tm-2" style="top:-8px;right:-8px">
-        <button class="ia-btn ia-edit" onclick="openEditModal('member',2)">✏</button>
-        <button class="ia-btn ia-del" onclick="deleteItem('member',2)">✕</button>
-      </div>
-    </div><div class="tm" id="tm-3" style="position:relative">
-      <div class="tm-name">Eiman Reda</div>
-      <div class="tm-hrs">22.5 hrs</div>
-      <div class="item-actions" id="ia-tm-3" style="top:-8px;right:-8px">
-        <button class="ia-btn ia-edit" onclick="openEditModal('member',3)">✏</button>
-        <button class="ia-btn ia-del" onclick="deleteItem('member',3)">✕</button>
-      </div>
-    </div><div class="tm" id="tm-4" style="position:relative">
-      <div class="tm-name">Ahmed Gouhar</div>
-      <div class="tm-hrs">14.0 hrs</div>
-      <div class="item-actions" id="ia-tm-4" style="top:-8px;right:-8px">
-        <button class="ia-btn ia-edit" onclick="openEditModal('member',4)">✏</button>
-        <button class="ia-btn ia-del" onclick="deleteItem('member',4)">✕</button>
-      </div>
-    </div><div class="tm" id="tm-5" style="position:relative">
-      <div class="tm-name">Mostafa Atef</div>
-      <div class="tm-hrs">13.5 hrs</div>
-      <div class="item-actions" id="ia-tm-5" style="top:-8px;right:-8px">
-        <button class="ia-btn ia-edit" onclick="openEditModal('member',5)">✏</button>
-        <button class="ia-btn ia-del" onclick="deleteItem('member',5)">✕</button>
-      </div>
+    <div class="section-label">Stars of the Week</div>
+    <div class="stars-ticker-wrap" id="team-strip">
+      <div class="stars-ticker-track"><div class="stars-ticker-inner" id="stars-ticker"><span class="tm-item" id="tm-0"><span class="tm-name">Menna Sherif</span><span class="tm-hrs">22.5 hrs</span><span style="display:inline-flex;gap:4px;margin-left:4px"><button class="ia-btn ia-edit" style="font-size:10px;padding:2px 6px" onclick="openEditModal('member',0)">✏</button><button class="ia-btn ia-del" style="font-size:10px;padding:2px 6px" onclick="deleteItem('member',0)">✕</button></span></span><span class="tm-sep"><svg width="18" height="18" viewBox="0 0 18 18" fill="#e87c2a"><polygon points="9,1.5 10.8,6.5 16,6.5 11.8,9.8 13.5,15 9,11.8 4.5,15 6.2,9.8 2,6.5 7.2,6.5"></polygon></svg></span><span class="tm-item" id="tm-1"><span class="tm-name">Mazen Adam</span><span class="tm-hrs">20.0 hrs</span><span style="display:inline-flex;gap:4px;margin-left:4px"><button class="ia-btn ia-edit" style="font-size:10px;padding:2px 6px" onclick="openEditModal('member',1)">✏</button><button class="ia-btn ia-del" style="font-size:10px;padding:2px 6px" onclick="deleteItem('member',1)">✕</button></span></span><span class="tm-sep"><svg width="18" height="18" viewBox="0 0 18 18" fill="#e87c2a"><polygon points="9,1.5 10.8,6.5 16,6.5 11.8,9.8 13.5,15 9,11.8 4.5,15 6.2,9.8 2,6.5 7.2,6.5"></polygon></svg></span><span class="tm-item" id="tm-2"><span class="tm-name">Yahya Mohamed</span><span class="tm-hrs">17.5 hrs</span><span style="display:inline-flex;gap:4px;margin-left:4px"><button class="ia-btn ia-edit" style="font-size:10px;padding:2px 6px" onclick="openEditModal('member',2)">✏</button><button class="ia-btn ia-del" style="font-size:10px;padding:2px 6px" onclick="deleteItem('member',2)">✕</button></span></span><span class="tm-sep"><svg width="18" height="18" viewBox="0 0 18 18" fill="#e87c2a"><polygon points="9,1.5 10.8,6.5 16,6.5 11.8,9.8 13.5,15 9,11.8 4.5,15 6.2,9.8 2,6.5 7.2,6.5"></polygon></svg></span><span class="tm-item" id="tm-3"><span class="tm-name">Eiman Reda</span><span class="tm-hrs">22.5 hrs</span><span style="display:inline-flex;gap:4px;margin-left:4px"><button class="ia-btn ia-edit" style="font-size:10px;padding:2px 6px" onclick="openEditModal('member',3)">✏</button><button class="ia-btn ia-del" style="font-size:10px;padding:2px 6px" onclick="deleteItem('member',3)">✕</button></span></span><span class="tm-sep"><svg width="18" height="18" viewBox="0 0 18 18" fill="#e87c2a"><polygon points="9,1.5 10.8,6.5 16,6.5 11.8,9.8 13.5,15 9,11.8 4.5,15 6.2,9.8 2,6.5 7.2,6.5"></polygon></svg></span><span class="tm-item" id="tm-4"><span class="tm-name">Ahmed Gouhar</span><span class="tm-hrs">14.0 hrs</span><span style="display:inline-flex;gap:4px;margin-left:4px"><button class="ia-btn ia-edit" style="font-size:10px;padding:2px 6px" onclick="openEditModal('member',4)">✏</button><button class="ia-btn ia-del" style="font-size:10px;padding:2px 6px" onclick="deleteItem('member',4)">✕</button></span></span><span class="tm-sep"><svg width="18" height="18" viewBox="0 0 18 18" fill="#e87c2a"><polygon points="9,1.5 10.8,6.5 16,6.5 11.8,9.8 13.5,15 9,11.8 4.5,15 6.2,9.8 2,6.5 7.2,6.5"></polygon></svg></span><span class="tm-item" id="tm-5"><span class="tm-name">Mostafa Atef</span><span class="tm-hrs">13.5 hrs</span><span style="display:inline-flex;gap:4px;margin-left:4px"><button class="ia-btn ia-edit" style="font-size:10px;padding:2px 6px" onclick="openEditModal('member',5)">✏</button><button class="ia-btn ia-del" style="font-size:10px;padding:2px 6px" onclick="deleteItem('member',5)">✕</button></span></span><span class="tm-sep"><svg width="18" height="18" viewBox="0 0 18 18" fill="#e87c2a"><polygon points="9,1.5 10.8,6.5 16,6.5 11.8,9.8 13.5,15 9,11.8 4.5,15 6.2,9.8 2,6.5 7.2,6.5"></polygon></svg></span><span class="tm-item" id="tm-0"><span class="tm-name">Menna Sherif</span><span class="tm-hrs">22.5 hrs</span><span style="display:inline-flex;gap:4px;margin-left:4px"><button class="ia-btn ia-edit" style="font-size:10px;padding:2px 6px" onclick="openEditModal('member',0)">✏</button><button class="ia-btn ia-del" style="font-size:10px;padding:2px 6px" onclick="deleteItem('member',0)">✕</button></span></span><span class="tm-sep"><svg width="18" height="18" viewBox="0 0 18 18" fill="#e87c2a"><polygon points="9,1.5 10.8,6.5 16,6.5 11.8,9.8 13.5,15 9,11.8 4.5,15 6.2,9.8 2,6.5 7.2,6.5"></polygon></svg></span><span class="tm-item" id="tm-1"><span class="tm-name">Mazen Adam</span><span class="tm-hrs">20.0 hrs</span><span style="display:inline-flex;gap:4px;margin-left:4px"><button class="ia-btn ia-edit" style="font-size:10px;padding:2px 6px" onclick="openEditModal('member',1)">✏</button><button class="ia-btn ia-del" style="font-size:10px;padding:2px 6px" onclick="deleteItem('member',1)">✕</button></span></span><span class="tm-sep"><svg width="18" height="18" viewBox="0 0 18 18" fill="#e87c2a"><polygon points="9,1.5 10.8,6.5 16,6.5 11.8,9.8 13.5,15 9,11.8 4.5,15 6.2,9.8 2,6.5 7.2,6.5"></polygon></svg></span><span class="tm-item" id="tm-2"><span class="tm-name">Yahya Mohamed</span><span class="tm-hrs">17.5 hrs</span><span style="display:inline-flex;gap:4px;margin-left:4px"><button class="ia-btn ia-edit" style="font-size:10px;padding:2px 6px" onclick="openEditModal('member',2)">✏</button><button class="ia-btn ia-del" style="font-size:10px;padding:2px 6px" onclick="deleteItem('member',2)">✕</button></span></span><span class="tm-sep"><svg width="18" height="18" viewBox="0 0 18 18" fill="#e87c2a"><polygon points="9,1.5 10.8,6.5 16,6.5 11.8,9.8 13.5,15 9,11.8 4.5,15 6.2,9.8 2,6.5 7.2,6.5"></polygon></svg></span><span class="tm-item" id="tm-3"><span class="tm-name">Eiman Reda</span><span class="tm-hrs">22.5 hrs</span><span style="display:inline-flex;gap:4px;margin-left:4px"><button class="ia-btn ia-edit" style="font-size:10px;padding:2px 6px" onclick="openEditModal('member',3)">✏</button><button class="ia-btn ia-del" style="font-size:10px;padding:2px 6px" onclick="deleteItem('member',3)">✕</button></span></span><span class="tm-sep"><svg width="18" height="18" viewBox="0 0 18 18" fill="#e87c2a"><polygon points="9,1.5 10.8,6.5 16,6.5 11.8,9.8 13.5,15 9,11.8 4.5,15 6.2,9.8 2,6.5 7.2,6.5"></polygon></svg></span><span class="tm-item" id="tm-4"><span class="tm-name">Ahmed Gouhar</span><span class="tm-hrs">14.0 hrs</span><span style="display:inline-flex;gap:4px;margin-left:4px"><button class="ia-btn ia-edit" style="font-size:10px;padding:2px 6px" onclick="openEditModal('member',4)">✏</button><button class="ia-btn ia-del" style="font-size:10px;padding:2px 6px" onclick="deleteItem('member',4)">✕</button></span></span><span class="tm-sep"><svg width="18" height="18" viewBox="0 0 18 18" fill="#e87c2a"><polygon points="9,1.5 10.8,6.5 16,6.5 11.8,9.8 13.5,15 9,11.8 4.5,15 6.2,9.8 2,6.5 7.2,6.5"></polygon></svg></span><span class="tm-item" id="tm-5"><span class="tm-name">Mostafa Atef</span><span class="tm-hrs">13.5 hrs</span><span style="display:inline-flex;gap:4px;margin-left:4px"><button class="ia-btn ia-edit" style="font-size:10px;padding:2px 6px" onclick="openEditModal('member',5)">✏</button><button class="ia-btn ia-del" style="font-size:10px;padding:2px 6px" onclick="deleteItem('member',5)">✕</button></span></span><span class="tm-sep"><svg width="18" height="18" viewBox="0 0 18 18" fill="#e87c2a"><polygon points="9,1.5 10.8,6.5 16,6.5 11.8,9.8 13.5,15 9,11.8 4.5,15 6.2,9.8 2,6.5 7.2,6.5"></polygon></svg></span></div></div>
+    </div>
+    <div class="ai-star-wrap"><div class="ai-star" id="aiStar" onclick="triggerStarDance()" ontouchstart="triggerStarDance()">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <polygon points="18,3 21.5,13.5 33,13.5 23.5,20.5 27,31 18,24 9,31 12.5,20.5 3,13.5 14.5,13.5" fill="rgba(56,189,248,0.15)" stroke="#38bdf8" stroke-width="1.4" stroke-linejoin="round"></polygon>
+        <polygon points="18,7 20.8,15.2 29.5,15.2 22.5,20.5 25.2,28.8 18,23.5 10.8,28.8 13.5,20.5 6.5,15.2 15.2,15.2" fill="rgba(56,189,248,0.08)" stroke="rgba(56,189,248,0.35)" stroke-width="0.8" stroke-linejoin="round"></polygon>
+      </svg>
     </div></div>
-    <div class="admin-add-row" id="add-team-row">
+    <div class="admin-add-row visible" id="add-team-row">
       <button class="add-btn" onclick="openEditModal('member','new')">+ Add Member</button>
     </div>
   </div>
@@ -695,41 +688,48 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <!-- ═══════════ GUIDELINES PAGE ═══════════ -->
 <div class="page" id="page-guides">
   <div class="guide-wrap">
-    <div id="guides-index" style=""><div class="section-label" style="margin-top:0">All Guidelines</div><div class="guide-grid" id="guide-grid-el"><a class="guide-card" href="#" onclick="showGuide('annot-critic');return false">
-      
+    <div id="guides-index"><div class="section-label" style="margin-top:0">All Guidelines</div><div class="guide-grid" id="guide-grid-el"><a class="guide-card" href="#" onclick="showGuide('annot-critic');return false">
+      <div class="guide-admin-actions visible">
+      <button class="ia-btn ia-edit" onclick="event.preventDefault();event.stopPropagation();openEditModal('guide','annot-critic')">✏ Edit</button>
+      <button class="ia-btn ia-del" onclick="event.preventDefault();event.stopPropagation();deleteItem('guide','annot-critic')">✕ Reset</button>
+    </div>
       <div class="gi">🎯</div><div class="gt">Annotation Critic</div>
       <div class="gd">Quality review criteria, scoring rubric, and common errors.</div>
       <div class="gf"><span class="gl">Jun 2026</span><span class="ga"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span></div>
     </a><a class="guide-card" href="#" onclick="showGuide('ig-entity');return false">
-      
+      <div class="guide-admin-actions visible">
+      <button class="ia-btn ia-edit" onclick="event.preventDefault();event.stopPropagation();openEditModal('guide','ig-entity')">✏ Edit</button>
+      <button class="ia-btn ia-del" onclick="event.preventDefault();event.stopPropagation();deleteItem('guide','ig-entity')">✕ Reset</button>
+    </div>
       <div class="gi">🔍</div><div class="gt">IG Entity Verification</div>
       <div class="gd">Step-by-step entity verification for IG tasks.</div>
       <div class="gf"><span class="gl">Jun 2026</span><span class="ga"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span></div>
     </a><a class="guide-card" href="#" onclick="showGuide('sl-box');return false">
-      
+      <div class="guide-admin-actions visible">
+      <button class="ia-btn ia-edit" onclick="event.preventDefault();event.stopPropagation();openEditModal('guide','sl-box')">✏ Edit</button>
+      <button class="ia-btn ia-del" onclick="event.preventDefault();event.stopPropagation();deleteItem('guide','sl-box')">✕ Reset</button>
+    </div>
       <div class="gi">📦</div><div class="gt">SL Box Verification &amp; Correction</div>
       <div class="gd">Box verification and correction procedures.</div>
       <div class="gf"><span class="gl">Jun 2026</span><span class="ga"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span></div>
     </a><a class="guide-card" href="#" onclick="showGuide('boundary');return false">
-      
+      <div class="guide-admin-actions visible">
+      <button class="ia-btn ia-edit" onclick="event.preventDefault();event.stopPropagation();openEditModal('guide','boundary')">✏ Edit</button>
+      <button class="ia-btn ia-del" onclick="event.preventDefault();event.stopPropagation();deleteItem('guide','boundary')">✕ Reset</button>
+    </div>
       <div class="gi">✂️</div><div class="gt">Find the Boundary v2</div>
       <div class="gd">Pixel-aligned boundary detection. Updated v2 specs.</div>
       <div class="gf"><span class="gl">Jun 2026</span><span class="ga"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span></div>
     </a><a class="guide-card" href="#" onclick="showGuide('i2i');return false">
-      
+      <div class="guide-admin-actions visible">
+      <button class="ia-btn ia-edit" onclick="event.preventDefault();event.stopPropagation();openEditModal('guide','i2i')">✏ Edit</button>
+      <button class="ia-btn ia-del" onclick="event.preventDefault();event.stopPropagation();deleteItem('guide','i2i')">✕ Reset</button>
+    </div>
       <div class="gi">🖼️</div><div class="gt">i2i Pixel-Aligned Filter</div>
       <div class="gd">Image-to-image filter alignment specification.</div>
       <div class="gf"><span class="gl">Jun 2026</span><span class="ga"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span></div>
     </a></div></div>
-    <div id="guides-detail" style="display: none;">
-    <button class="back-btn" onclick="backToGuides()">← All Guidelines</button>
-    <div class="guide-detail">
-      <div style="font-size:32px;margin-bottom:10px">📦</div>
-      <h2>SL Box Verification &amp; Correction</h2>
-      <div class="guide-detail-meta">Updated: Jun 2026 · SL-Box-Verification.pdf</div>
-      <h3>Overview</h3><p>How to verify and correct bounding box annotations in SL tasks.</p><h3>Verification Checklist</h3><ul><li>Box must fully enclose the target — no cropping of edges.</li><li>No background padding &gt;5px on any side.</li><li>Overlapping boxes must be clearly separated.</li><li>Confirm label before submission.</li></ul><h3>Correction Procedure</h3><ol><li>Identify the misaligned box.</li><li>Resize using corner handles — do not drag the center.</li><li>Use zoom (minimum 200%) for pixel-level corrections.</li><li>Re-verify after correction before saving.</li></ol><div class="callout">If a box cannot be corrected within 2 minutes, flag for supervisor review.</div>
-      <a class="pdf-btn" href="https://maemaam.github.io/exponn/SOPs/SL-Box-Verification.pdf" target="_blank">📄 Open Full PDF <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
-    </div></div>
+    <div id="guides-detail" style="display:none"></div>
   </div>
 </div>
 
@@ -738,18 +738,18 @@ Format: UUID	Status	Date	MM:SS"></textarea>
   <div class="sched-wrap">
     <div class="sched-topbar">
       <div class="sched-title" id="schedTitle">Team Schedule — Jun 22–28, 2026</div>
-      <button class="btn btn-secondary btn-sm" id="schedEditBtn" onclick="openSchedPw()" style="">
+      <button class="btn btn-secondary btn-sm" id="schedEditBtn" onclick="openSchedPw()">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="opacity:.7"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
         Edit
       </button>
     </div>
     <div class="sched-sub" id="schedSub">6 members on shift this week</div>
     <div class="save-bar" id="saveBar">
-      <span class="save-st" id="saveSt">Click any cell to edit · Click day header to change week · Click name to rename</span>
+      <span class="save-st" id="saveSt"></span>
       <button class="btn btn-secondary btn-sm" onclick="cancelSchedEdit()">Cancel</button>
       <button class="btn btn-primary btn-sm" onclick="saveSchedGh()">💾 Save &amp; Publish</button>
     </div>
-    <button class="btn btn-secondary btn-sm" id="historyBtn" onclick="openChangelog()" style="margin-bottom: 10px; display: none; align-items: center; gap: 6px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Schedule History</button>
+    <button class="btn btn-secondary btn-sm" id="historyBtn" onclick="openChangelog()" style="margin-bottom:10px;display:none;align-items:center;gap:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Schedule History</button>
     <div id="dayPicker" class="day-picker-popup"><div class="dp-title" id="dpTitle"></div><div id="dpList"></div></div>
 
     <!-- desktop table -->
@@ -956,7 +956,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <div class="tp-wrap" id="tpWrap">
   <div class="tp-card">
     <div class="tp-title">Edit Shift</div>
-    <div class="tp-name" id="tpName">Menna Sherif</div>
+    <div class="tp-name" id="tpName"></div>
     <button class="tp-off-btn" onclick="tpSetOff()">Mark as Day Off</button>
     <div class="tp-row">
       <div class="tp-field"><label>From</label><select id="tpFrom"><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30 PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option></select></div>
@@ -995,9 +995,13 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <!-- INLINE EDIT MODAL -->
 <div class="edit-modal-wrap" id="editModalWrap"><grammarly-extension data-grammarly-shadow-root="true" class="dnXmp" style="position: absolute; top: 0px; left: 0px; pointer-events: none; --rem: 16;"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" class="dnXmp" style="position: absolute; top: 0px; left: 0px; pointer-events: none; --rem: 16;"></grammarly-extension>
   <div class="edit-modal" id="editModal">
-    <h3 id="editModalTitle">Edit Sub-Headline</h3>
-    <div id="editModalFields"><div class="em-field"><label>Sub-headline</label><textarea id="ef-val" spellcheck="false">Tasks, updates, and team resources • Built for YOU,</textarea></div>
-        <div class="em-field"><label>Assessment Form URL</label><input id="ef-assess" value=""></div></div>
+    <h3 id="editModalTitle">Add Update</h3>
+    <div id="editModalFields">
+      <div class="em-field"><label>Tag</label><select id="ef-tag"><option value="new" selected="">New</option><option value="updated">Updated</option><option value="alert">Alert</option><option value="info">Info</option></select></div>
+      <div class="em-field"><label>Title</label><input id="ef-title" value=""></div>
+      <div class="em-field"><label>Body</label><textarea id="ef-body" spellcheck="false"></textarea></div>
+      <div class="em-field"><label>Date</label><input id="ef-date" value=""></div>
+      <div class="em-field"><label>Links to Page</label><select id="ef-link"><option value="" selected="">No link</option><option value="home">Home</option><option value="calc">Time Calculator</option><option value="guides">Guidelines</option><option value="sched">Schedule</option></select></div></div>
     <div class="em-actions">
       <button class="btn btn-secondary btn-sm" onclick="closeEditModal()">Cancel</button>
       <button class="btn btn-primary btn-sm" id="saveEditBtn" onclick="saveEditModal()">Save</button>
@@ -1012,43 +1016,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
       <div class="cl-hdr-title">Schedule History</div>
       <button class="cl-close" onclick="closeChangelog()">✕</button>
     </div>
-    <div id="clList"><div class="cl-entry">
-      <div class="cl-entry-name">Change_Log_Wed24Jun</div>
-      <div class="cl-entry-ts">Wed, Jun 24, 2026 · 3:28 AM</div>
-      <ul class="cl-changes"><li>Menna Sherif's Mon shift changed from "10:00 AM – 2:00 PM" to "9:30 AM – 2:00 PM"</li></ul>
-      <div class="cl-entry-device">✦ MacBook Pro</div>
-      <button class="cl-restore-btn" onclick="restoreFromChangelog(0)">Restore this snapshot</button>
-    </div><div class="cl-entry">
-      <div class="cl-entry-name">Change_Log_Wed24Jun</div>
-      <div class="cl-entry-ts">Wed, Jun 24, 2026 · 3:28 AM</div>
-      <ul class="cl-changes"><li>Menna Sherif's Mon shift changed from "9:30 AM – 2:00 PM" to "10:00 AM – 2:00 PM"</li></ul>
-      <div class="cl-entry-device">✦ MacBook Pro</div>
-      <button class="cl-restore-btn" onclick="restoreFromChangelog(1)">Restore this snapshot</button>
-    </div><div class="cl-entry">
-      <div class="cl-entry-name">Change_Log_Wed24Jun</div>
-      <div class="cl-entry-ts">Wed, Jun 24, 2026 · 3:17 AM</div>
-      <div class="cl-no-changes">No tracked changes</div>
-      <div class="cl-entry-device">✦ MacBook Pro</div>
-      <button class="cl-restore-btn" onclick="restoreFromChangelog(2)">Restore this snapshot</button>
-    </div><div class="cl-entry">
-      <div class="cl-entry-name">Change_Log_Wed24Jun</div>
-      <div class="cl-entry-ts">Wed, Jun 24, 2026 · 3:17 AM</div>
-      <div class="cl-no-changes">No tracked changes</div>
-      <div class="cl-entry-device">✦ MacBook Pro</div>
-      <button class="cl-restore-btn" onclick="restoreFromChangelog(3)">Restore this snapshot</button>
-    </div><div class="cl-entry">
-      <div class="cl-entry-name">Change_Log_Wed24Jun</div>
-      <div class="cl-entry-ts">Wed, Jun 24, 2026 · 3:13 AM</div>
-      <div class="cl-no-changes">No tracked changes</div>
-      <div class="cl-entry-device">✦ MacBook Pro</div>
-      <button class="cl-restore-btn" onclick="restoreFromChangelog(4)">Restore this snapshot</button>
-    </div><div class="cl-entry">
-      <div class="cl-entry-name">Change_Log_Wed24Jun</div>
-      <div class="cl-entry-ts">Wed, Jun 24, 2026 · 3:13 AM</div>
-      <div class="cl-no-changes">No tracked changes</div>
-      <div class="cl-entry-device">✦ MacBook Pro</div>
-      <button class="cl-restore-btn" onclick="restoreFromChangelog(5)">Restore this snapshot</button>
-    </div></div>
+    <div id="clList"></div>
   </div>
 </div>
 
@@ -1056,7 +1024,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <div class="confirm-ov" id="confirmOv">
   <div class="confirm-box">
     <div class="confirm-title">Confirm Change</div>
-    <div class="confirm-msg" id="confirmMsg">Are you sure you want to update the sub-headline?</div>
+    <div class="confirm-msg" id="confirmMsg">Are you sure you want to add the update "test"?</div>
     <div class="confirm-actions">
       <button class="btn btn-secondary btn-sm" onclick="confirmCancel()">Cancel</button>
       <button class="btn btn-primary btn-sm" onclick="confirmOk()">Yes, Confirm</button>
@@ -1068,7 +1036,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 
 <script>
 // ═══════════════════════════ CMS DATA ═══════════════════════════
-const DEFAULT_CONTENT = {"hero":{"eyebrow":"Week of Jun 22, 2026","title":"Exponn\n[Employee Hub]\n","sub":"Tasks, updates, and team resources • Built for YOU.","assessmentLink":"","titleSubRatio":0.68},"updates":[{"id":"u1","tag":"new","title":"Task Time Calculator","body":"Quickly calculate your total work time from task IDs. Paste your task list, set your first & last task ID, apply a time cap, and get your total instantly.","date":"Jun 23, 2026","link":"calc"},{"id":"u2","tag":"updated","title":"Team Schedule Updated","body":"Schedule updated with new shift distribution for the week of Jun 23.","date":"Jun 22, 2026","link":"sched"},{"id":"u3","tag":"alert","title":"Annotation Quality Reminder","body":"Review the annotation critic guidelines before starting tasks. Pay close attention to boundary precision and entity verification steps.","date":"Jun 20, 2026","link":"guides"}],"tasks":[{"id":"t1","icon":"🎯","title":"Annotation Critic","desc":"Quality review criteria, scoring rubric, and common errors.","guideKey":"annot-critic","label":"annot-critic-q7r"},{"id":"t2","icon":"🔍","title":"IG Entity Verification","desc":"Step-by-step entity verification process for IG tasks.","guideKey":"ig-entity","label":"IG Entity Verification"},{"id":"t3","icon":"📦","title":"SL Box Verification","desc":"Box verification and correction procedures.","guideKey":"sl-box","label":"SL Box Verification"},{"id":"t4","icon":"✂️","title":"Find the Boundary v2","desc":"Pixel-aligned boundary detection. Updated v2 specs.","guideKey":"boundary","label":"find-the-boundary-v2"},{"id":"t5","icon":"🖼️","title":"i2i Pixel-Aligned Filter","desc":"Image-to-image filter alignment specification.","guideKey":"i2i","label":"i2i-pixel-aligned-filter"}],"team":[{"name":"Menna Sherif","hrs":"22.5"},{"name":"Mazen Adam","hrs":"20"},{"name":"Yahya Mohamed","hrs":"17.5"},{"name":"Eiman Reda","hrs":"22.5"},{"name":"Ahmed Gouhar","hrs":"14"},{"name":"Mostafa Atef","hrs":"13.5"}],"guides":{}};
+const DEFAULT_CONTENT = {"hero":{"eyebrow":"Week of Jun 22, 2026","title":"Exponn\n[Employee Hub]\n","sub":"Tasks, updates, and team resources • Built for YOU.","assessmentLink":"","titleSubRatio":0.68},"updates":[{"id":"u1782262005045","tag":"new","title":"test","body":"test","date":"test","link":"guides"},{"id":"u1","tag":"new","title":"Task Time Calculator","body":"Quickly calculate your total work time from task IDs. Paste your task list, set your first & last task ID, apply a time cap, and get your total instantly.","date":"Jun 23, 2026","link":"calc"},{"id":"u2","tag":"updated","title":"Team Schedule Updated","body":"Schedule updated with new shift distribution for the week of Jun 23.","date":"Jun 22, 2026","link":"sched"},{"id":"u3","tag":"alert","title":"Annotation Quality Reminder","body":"Review the annotation critic guidelines before starting tasks. Pay close attention to boundary precision and entity verification steps.","date":"Jun 20, 2026","link":"guides"}],"tasks":[{"id":"t1","icon":"🎯","title":"Annotation Critic","desc":"Quality review criteria, scoring rubric, and common errors.","guideKey":"annot-critic","label":"annot-critic-q7r"},{"id":"t2","icon":"🔍","title":"IG Entity Verification","desc":"Step-by-step entity verification process for IG tasks.","guideKey":"ig-entity","label":"IG Entity Verification"},{"id":"t3","icon":"📦","title":"SL Box Verification","desc":"Box verification and correction procedures.","guideKey":"sl-box","label":"SL Box Verification"},{"id":"t4","icon":"✂️","title":"Find the Boundary v2","desc":"Pixel-aligned boundary detection. Updated v2 specs.","guideKey":"boundary","label":"find-the-boundary-v2"},{"id":"t5","icon":"🖼️","title":"i2i Pixel-Aligned Filter","desc":"Image-to-image filter alignment specification.","guideKey":"i2i","label":"i2i-pixel-aligned-filter"}],"team":[{"name":"Menna Sherif","hrs":"22.5"},{"name":"Mazen Adam","hrs":"20"},{"name":"Yahya Mohamed","hrs":"17.5"},{"name":"Eiman Reda","hrs":"22.5"},{"name":"Ahmed Gouhar","hrs":"14"},{"name":"Mostafa Atef","hrs":"13.5"}],"guides":{}};
 
 const CMS_KEY='exp_cms';
 function getCMS(){
@@ -1170,31 +1138,28 @@ function renderHome(){
         <div class="update-title">${esc(u.title)}</div>
         <div class="update-body">${esc(u.body)}</div>
       </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0">
+      <div class="update-right">
         <div class="update-meta">${esc(u.date)}</div>
-        <div class="item-actions${adminMode?' visible':''}" id="ia-${u.id}">
+        ${adminMode?`<div class="item-actions visible" id="ia-${u.id}" style="position:static;margin-top:6px">
           <button class="ia-btn ia-edit" onclick="event.stopPropagation();openEditModal('update','${u.id}')">✏ Edit</button>
           <button class="ia-btn ia-del" onclick="event.stopPropagation();deleteItem('update','${u.id}')">✕</button>
-        </div>
+        </div>`:''}
         ${!adminMode&&u.link?`<div class="update-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>`:''}
       </div>
     </div>`;
   }).join('');
 
-  // team — compute hours from schedule by name match
+  // team — stars of the week marquee ticker
   const schedData=getSD();
-  document.getElementById('team-strip').innerHTML=cms.team.map((m,i)=>{
+  const teamItems=cms.team.map((m,i)=>{
     const match=schedData.find(p=>p.n===m.name);
     const computedHrs=match?personHours(match.s).toFixed(1):m.hrs;
-    return`<div class="tm" id="tm-${i}" style="position:relative">
-      <div class="tm-name">${esc(m.name)}</div>
-      <div class="tm-hrs">${computedHrs} hrs</div>
-      <div class="item-actions${adminMode?' visible':''}" id="ia-tm-${i}" style="top:-8px;right:-8px">
-        <button class="ia-btn ia-edit" onclick="openEditModal('member',${i})">✏</button>
-        <button class="ia-btn ia-del" onclick="deleteItem('member',${i})">✕</button>
-      </div>
-    </div>`;
+    const starSvg=`<span class="tm-sep"><svg width="18" height="18" viewBox="0 0 18 18" fill="#e87c2a"><polygon points="9,1.5 10.8,6.5 16,6.5 11.8,9.8 13.5,15 9,11.8 4.5,15 6.2,9.8 2,6.5 7.2,6.5"/></svg></span>`;
+    const adminOverlay=adminMode?`<span style="display:inline-flex;gap:4px;margin-left:4px"><button class="ia-btn ia-edit" style="font-size:10px;padding:2px 6px" onclick="openEditModal('member',${i})">✏</button><button class="ia-btn ia-del" style="font-size:10px;padding:2px 6px" onclick="deleteItem('member',${i})">✕</button></span>`:'';
+    return`<span class="tm-item" id="tm-${i}"><span class="tm-name">${esc(m.name)}</span><span class="tm-hrs">${computedHrs} hrs</span>${adminOverlay}</span>${starSvg}`;
   }).join('');
+  const ticker=document.getElementById('stars-ticker');
+  if(ticker){ticker.innerHTML=teamItems+teamItems;}
 
   // show/hide add buttons
   document.getElementById('add-update-row').className='admin-add-row'+(adminMode?' visible':'');
@@ -1873,11 +1838,16 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){tpCancel();closeSch
 let _schedMem=null,schedEditing=false;
 const getSchedMem=()=>{if(!_schedMem)_schedMem=getSD();return _schedMem;};
 const updateSchedMem=(pi,di,v)=>{getSchedMem()[pi].s[di]=v;};
-function openSchedPw(){document.getElementById('schedOv').classList.add('on');setTimeout(()=>document.getElementById('schedPw').focus(),60);}
+let _schedAuthExp=0;
+function openSchedPw(){
+  if(Date.now()<_schedAuthExp){closeSchedPw();startSchedEdit();return;}
+  document.getElementById('schedOv').classList.add('on');setTimeout(()=>document.getElementById('schedPw').focus(),60);
+}
 function closeSchedPw(){document.getElementById('schedOv').classList.remove('on');document.getElementById('schedPwe').textContent='';}
 function authSched(){
   const pw=document.getElementById('schedPw').value;
   if(pw===(localStorage.getItem(PK)||DEFAULT_PW)){
+    _schedAuthExp=Date.now()+5*60*1000;
     document.getElementById('schedPw').value='';document.getElementById('schedPwe').textContent='';
     ['ghtok','ghrepo','ghpath'].forEach((id,i)=>{const keys=[TK,RK,FK],defs=[DEFAULT_TOK,DEFAULT_REPO,DEFAULT_PATH];document.getElementById(id).value=localStorage.getItem(keys[i])||defs[i];});
     closeSchedPw();startSchedEdit();
@@ -1886,13 +1856,18 @@ function authSched(){
 function _setHistoryBtn(visible){const b=document.getElementById('historyBtn');if(b)b.style.display=visible?'flex':'none';}
 function startSchedEdit(){_schedMem=getSD();schedEditing=true;document.body.classList.add('editing');document.getElementById('schedEditBtn').style.display='none';document.getElementById('saveBar').classList.add('on');_setHistoryBtn(true);setSaveSt('Click any cell to edit · Click day header to change week · Click name to rename','');renderSched();}
 function cancelSchedEdit(){schedEditing=false;_schedMem=null;document.body.classList.remove('editing');document.getElementById('schedEditBtn').style.display='';document.getElementById('saveBar').classList.remove('on');_setHistoryBtn(false);renderSched();}
-function persistSched(label,preOldD){
+function persistSched(label,preOldD,keepEditing){
   const d=getSchedMem();
   const oldD=preOldD||getSD();
   addChangelogEntry(label||'Saved locally',d,oldD);
   localStorage.setItem(SC,JSON.stringify(d));
-  _schedMem=null;schedEditing=false;document.body.classList.remove('editing');
-  document.getElementById('schedEditBtn').style.display='';document.getElementById('saveBar').classList.remove('on');_setHistoryBtn(false);renderSched();
+  if(keepEditing){
+    _schedMem=JSON.parse(JSON.stringify(d));
+  }else{
+    _schedMem=null;schedEditing=false;document.body.classList.remove('editing');
+    document.getElementById('schedEditBtn').style.display='';document.getElementById('saveBar').classList.remove('on');_setHistoryBtn(false);
+  }
+  renderSched();
 }
 async function saveSchedGh(){
   showConfirm('Are you sure you want to publish the schedule?',async()=>{ await _doSaveSchedGh(); });
@@ -1906,7 +1881,7 @@ async function _doSaveSchedGh(){
     ['ghtok','ghrepo','ghpath'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
     const html=document.documentElement.outerHTML.replace(/const DEFAULT_SCHED=\[[\s\S]*?\];/,'const DEFAULT_SCHED='+JSON.stringify(d)+';');
     const pr=await fetch(url,{method:'PUT',headers:{...hdr,'Content-Type':'application/json'},body:JSON.stringify({message:`Schedule ${new Date().toISOString().slice(0,10)}`,content:btoa(unescape(encodeURIComponent(html))),...(sha?{sha}:{})})});
-    if(pr.ok){persistSched('Published to GitHub',_preOldD);setSaveSt('✓ Published!','ok');}else{const er=await pr.json();setSaveSt('Error: '+(er.message||pr.status),'er');}
+    if(pr.ok){persistSched('Published to GitHub',_preOldD,true);setSaveSt('✓ Published!','ok');}else{const er=await pr.json();setSaveSt('Error: '+(er.message||pr.status),'er');}
   }catch(er){setSaveSt('Error: '+er.message,'er');}
 }
 function setSaveSt(m,t){const e=document.getElementById('saveSt');e.textContent=m;e.className='save-st'+(t?' '+t:'');}
@@ -1923,6 +1898,8 @@ function showConfirm(msg,cb){
 }
 function confirmOk(){document.getElementById('confirmOv').classList.remove('on');if(_confirmCb){_confirmCb();_confirmCb=null;}}
 function confirmCancel(){document.getElementById('confirmOv').classList.remove('on');_confirmCb=null;}
+
+function triggerStarDance(){const el=document.getElementById('aiStar');if(!el)return;el.classList.remove('dancing');void el.offsetWidth;el.classList.add('dancing');el.addEventListener('animationend',()=>el.classList.remove('dancing'),{once:true});}
 
 // ═══════════════════════════ CHANGELOG ═══════════════════════════
 const CL_KEY='exp_cl';
