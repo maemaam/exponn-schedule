@@ -434,21 +434,21 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
 }
 </style>
 </head>
-<body data-new-gr-c-s-check-loaded="9.98.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="9.98.0" class="editing">
+<body data-new-gr-c-s-check-loaded="9.98.0" data-gr-ext-installed="" data-new-gr-c-s-loaded="9.98.0">
 
 <!-- NAV -->
 <nav>
   <img class="nav-logo" src="logo.webp" alt="Exponn" onclick="showPage('home')">
   <a class="nav-brand" href="#" onclick="showPage('home');return false">Exponn</a>
   <div class="nav-tabs">
-    <button class="nav-tab" id="nav-home" onclick="showPage('home')">Home</button>
+    <button class="nav-tab active" id="nav-home" onclick="showPage('home')">Home</button>
     <button class="nav-tab" id="nav-calc" onclick="showPage('calc')">Time Calculator</button>
     <button class="nav-tab" id="nav-guides" onclick="showPage('guides')">Guidelines</button>
-    <button class="nav-tab active" id="nav-sched" onclick="showPage('sched')">Schedule</button>
+    <button class="nav-tab" id="nav-sched" onclick="showPage('sched')">Schedule</button>
   </div>
   <div class="nav-right">
     <div class="nav-status"><div class="status-dot"></div><span class="status-txt">Active</span></div>
-    <button class="nav-edit-btn unlocked" id="navEditBtn" onclick="openAdminOrPw()" style="display: none;"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg> Exit Edit</button>
+    <button class="nav-edit-btn unlocked" id="navEditBtn" onclick="openAdminOrPw()"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg> Exit Edit</button>
   </div>
   <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
 </nav>
@@ -460,7 +460,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
 </div>
 
 <!-- ═══════════ HOME PAGE ═══════════ -->
-<div class="page" id="page-home">
+<div class="page active" id="page-home">
 
   <div class="hero">
     <div class="hero-eyebrow" id="hero-eyebrow-el" title="Click to edit">
@@ -468,7 +468,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
       <span id="hero-eyebrow-text">Week of Jun 22, 2026</span>
     </div>
     <p class="hero-slogan">Training Intelligence, One Label at a Time</p>
-    <h1 class="hero-title" id="hero-title-el" style="cursor: pointer;">Exponn<br><span class="hl">Employee Hub</span><br></h1>
+    <h1 class="hero-title" id="hero-title-el" style="cursor: pointer;"><span style="display:block;font-size:1em;line-height:1.05;margin-top:0">Exponn</span><span style="display:block;font-size:0.68em;line-height:1.08;margin-top:0.08em"><span class="hl">Employee Hub</span></span><span style="display:block;font-size:0.68em;line-height:1.08;margin-top:0.08em"></span></h1>
     <p class="hero-sub" id="hero-sub-el" style="cursor: pointer;">Everything <span class="drawn">YOU<svg viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4 C32 -1, 68 -2, 84 6 C94 12, 96 26, 85 33 C70 41, 28 42, 14 34 C4 27, 3 13, 18 4 Z" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.65"></path></svg></span> need; tasks, updates, and team resources.</p>
     <div class="hero-ctas">
       <button class="btn btn-primary" onclick="showPage('calc')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Time Calculator</button>
@@ -487,46 +487,46 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
     <div style="position:relative">
       <div class="carousel-wrap" id="carousel">
         <div class="carousel-track" id="carouselTrack"><div class="carousel-slide" onclick="showGuide('annot-critic')">
-      <div class="carousel-bg cbg-0" style="transform: translateY(96px);"></div>
-      <div class="carousel-visual vis-0" style="transform: translateY(38.4px);"><div class="vbar" style="left:15%;width:12%;height:55%"></div><div class="vbar" style="left:30%;width:12%;height:70%"></div><div class="vbar" style="left:45%;width:12%;height:45%"></div><div class="vbar" style="left:60%;width:12%;height:80%"></div><div class="vbar" style="left:75%;width:12%;height:60%"></div></div>
+      <div class="carousel-bg cbg-0" style="transform: translateY(0px);"></div>
+      <div class="carousel-visual vis-0" style="transform: translateY(0px);"><div class="vbar" style="left:15%;width:12%;height:55%"></div><div class="vbar" style="left:30%;width:12%;height:70%"></div><div class="vbar" style="left:45%;width:12%;height:45%"></div><div class="vbar" style="left:60%;width:12%;height:80%"></div><div class="vbar" style="left:75%;width:12%;height:60%"></div></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(16px);">
+      <div class="carousel-content" style="transform: translateY(0px);">
         <div class="carousel-tag">annot-critic-q7r</div>
         <div class="carousel-title">Annotation Critic</div>
         <div class="carousel-desc">Quality review criteria, scoring rubric, and common errors.</div>
       </div>
     </div><div class="carousel-slide" onclick="showGuide('ig-entity')">
-      <div class="carousel-bg cbg-1" style="transform: translateY(0px);"></div>
-      <div class="carousel-visual vis-1" style="transform: translateY(0px);"><div class="vbox" style="left:15%;top:20%;width:28%;height:35%"></div><div class="vbox" style="left:55%;top:30%;width:22%;height:28%"></div><div class="vbox" style="left:30%;top:55%;width:18%;height:22%"></div></div>
+      <div class="carousel-bg cbg-1" style="transform: translateY(-96px);"></div>
+      <div class="carousel-visual vis-1" style="transform: translateY(-38.4px);"><div class="vbox" style="left:15%;top:20%;width:28%;height:35%"></div><div class="vbox" style="left:55%;top:30%;width:22%;height:28%"></div><div class="vbox" style="left:30%;top:55%;width:18%;height:22%"></div></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(0px);">
+      <div class="carousel-content" style="transform: translateY(-16px);">
         <div class="carousel-tag">IG Entity Verification</div>
         <div class="carousel-title">IG Entity Verification</div>
         <div class="carousel-desc">Step-by-step entity verification process for IG tasks.</div>
       </div>
     </div><div class="carousel-slide" onclick="showGuide('sl-box')">
-      <div class="carousel-bg cbg-2" style="transform: translateY(-96px);"></div>
-      <div class="carousel-visual vis-2" style="transform: translateY(-38.4px);"><div class="vgrid-line" style="left:0%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:14%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:28%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:42%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:56%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:70%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:84%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:98%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="top:0%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:16%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:32%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:48%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:64%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:80%;left:0;right:0;height:1px"></div></div>
+      <div class="carousel-bg cbg-2" style="transform: translateY(-192px);"></div>
+      <div class="carousel-visual vis-2" style="transform: translateY(-76.8px);"><div class="vgrid-line" style="left:0%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:14%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:28%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:42%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:56%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:70%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:84%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="left:98%;top:0;bottom:0;width:1px"></div><div class="vgrid-line" style="top:0%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:16%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:32%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:48%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:64%;left:0;right:0;height:1px"></div><div class="vgrid-line" style="top:80%;left:0;right:0;height:1px"></div></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(-16px);">
+      <div class="carousel-content" style="transform: translateY(-32px);">
         <div class="carousel-tag">SL Box Verification</div>
         <div class="carousel-title">SL Box Verification</div>
         <div class="carousel-desc">Box verification and correction procedures.</div>
       </div>
     </div><div class="carousel-slide" onclick="showGuide('boundary')">
-      <div class="carousel-bg cbg-3" style="transform: translateY(-192px);"></div>
-      <div class="carousel-visual vis-3" style="transform: translateY(-76.8px);"></div>
+      <div class="carousel-bg cbg-3" style="transform: translateY(-288px);"></div>
+      <div class="carousel-visual vis-3" style="transform: translateY(-115.2px);"></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(-32px);">
+      <div class="carousel-content" style="transform: translateY(-48px);">
         <div class="carousel-tag">find-the-boundary-v2</div>
         <div class="carousel-title">Find the Boundary v2</div>
         <div class="carousel-desc">Pixel-aligned boundary detection. Updated v2 specs.</div>
       </div>
     </div><div class="carousel-slide" onclick="showGuide('i2i')">
-      <div class="carousel-bg cbg-4" style="transform: translateY(-288px);"></div>
-      <div class="carousel-visual vis-4" style="transform: translateY(-115.2px);"></div>
+      <div class="carousel-bg cbg-4" style="transform: translateY(-384px);"></div>
+      <div class="carousel-visual vis-4" style="transform: translateY(-153.6px);"></div>
       <div class="carousel-glass"></div>
-      <div class="carousel-content" style="transform: translateY(-48px);">
+      <div class="carousel-content" style="transform: translateY(-64px);">
         <div class="carousel-tag">i2i-pixel-aligned-filter</div>
         <div class="carousel-title">i2i Pixel-Aligned Filter</div>
         <div class="carousel-desc">Image-to-image filter alignment specification.</div>
@@ -535,7 +535,7 @@ footer{text-align:center;padding:40px 24px;color:var(--muted);font-size:12px;bor
       </div>
       <button class="carousel-arrow prev" onclick="carouselMove(-1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
       <button class="carousel-arrow next" onclick="carouselMove(1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-      <div class="carousel-nav" id="carouselDots"><div class="carousel-dot" onclick="carouselGo(0)"></div><div class="carousel-dot" onclick="carouselGo(1)"></div><div class="carousel-dot" onclick="carouselGo(2)"></div><div class="carousel-dot" onclick="carouselGo(3)"></div><div class="carousel-dot active" onclick="carouselGo(4)"></div></div>
+      <div class="carousel-nav" id="carouselDots"><div class="carousel-dot active" onclick="carouselGo(0)"></div><div class="carousel-dot" onclick="carouselGo(1)"></div><div class="carousel-dot" onclick="carouselGo(2)"></div><div class="carousel-dot" onclick="carouselGo(3)"></div><div class="carousel-dot" onclick="carouselGo(4)"></div></div>
     </div>
   </div>
 
@@ -741,27 +741,27 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 </div>
 
 <!-- ═══════════ SCHEDULE PAGE ═══════════ -->
-<div class="page active" id="page-sched">
+<div class="page" id="page-sched">
   <div class="sched-wrap">
     <div class="sched-topbar">
       <div class="sched-title" id="schedTitle">Team Schedule — Jun 22–28, 2026</div>
-      <button class="btn btn-secondary btn-sm" id="schedEditBtn" onclick="openSchedPw()" style="display: none;">
+      <button class="btn btn-secondary btn-sm" id="schedEditBtn" onclick="openSchedPw()">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="opacity:.7"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 000-1.41l-2.34-2.34a1 1 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
         Edit
       </button>
     </div>
-    <div class="sched-sub" id="schedSub">6 members · 110.0 hrs this week</div>
-    <div class="save-bar on" id="saveBar">
-      <span class="save-st" id="saveSt">Publishing…</span>
+    <div class="sched-sub" id="schedSub">6 members on shift this week</div>
+    <div class="save-bar" id="saveBar">
+      <span class="save-st" id="saveSt"></span>
       <button class="btn btn-secondary btn-sm" onclick="cancelSchedEdit()">Cancel</button>
       <button class="btn btn-primary btn-sm" onclick="saveSchedGh()">💾 Save &amp; Publish</button>
     </div>
-    <button class="btn btn-secondary btn-sm" id="historyBtn" onclick="openChangelog()" style="margin-bottom: 10px; display: flex; align-items: center; gap: 6px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Schedule History</button>
+    <button class="btn btn-secondary btn-sm" id="historyBtn" onclick="openChangelog()" style="margin-bottom:10px;display:none;align-items:center;gap:6px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Schedule History</button>
     <div id="dayPicker" class="day-picker-popup"><div class="dp-title" id="dpTitle"></div><div id="dpList"></div></div>
 
     <!-- desktop table -->
     <div class="table-outer">
-      <table class="sched-table"><thead><tr id="dateRow"><th>Name</th><th class="day-th" onclick="openDayPicker(event,0)">Mon<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 22</span></th><th class="day-th" onclick="openDayPicker(event,1)">Tue<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 23</span></th><th class="day-th" onclick="openDayPicker(event,2)">Wed<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 24</span></th><th class="day-th" onclick="openDayPicker(event,3)">Thu<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 25</span></th><th class="day-th" onclick="openDayPicker(event,4)">Fri<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 26</span></th><th class="day-th" onclick="openDayPicker(event,5)">Sat<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 27</span></th><th class="day-th" onclick="openDayPicker(event,6)">Sun<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 28</span></th></tr></thead><tbody id="schedBody"><tr><td data-pi="0" onclick="nameEditClick(this)"><div class="spc-name-cell">Menna Sherif</div><div class="spc-hrs-cell">22.5 hrs</div></td><td class="sh" data-pi="0" data-di="0" onclick="editSchedCell(this)">9:30 AM – 2:00 PM</td><td class="sh" data-pi="0" data-di="1" onclick="editSchedCell(this)">9:30 AM – 2:00 PM</td><td class="sh" data-pi="0" data-di="2" onclick="editSchedCell(this)">9:30 AM – 2:00 PM</td><td class="sh" data-pi="0" data-di="3" onclick="editSchedCell(this)">9:30 AM – 2:00 PM</td><td class="off" data-pi="0" data-di="4" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="0" data-di="5" onclick="editSchedCell(this)">OFF</td><td class="sh" data-pi="0" data-di="6" onclick="editSchedCell(this)">9:30 AM – 2:00 PM</td></tr><tr><td data-pi="1" onclick="nameEditClick(this)"><div class="spc-name-cell">Mazen Adam</div><div class="spc-hrs-cell">20.0 hrs</div><button class="sched-remove-btn" onclick="event.stopPropagation();removeSchedPerson(1)" title="Remove Mazen Adam">✕</button></td><td class="off" data-pi="1" data-di="0" onclick="editSchedCell(this)">OFF</td><td class="sh" data-pi="1" data-di="1" onclick="editSchedCell(this)">2:00 PM – 6:00 PM</td><td class="sh" data-pi="1" data-di="2" onclick="editSchedCell(this)">2:00 PM – 6:00 PM</td><td class="sh" data-pi="1" data-di="3" onclick="editSchedCell(this)">2:00 PM – 6:00 PM</td><td class="sh" data-pi="1" data-di="4" onclick="editSchedCell(this)">2:00 PM – 6:00 PM</td><td class="off" data-pi="1" data-di="5" onclick="editSchedCell(this)">OFF</td><td class="sh" data-pi="1" data-di="6" onclick="editSchedCell(this)">2:00 PM – 6:00 PM</td></tr><tr><td data-pi="2" onclick="nameEditClick(this)"><div class="spc-name-cell">Yahya Mohamed</div><div class="spc-hrs-cell">17.5 hrs</div><button class="sched-remove-btn" onclick="event.stopPropagation();removeSchedPerson(2)" title="Remove Yahya Mohamed">✕</button></td><td class="sh" data-pi="2" data-di="0" onclick="editSchedCell(this)">6:00 PM – 9:30 PM</td><td class="sh" data-pi="2" data-di="1" onclick="editSchedCell(this)">6:00 PM – 9:30 PM</td><td class="sh" data-pi="2" data-di="2" onclick="editSchedCell(this)">6:00 PM – 9:30 PM</td><td class="sh" data-pi="2" data-di="3" onclick="editSchedCell(this)">6:00 PM – 9:30 PM</td><td class="off" data-pi="2" data-di="4" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="2" data-di="5" onclick="editSchedCell(this)">OFF</td><td class="sh" data-pi="2" data-di="6" onclick="editSchedCell(this)">6:00 PM – 9:30 PM</td></tr><tr><td data-pi="3" onclick="nameEditClick(this)"><div class="spc-name-cell">Eiman Reda</div><div class="spc-hrs-cell">22.5 hrs</div><button class="sched-remove-btn" onclick="event.stopPropagation();removeSchedPerson(3)" title="Remove Eiman Reda">✕</button></td><td class="sh" data-pi="3" data-di="0" onclick="editSchedCell(this)">9:30 PM – 2:00 AM</td><td class="sh" data-pi="3" data-di="1" onclick="editSchedCell(this)">9:30 PM – 2:00 AM</td><td class="sh" data-pi="3" data-di="2" onclick="editSchedCell(this)">9:30 PM – 2:00 AM</td><td class="sh" data-pi="3" data-di="3" onclick="editSchedCell(this)">9:30 PM – 2:00 AM</td><td class="off" data-pi="3" data-di="4" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="3" data-di="5" onclick="editSchedCell(this)">OFF</td><td class="sh" data-pi="3" data-di="6" onclick="editSchedCell(this)">9:30 PM – 2:00 AM</td></tr><tr><td data-pi="4" onclick="nameEditClick(this)"><div class="spc-name-cell">Ahmed Gouhar</div><div class="spc-hrs-cell">14.0 hrs</div><button class="sched-remove-btn" onclick="event.stopPropagation();removeSchedPerson(4)" title="Remove Ahmed Gouhar">✕</button></td><td class="sh" data-pi="4" data-di="0" onclick="editSchedCell(this)">2:00 AM – 6:30 AM</td><td class="sh" data-pi="4" data-di="1" onclick="editSchedCell(this)">2:00 AM – 6:30 AM</td><td class="sh" data-pi="4" data-di="2" onclick="editSchedCell(this)">2:00 AM – 7:00 AM</td><td class="off" data-pi="4" data-di="3" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="4" data-di="4" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="4" data-di="5" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="4" data-di="6" onclick="editSchedCell(this)">OFF</td></tr><tr><td data-pi="5" onclick="nameEditClick(this)"><div class="spc-name-cell">Mostafa Atef</div><div class="spc-hrs-cell">13.5 hrs</div><button class="sched-remove-btn" onclick="event.stopPropagation();removeSchedPerson(5)" title="Remove Mostafa Atef">✕</button></td><td class="off" data-pi="5" data-di="0" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="5" data-di="1" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="5" data-di="2" onclick="editSchedCell(this)">OFF</td><td class="sh" data-pi="5" data-di="3" onclick="editSchedCell(this)">2:00 AM – 6:30 AM</td><td class="sh" data-pi="5" data-di="4" onclick="editSchedCell(this)">6:00 PM – 10:30 PM</td><td class="sh" data-pi="5" data-di="5" onclick="editSchedCell(this)">2:00 PM – 6:30 PM</td><td class="off" data-pi="5" data-di="6" onclick="editSchedCell(this)">OFF</td></tr></tbody></table>
+      <table class="sched-table"><thead><tr id="dateRow"><th>Name</th><th class="day-th" onclick="openDayPicker(event,0)">Mon<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 22</span></th><th class="day-th" onclick="openDayPicker(event,1)">Tue<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 23</span></th><th class="day-th" onclick="openDayPicker(event,2)">Wed<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 24</span></th><th class="day-th" onclick="openDayPicker(event,3)">Thu<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 25</span></th><th class="day-th" onclick="openDayPicker(event,4)">Fri<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 26</span></th><th class="day-th" onclick="openDayPicker(event,5)">Sat<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 27</span></th><th class="day-th" onclick="openDayPicker(event,6)">Sun<br><span style="font-weight:400;font-size:10px;color:var(--muted)">Jun 28</span></th></tr></thead><tbody id="schedBody"><tr><td data-pi="0" onclick="nameEditClick(this)"><div class="spc-name-cell">Menna Sherif</div><div class="spc-hrs-cell">22.5 hrs</div><button class="sched-remove-btn" onclick="event.stopPropagation();removeSchedPerson(0)" title="Remove Menna Sherif">✕</button></td><td class="sh" data-pi="0" data-di="0" onclick="editSchedCell(this)">9:30 AM – 2:00 PM</td><td class="sh" data-pi="0" data-di="1" onclick="editSchedCell(this)">9:30 AM – 2:00 PM</td><td class="sh" data-pi="0" data-di="2" onclick="editSchedCell(this)">9:30 AM – 2:00 PM</td><td class="sh" data-pi="0" data-di="3" onclick="editSchedCell(this)">9:30 AM – 2:00 PM</td><td class="off" data-pi="0" data-di="4" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="0" data-di="5" onclick="editSchedCell(this)">OFF</td><td class="sh" data-pi="0" data-di="6" onclick="editSchedCell(this)">9:30 AM – 2:00 PM</td></tr><tr><td data-pi="1" onclick="nameEditClick(this)"><div class="spc-name-cell">Mazen Adam</div><div class="spc-hrs-cell">20.0 hrs</div><button class="sched-remove-btn" onclick="event.stopPropagation();removeSchedPerson(1)" title="Remove Mazen Adam">✕</button></td><td class="off" data-pi="1" data-di="0" onclick="editSchedCell(this)">OFF</td><td class="sh" data-pi="1" data-di="1" onclick="editSchedCell(this)">2:00 PM – 6:00 PM</td><td class="sh" data-pi="1" data-di="2" onclick="editSchedCell(this)">2:00 PM – 6:00 PM</td><td class="sh" data-pi="1" data-di="3" onclick="editSchedCell(this)">2:00 PM – 6:00 PM</td><td class="sh" data-pi="1" data-di="4" onclick="editSchedCell(this)">2:00 PM – 6:00 PM</td><td class="off" data-pi="1" data-di="5" onclick="editSchedCell(this)">OFF</td><td class="sh" data-pi="1" data-di="6" onclick="editSchedCell(this)">2:00 PM – 6:00 PM</td></tr><tr><td data-pi="2" onclick="nameEditClick(this)"><div class="spc-name-cell">Yahya Mohamed</div><div class="spc-hrs-cell">17.5 hrs</div><button class="sched-remove-btn" onclick="event.stopPropagation();removeSchedPerson(2)" title="Remove Yahya Mohamed">✕</button></td><td class="sh" data-pi="2" data-di="0" onclick="editSchedCell(this)">6:00 PM – 9:30 PM</td><td class="sh" data-pi="2" data-di="1" onclick="editSchedCell(this)">6:00 PM – 9:30 PM</td><td class="sh" data-pi="2" data-di="2" onclick="editSchedCell(this)">6:00 PM – 9:30 PM</td><td class="sh" data-pi="2" data-di="3" onclick="editSchedCell(this)">6:00 PM – 9:30 PM</td><td class="off" data-pi="2" data-di="4" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="2" data-di="5" onclick="editSchedCell(this)">OFF</td><td class="sh" data-pi="2" data-di="6" onclick="editSchedCell(this)">6:00 PM – 9:30 PM</td></tr><tr><td data-pi="3" onclick="nameEditClick(this)"><div class="spc-name-cell">Eiman Reda</div><div class="spc-hrs-cell">22.5 hrs</div><button class="sched-remove-btn" onclick="event.stopPropagation();removeSchedPerson(3)" title="Remove Eiman Reda">✕</button></td><td class="sh" data-pi="3" data-di="0" onclick="editSchedCell(this)">9:30 PM – 2:00 AM</td><td class="sh" data-pi="3" data-di="1" onclick="editSchedCell(this)">9:30 PM – 2:00 AM</td><td class="sh" data-pi="3" data-di="2" onclick="editSchedCell(this)">9:30 PM – 2:00 AM</td><td class="sh" data-pi="3" data-di="3" onclick="editSchedCell(this)">9:30 PM – 2:00 AM</td><td class="off" data-pi="3" data-di="4" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="3" data-di="5" onclick="editSchedCell(this)">OFF</td><td class="sh" data-pi="3" data-di="6" onclick="editSchedCell(this)">9:30 PM – 2:00 AM</td></tr><tr><td data-pi="4" onclick="nameEditClick(this)"><div class="spc-name-cell">Ahmed Gouhar</div><div class="spc-hrs-cell">14.0 hrs</div><button class="sched-remove-btn" onclick="event.stopPropagation();removeSchedPerson(4)" title="Remove Ahmed Gouhar">✕</button></td><td class="sh" data-pi="4" data-di="0" onclick="editSchedCell(this)">2:00 AM – 6:30 AM</td><td class="sh" data-pi="4" data-di="1" onclick="editSchedCell(this)">2:00 AM – 6:30 AM</td><td class="sh" data-pi="4" data-di="2" onclick="editSchedCell(this)">2:00 AM – 7:00 AM</td><td class="off" data-pi="4" data-di="3" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="4" data-di="4" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="4" data-di="5" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="4" data-di="6" onclick="editSchedCell(this)">OFF</td></tr><tr><td data-pi="5" onclick="nameEditClick(this)"><div class="spc-name-cell">Mostafa Atef</div><div class="spc-hrs-cell">13.5 hrs</div><button class="sched-remove-btn" onclick="event.stopPropagation();removeSchedPerson(5)" title="Remove Mostafa Atef">✕</button></td><td class="off" data-pi="5" data-di="0" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="5" data-di="1" onclick="editSchedCell(this)">OFF</td><td class="off" data-pi="5" data-di="2" onclick="editSchedCell(this)">OFF</td><td class="sh" data-pi="5" data-di="3" onclick="editSchedCell(this)">2:00 AM – 6:30 AM</td><td class="sh" data-pi="5" data-di="4" onclick="editSchedCell(this)">6:00 PM – 10:30 PM</td><td class="sh" data-pi="5" data-di="5" onclick="editSchedCell(this)">2:00 PM – 6:30 PM</td><td class="off" data-pi="5" data-di="6" onclick="editSchedCell(this)">OFF</td></tr></tbody></table>
     </div>
     <!-- mobile cards -->
     <div class="sched-mobile" id="schedMobile"><div class="sched-person-card">
@@ -963,7 +963,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <div class="tp-wrap" id="tpWrap">
   <div class="tp-card">
     <div class="tp-title">Edit Shift</div>
-    <div class="tp-name" id="tpName">Menna Sherif</div>
+    <div class="tp-name" id="tpName"></div>
     <button class="tp-off-btn" onclick="tpSetOff()">Mark as Day Off</button>
     <div class="tp-row">
       <div class="tp-field"><label>From</label><select id="tpFrom"><option value="12:00 AM">12:00 AM</option><option value="12:30 AM">12:30 AM</option><option value="1:00 AM">1:00 AM</option><option value="1:30 AM">1:30 AM</option><option value="2:00 AM">2:00 AM</option><option value="2:30 AM">2:30 AM</option><option value="3:00 AM">3:00 AM</option><option value="3:30 AM">3:30 AM</option><option value="4:00 AM">4:00 AM</option><option value="4:30 AM">4:30 AM</option><option value="5:00 AM">5:00 AM</option><option value="5:30 AM">5:30 AM</option><option value="6:00 AM">6:00 AM</option><option value="6:30 AM">6:30 AM</option><option value="7:00 AM">7:00 AM</option><option value="7:30 AM">7:30 AM</option><option value="8:00 AM">8:00 AM</option><option value="8:30 AM">8:30 AM</option><option value="9:00 AM">9:00 AM</option><option value="9:30 AM">9:30 AM</option><option value="10:00 AM">10:00 AM</option><option value="10:30 AM">10:30 AM</option><option value="11:00 AM">11:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="12:00 PM">12:00 PM</option><option value="12:30 PM">12:30 PM</option><option value="1:00 PM">1:00 PM</option><option value="1:30 PM">1:30 PM</option><option value="2:00 PM">2:00 PM</option><option value="2:30 PM">2:30 PM</option><option value="3:00 PM">3:00 PM</option><option value="3:30 PM">3:30 PM</option><option value="4:00 PM">4:00 PM</option><option value="4:30 PM">4:30 PM</option><option value="5:00 PM">5:00 PM</option><option value="5:30 PM">5:30 PM</option><option value="6:00 PM">6:00 PM</option><option value="6:30 PM">6:30 PM</option><option value="7:00 PM">7:00 PM</option><option value="7:30 PM">7:30 PM</option><option value="8:00 PM">8:00 PM</option><option value="8:30 PM">8:30 PM</option><option value="9:00 PM">9:00 PM</option><option value="9:30 PM">9:30 PM</option><option value="10:00 PM">10:00 PM</option><option value="10:30 PM">10:30 PM</option><option value="11:00 PM">11:00 PM</option><option value="11:30 PM">11:30 PM</option></select></div>
@@ -1000,10 +1000,13 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 </div>
 
 <!-- INLINE EDIT MODAL -->
-<div class="edit-modal-wrap" id="editModalWrap">
+<div class="edit-modal-wrap" id="editModalWrap"><grammarly-extension data-grammarly-shadow-root="true" class="dnXmp" style="position: absolute; top: 0px; left: 0px; pointer-events: none; --rem: 16;"></grammarly-extension><grammarly-extension data-grammarly-shadow-root="true" class="dnXmp" style="position: absolute; top: 0px; left: 0px; pointer-events: none; --rem: 16;"></grammarly-extension>
   <div class="edit-modal" id="editModal">
-    <h3 id="editModalTitle">Edit Eyebrow Text</h3>
-    <div id="editModalFields"><div class="em-field"><label>Eyebrow Label</label><input id="ef-val" value="Week of Jun 22, 2026"></div></div>
+    <h3 id="editModalTitle">Edit Headline</h3>
+    <div id="editModalFields"><div class="em-field"><label>Headline</label><textarea id="ef-val" spellcheck="false">Exponn
+[Employee Hub]
+</textarea><div class="hint"><strong>[brackets]</strong> = accent color &nbsp;·&nbsp; Enter = new line</div></div>
+        <div class="em-field"><label>Second Line Size</label><select id="ef-subratio"><option value="0.38">Tiny</option><option value="0.48">Small</option><option value="0.55" selected="">Medium</option><option value="0.68">Large</option></select></div></div>
     <div class="em-actions">
       <button class="btn btn-secondary btn-sm" onclick="closeEditModal()">Cancel</button>
       <button class="btn btn-primary btn-sm" id="saveEditBtn" onclick="saveEditModal()">Save</button>
@@ -1018,13 +1021,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
       <div class="cl-hdr-title">Schedule History</div>
       <button class="cl-close" onclick="closeChangelog()">✕</button>
     </div>
-    <div id="clList"><div class="cl-entry">
-      <div class="cl-entry-name">Change_Log_Wed24Jun</div>
-      <div class="cl-entry-ts">Wed, Jun 24, 2026 · 3:13 AM</div>
-      <div class="cl-no-changes">No tracked changes</div>
-      <div class="cl-entry-device">✦ MacBook Pro</div>
-      <button class="cl-restore-btn" onclick="restoreFromChangelog(0)">Restore this snapshot</button>
-    </div></div>
+    <div id="clList"></div>
   </div>
 </div>
 
@@ -1032,7 +1029,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 <div class="confirm-ov" id="confirmOv">
   <div class="confirm-box">
     <div class="confirm-title">Confirm Change</div>
-    <div class="confirm-msg" id="confirmMsg">Are you sure you want to publish the schedule?</div>
+    <div class="confirm-msg" id="confirmMsg">Are you sure you want to change the headline?</div>
     <div class="confirm-actions">
       <button class="btn btn-secondary btn-sm" onclick="confirmCancel()">Cancel</button>
       <button class="btn btn-primary btn-sm" onclick="confirmOk()">Yes, Confirm</button>
@@ -1044,7 +1041,7 @@ Format: UUID	Status	Date	MM:SS"></textarea>
 
 <script>
 // ═══════════════════════════ CMS DATA ═══════════════════════════
-const DEFAULT_CONTENT = {"hero":{"eyebrow":"Week of Jun 22, 2026","title":"Exponn Employee Hub","sub":"Everything YOU need; tasks, updates, and team resources.","assessmentLink":""},"updates":[{"id":"u1","tag":"new","title":"Task Time Calculator","body":"Quickly calculate your total work time from task IDs. Paste your task list, set your first & last task ID, apply a time cap, and get your total instantly.","date":"Jun 23, 2026","link":"calc"},{"id":"u2","tag":"updated","title":"Team Schedule Updated","body":"Schedule updated with new shift distribution for the week of Jun 23.","date":"Jun 22, 2026","link":"sched"},{"id":"u3","tag":"alert","title":"Annotation Quality Reminder","body":"Review the annotation critic guidelines before starting tasks. Pay close attention to boundary precision and entity verification steps.","date":"Jun 20, 2026","link":"guides"}],"tasks":[{"id":"t1","icon":"🎯","title":"Annotation Critic","desc":"Quality review criteria, scoring rubric, and common errors.","guideKey":"annot-critic","label":"annot-critic-q7r"},{"id":"t2","icon":"🔍","title":"IG Entity Verification","desc":"Step-by-step entity verification process for IG tasks.","guideKey":"ig-entity","label":"IG Entity Verification"},{"id":"t3","icon":"📦","title":"SL Box Verification","desc":"Box verification and correction procedures.","guideKey":"sl-box","label":"SL Box Verification"},{"id":"t4","icon":"✂️","title":"Find the Boundary v2","desc":"Pixel-aligned boundary detection. Updated v2 specs.","guideKey":"boundary","label":"find-the-boundary-v2"},{"id":"t5","icon":"🖼️","title":"i2i Pixel-Aligned Filter","desc":"Image-to-image filter alignment specification.","guideKey":"i2i","label":"i2i-pixel-aligned-filter"}],"team":[{"name":"Menna Sherif","hrs":"22.5"},{"name":"Mazen Adam","hrs":"20"},{"name":"Yahya Mohamed","hrs":"17.5"},{"name":"Eiman Reda","hrs":"22.5"},{"name":"Ahmed Gouhar","hrs":"14"},{"name":"Mostafa Atef","hrs":"13.5"}],"guides":{}};
+const DEFAULT_CONTENT = {"hero":{"eyebrow":"Week of Jun 22, 2026","title":"Exponn\n[Employee Hub]\n","sub":"Everything YOU need; tasks, updates, and team resources.","assessmentLink":"","titleSubRatio":0.68},"updates":[{"id":"u1","tag":"new","title":"Task Time Calculator","body":"Quickly calculate your total work time from task IDs. Paste your task list, set your first & last task ID, apply a time cap, and get your total instantly.","date":"Jun 23, 2026","link":"calc"},{"id":"u2","tag":"updated","title":"Team Schedule Updated","body":"Schedule updated with new shift distribution for the week of Jun 23.","date":"Jun 22, 2026","link":"sched"},{"id":"u3","tag":"alert","title":"Annotation Quality Reminder","body":"Review the annotation critic guidelines before starting tasks. Pay close attention to boundary precision and entity verification steps.","date":"Jun 20, 2026","link":"guides"}],"tasks":[{"id":"t1","icon":"🎯","title":"Annotation Critic","desc":"Quality review criteria, scoring rubric, and common errors.","guideKey":"annot-critic","label":"annot-critic-q7r"},{"id":"t2","icon":"🔍","title":"IG Entity Verification","desc":"Step-by-step entity verification process for IG tasks.","guideKey":"ig-entity","label":"IG Entity Verification"},{"id":"t3","icon":"📦","title":"SL Box Verification","desc":"Box verification and correction procedures.","guideKey":"sl-box","label":"SL Box Verification"},{"id":"t4","icon":"✂️","title":"Find the Boundary v2","desc":"Pixel-aligned boundary detection. Updated v2 specs.","guideKey":"boundary","label":"find-the-boundary-v2"},{"id":"t5","icon":"🖼️","title":"i2i Pixel-Aligned Filter","desc":"Image-to-image filter alignment specification.","guideKey":"i2i","label":"i2i-pixel-aligned-filter"}],"team":[{"name":"Menna Sherif","hrs":"22.5"},{"name":"Mazen Adam","hrs":"20"},{"name":"Yahya Mohamed","hrs":"17.5"},{"name":"Eiman Reda","hrs":"22.5"},{"name":"Ahmed Gouhar","hrs":"14"},{"name":"Mostafa Atef","hrs":"13.5"}],"guides":{}};
 
 const CMS_KEY='exp_cms';
 function getCMS(){
@@ -1054,7 +1051,8 @@ function getCMS(){
     if(!d.guides)d.guides={};
     // Migrate: update hero title/sub if still on old defaults
     if(d.hero){
-      if(d.hero.title==='New tasks\navailable.'||d.hero.title==='New tasks available.')d.hero.title=DEFAULT_CONTENT.hero.title;
+      if(d.hero.title==='New tasks\navailable.'||d.hero.title==='New tasks available.'||d.hero.title==='Exponn Employee Hub')d.hero.title=DEFAULT_CONTENT.hero.title;
+      if(!d.hero.titleSubRatio)d.hero.titleSubRatio=DEFAULT_CONTENT.hero.titleSubRatio;
       if(d.hero.sub&&d.hero.sub.startsWith('Review the latest'))d.hero.sub=DEFAULT_CONTENT.hero.sub;
     }
     return d;
@@ -1103,19 +1101,27 @@ function personHours(shifts){
 }
 
 // ═══════════════════════════ RENDER HOME ═══════════════════════════
-function renderTitle(raw){
-  // [word] → accent color, \n → line break
-  return (raw||'').split('\n').map(line=>
-    line.split(/(\[[^\]]*\])/).map(tok=>
-      tok.startsWith('[')&&tok.endsWith(']')?`<span class="hl">${esc(tok.slice(1,-1))}</span>`:esc(tok)
-    ).join('')
-  ).join('<br>');
+function _parseLine(line){
+  return line.split(/(\[[^\]]*\])/).map(tok=>
+    tok.startsWith('[')&&tok.endsWith(']')?`<span class="hl">${esc(tok.slice(1,-1))}</span>`:esc(tok)
+  ).join('');
+}
+function renderTitle(raw,subRatio){
+  const ratio=subRatio||0.52;
+  const lines=(raw||'').split('\n');
+  if(lines.length===1)return _parseLine(lines[0]);
+  return lines.map((line,i)=>{
+    const size=i===0?'1em':`${ratio}em`;
+    const lh=i===0?'1.05':'1.08';
+    const mt=i===0?'0':'0.08em';
+    return`<span style="display:block;font-size:${size};line-height:${lh};margin-top:${mt}">${_parseLine(line)}</span>`;
+  }).join('');
 }
 function renderHome(){
   const cms=getCMS();
   // hero
   document.getElementById('hero-eyebrow-text').textContent=cms.hero.eyebrow;
-  document.getElementById('hero-title-el').innerHTML=renderTitle(cms.hero.title);
+  document.getElementById('hero-title-el').innerHTML=renderTitle(cms.hero.title,cms.hero.titleSubRatio);
   // Inject sub with drawn YOU highlight — replace literal YOU (case-insensitive) with styled span
   const rawSub=esc(cms.hero.sub);
   const drawnYou=`<span class="drawn">YOU<svg viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4 C32 -1, 68 -2, 84 6 C94 12, 96 26, 85 33 C70 41, 28 42, 14 34 C4 27, 3 13, 18 4 Z" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.65"/></svg></span>`;
@@ -1312,7 +1318,9 @@ function openEditModal(type,id){
       fields.innerHTML=`<div class="em-field"><label>Eyebrow Label</label><input id="ef-val" value="${esc(cms.hero.eyebrow)}"></div>`;
     }else if(id==='title'){
       title.textContent='Edit Headline';
-      fields.innerHTML=`<div class="em-field"><label>Headline</label><textarea id="ef-val">${esc(cms.hero.title)}</textarea><div class="hint"><strong>[brackets]</strong> = accent color &nbsp;·&nbsp; Enter = new line</div></div>`;
+      const r=cms.hero.titleSubRatio||0.52;
+      fields.innerHTML=`<div class="em-field"><label>Headline</label><textarea id="ef-val">${esc(cms.hero.title)}</textarea><div class="hint"><strong>[brackets]</strong> = accent color &nbsp;·&nbsp; Enter = new line</div></div>
+        <div class="em-field"><label>Second Line Size</label><select id="ef-subratio"><option value="0.38"${r<=0.38?' selected':''}>Tiny</option><option value="0.48"${r>0.38&&r<=0.5?' selected':''}>Small</option><option value="0.55"${r>0.5&&r<=0.6?' selected':''}>Medium</option><option value="0.68"${r>0.6?' selected':''}>Large</option></select></div>`;
     }else if(id==='sub'){
       title.textContent='Edit Sub-Headline';
       fields.innerHTML=`<div class="em-field"><label>Sub-headline</label><textarea id="ef-val">${esc(cms.hero.sub)}</textarea></div>
@@ -1411,7 +1419,7 @@ async function _doSaveEditModal(){
 
   if(type==='hero'){
     if(id==='eyebrow')cms.hero.eyebrow=document.getElementById('ef-val').value;
-    else if(id==='title')cms.hero.title=document.getElementById('ef-val').value;
+    else if(id==='title'){cms.hero.title=document.getElementById('ef-val').value;const sr=document.getElementById('ef-subratio');if(sr)cms.hero.titleSubRatio=parseFloat(sr.value);}
     else if(id==='sub'){cms.hero.sub=document.getElementById('ef-val').value;cms.hero.assessmentLink=document.getElementById('ef-assess').value;}
   }else if(type==='update'){
     const linkVal=document.getElementById('ef-link').value;
@@ -1659,7 +1667,14 @@ const DEFAULT_REPO='maemaam/exponn';const DEFAULT_PATH='index.html';
 const DEFAULT_SUNDAY='2026-06-28';
 const DAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const DEFAULT_SCHED=[{"n":"Menna Sherif","s":["9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","OFF","OFF","9:30 AM – 2:00 PM"],"h":22.5},{"n":"Mazen Adam","s":["OFF","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","OFF","2:00 PM – 6:00 PM"],"h":20},{"n":"Yahya Mohamed","s":["6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","OFF","OFF","6:00 PM – 9:30 PM"],"h":17.5},{"n":"Eiman Reda","s":["9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","OFF","OFF","9:30 PM – 2:00 AM"],"h":22.5},{"n":"Ahmed Gouhar","s":["2:00 AM – 6:30 AM","2:00 AM – 6:30 AM","2:00 AM – 7:00 AM","OFF","OFF","OFF","OFF"],"h":14},{"n":"Mostafa Atef","s":["OFF","OFF","OFF","2:00 AM – 6:30 AM","6:00 PM – 10:30 PM","2:00 PM – 6:30 PM","OFF"],"h":13.5}];
+const DEFAULT_SCHED=[
+  {n:"Menna Sherif",  s:["9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","9:30 AM – 2:00 PM","OFF","OFF","9:30 AM – 2:00 PM"]},
+  {n:"Mazen Adam",    s:["OFF","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","2:00 PM – 6:00 PM","OFF","2:00 PM – 6:00 PM"]},
+  {n:"Yahya Mohamed", s:["6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","6:00 PM – 9:30 PM","OFF","OFF","6:00 PM – 9:30 PM"]},
+  {n:"Eiman Reda",    s:["9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","9:30 PM – 2:00 AM","OFF","OFF","9:30 PM – 2:00 AM"]},
+  {n:"Ahmed Gouhar",  s:["2:00 AM – 6:30 AM","2:00 AM – 6:30 AM","2:00 AM – 7:00 AM","OFF","OFF","OFF","OFF"]},
+  {n:"Mostafa Atef",  s:["OFF","OFF","OFF","2:00 AM – 6:30 AM","6:00 PM – 10:30 PM","2:00 PM – 6:30 PM","OFF"]}
+];
 const getSD=()=>{try{const s=localStorage.getItem(SC);return s?JSON.parse(s):JSON.parse(JSON.stringify(DEFAULT_SCHED));}catch{return JSON.parse(JSON.stringify(DEFAULT_SCHED));}};
 const getSunday=()=>localStorage.getItem(SK)||DEFAULT_SUNDAY;
 const fmt=d=>`${MONTHS[d.getMonth()]} ${d.getDate()}`;
@@ -2007,4 +2022,4 @@ document.getElementById('navEditBtn').style.display='';
 </script>
 
 
-</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration><grammarly-mirror data-grammarly-shadow-root="true" class="dnXmp" style="--rem: 16;"></grammarly-mirror><grammarly-popups data-grammarly-shadow-root="true" class="dnXmp" style="--rem: 16;"></grammarly-popups></html>
